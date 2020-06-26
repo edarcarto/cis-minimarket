@@ -1,20 +1,20 @@
 @extends('layouts.app')
 @section('js&css')
-<link href="{!! URL::asset('css/cart/index.css') !!}" media="all" rel="stylesheet" type="text/css" />
-<script src="{!! URL::asset('js/cart/index.js') !!}"></script>
+<link href="{{ asset('css/cart/index.css') }}" media="all" rel="stylesheet" type="text/css" />
+<script src="{{ asset('js/cart/index.js') }}"></script>
 @endsection
 @section('content')
 <div class="cart-wrap">
 		<div class="container">
 	        <div class="row">
 			    <div class="col-lg-8">
-			        <div class="main-heading">Shopping Cart</div>
+			        <div class="main-heading">Carrito</div>
 			        <div class="table-cart">
 	                    <table>
 	                        <thead>
 	                            <tr>
-	                                <th>Product</th>
-	                                <th>Quantity</th>
+	                                <th>Producto</th>
+	                                <th>Cantidad</th>
 	                                <th>Total</th>
 	                                <th></th>
 	                            </tr>
@@ -24,14 +24,14 @@
 	                                <td>
 	                                	<div class="display-flex align-center">
 		                                    <div class="img-product">
-		                                        <img src="https://www.91-img.com/pictures/laptops/asus/asus-x552cl-sx019d-core-i3-3rd-gen-4-gb-500-gb-dos-1-gb-61721-large-1.jpg" alt="" class="mCS_img_loaded">
+												<img src="{{ asset('img/portal/cola.jpg') }}" class="mCS_img_loaded">
 		                                    </div>
 		                                    <div class="name-product">
-		                                        Apple iPad Mini
-		                                        <br>G2356
+		                                        Coca Cola
+		                                        <br>Light
 		                                    </div>
 		                                    <div class="price">
-		                                        $1,250.00
+		                                        S/2.50
 		                                    </div>
 	                                    </div>
 	                                </td>
@@ -44,7 +44,7 @@
 	                                </td>
 	                                <td>
 	                                    <div class="total">
-	                                        $6,250.00
+	                                        S/2.50
 	                                    </div>
 	                                </td>
 	                                <td>
@@ -57,14 +57,14 @@
 	                                <td>
 	                                	<div class="display-flex align-center">
 		                                    <div class="img-product">
-		                                        <img src="https://www.91-img.com/pictures/laptops/asus/asus-x552cl-sx019d-core-i3-3rd-gen-4-gb-500-gb-dos-1-gb-61721-large-1.jpg" alt="" class="mCS_img_loaded">
+												<img src="{{ asset('img/portal/cola-2.jpg') }}" class="mCS_img_loaded">
 		                                    </div>
 		                                    <div class="name-product">
-		                                        Apple iPad Mini
-		                                        <br>G2356
+		                                        Coca Cola
+		                                        <br>Nomal Jumbo
 		                                    </div>
 		                                    <div class="price">
-		                                        $1,250.00
+		                                        S/4.50
 		                                    </div>
 	                                    </div>
 	                                </td>
@@ -77,7 +77,7 @@
 	                                </td>
 	                                <td>
 	                                    <div class="total">
-	                                        $6,250.00
+	                                        S/4.50
 	                                    </div>
 	                                </td>
 	                                <td>
@@ -91,8 +91,8 @@
 	                    <div class="coupon-box">
 	                        <form action="#" method="get" accept-charset="utf-8">
 	                            <div class="coupon-input">
-	                                <input type="text" name="coupon code" placeholder="Coupon Code">
-	                                <button type="submit" class="round-black-btn">Apply Coupon</button>
+	                                <input type="text" name="coupon" placeholder="codigo cupon">
+	                                <button type="submit" class="round-black-btn">Aplicar Descuento</button>
 	                            </div>
 	                        </form>
 	                    </div>
@@ -102,27 +102,27 @@
 			    <!-- /.col-lg-8 -->
 			    <div class="col-lg-4">
 			        <div class="cart-totals">
-			            <h3>Cart Totals</h3>
+			            <h3>Resumen</h3>
 			            <form action="#" method="get" accept-charset="utf-8">
 			                <table>
 			                    <tbody>
 			                        <tr>
 			                            <td>Subtotal</td>
-			                            <td class="subtotal">$2,589.00</td>
+			                            <td class="subtotal">S/5.74</td>
 			                        </tr>
 			                        <tr>
-			                            <td>Shipping</td>
-			                            <td class="free-shipping">Free Shipping</td>
+			                            <td>IGV</td>
+			                            <td class="free-shipping">S/1.26</td>
 			                        </tr>
 			                        <tr class="total-row">
 			                            <td>Total</td>
-			                            <td class="price-total">$1,591.00</td>
+			                            <td class="price-total">S/7.00</td>
 			                        </tr>
 			                    </tbody>
 			                </table>
 			                <div class="btn-cart-totals">
-			                    <a href="#" class="update round-black-btn" title="">Update Cart</a>
-			                    <a href="#" class="checkout round-black-btn" title="">Proceed to Checkout</a>
+			                    <a href="#" class="update round-black-btn" title="">Actualizar Carrito</a>
+			                    <a href="#" class="checkout round-black-btn" title="">Pagar</a>
 			                </div>
 			                <!-- /.btn-cart-totals -->
 			            </form>
