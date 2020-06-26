@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('js&css')
-<link href="{{ asset('css/cart/index.css') }}" media="all" rel="stylesheet" type="text/css" />
-<script src="{{ asset('js/cart/index.js') }}"></script>
+<link href="{{ secure_asset('css/cart/index.css') }}" media="all" rel="stylesheet" type="text/css" />
+<script src="{{ secure_asset('js/cart/index.js') }}"></script>
 @endsection
 @section('content')
 <div class="cart-wrap">
@@ -24,7 +24,7 @@
 	                                <td>
 	                                	<div class="display-flex align-center">
 		                                    <div class="img-product">
-												<img src="{{ asset('img/portal/cola.jpg') }}" class="mCS_img_loaded">
+												<img src="{{ secure_asset('img/portal/cola.jpg') }}" class="mCS_img_loaded">
 		                                    </div>
 		                                    <div class="name-product">
 		                                        Coca Cola
@@ -57,7 +57,7 @@
 	                                <td>
 	                                	<div class="display-flex align-center">
 		                                    <div class="img-product">
-												<img src="{{ asset('img/portal/cola-2.jpg') }}" class="mCS_img_loaded">
+												<img src="{{ secure_asset('img/portal/cola-2.jpg') }}" class="mCS_img_loaded">
 		                                    </div>
 		                                    <div class="name-product">
 		                                        Coca Cola

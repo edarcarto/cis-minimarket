@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ secure_asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -21,7 +21,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     <style>
         .jumbotron {
             padding-top: 3rem;
@@ -131,8 +131,8 @@
             <div class="product-grid4">
                 <div class="product-image4">
                     <a href="#">
-                        <img class="pic-1" src="{{ asset('img/portal/beer.jpg') }}">
-                        <img class="pic-2" src="{{ asset('img/portal/beer-2.jpg') }}">
+                        <img class="pic-1" src="{{ secure_asset('img/portal/beer.jpg') }}">
+                        <img class="pic-2" src="{{ secure_asset('img/portal/beer-2.jpg') }}">
                     </a>
                     <ul class="social">
                         <li>
@@ -172,8 +172,8 @@
             <div class="product-grid4">
                 <div class="product-image4">
                     <a href="#">
-                        <img class="pic-1" src="{{ asset('img/portal/mm.jpg') }}">
-                        <img class="pic-2" src="{{ asset('img/portal/mm-2.jpg') }}">
+                        <img class="pic-1" src="{{ secure_asset('img/portal/mm.jpg') }}">
+                        <img class="pic-2" src="{{ secure_asset('img/portal/mm-2.jpg') }}">
                     </a>
                     <ul class="social">
                         <li><a href="#" data-tip="Quick View">
@@ -210,8 +210,8 @@
             <div class="product-grid4">
                 <div class="product-image4">
                     <a href="#">
-                        <img class="pic-1" src="{{ asset('img/portal/snack.jpg') }}">
-                        <img class="pic-2" src="{{ asset('img/portal/snack-2.jpg') }}">
+                        <img class="pic-1" src="{{ secure_asset('img/portal/snack.jpg') }}">
+                        <img class="pic-2" src="{{ secure_asset('img/portal/snack-2.jpg') }}">
                     </a>
                     <ul class="social">
                         <li><a href="#" data-tip="Quick View">
@@ -249,8 +249,8 @@
             <div class="product-grid4">
                 <div class="product-image4">
                     <a href="#">
-                        <img class="pic-1" src="{{ asset('img/portal/cola.jpg') }}">
-                        <img class="pic-2" src="{{ asset('img/portal/cola-2.jpg') }}">
+                        <img class="pic-1" src="{{ secure_asset('img/portal/cola.jpg') }}">
+                        <img class="pic-2" src="{{ secure_asset('img/portal/cola-2.jpg') }}">
                     </a>
                     <ul class="social">
                         <li><a href="#" data-tip="Quick View">

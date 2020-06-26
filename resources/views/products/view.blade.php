@@ -3,8 +3,8 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<link href="{{ asset('css/products/view.css') }}" media="all" rel="stylesheet" type="text/css" />
-<script src="{{ asset('js/products/view.js') }}"></script>
+<link href="{{ secure_asset('css/products/view.css') }}" media="all" rel="stylesheet" type="text/css" />
+<script src="{{ secure_asset('js/products/view.js') }}"></script>
 @endsection
 @section('content')
 <div class="pd-wrap">
@@ -16,48 +16,48 @@
             <div class="col-md-6">
                 <div id="slider" class="owl-carousel product-slider">
                     <div class="item">
-                        <img src="{{ asset('img/portal/cola.jpg') }}">
+                        <img src="{{ secure_asset('img/portal/cola.jpg') }}">
                     </div>
                     <div class="item">
-                        <img src="{{ asset('img/portal/cola-2.jpg') }}">
+                        <img src="{{ secure_asset('img/portal/cola-2.jpg') }}">
                     </div>
                     <div class="item">
-                        <img src="{{ asset('img/portal/cola-3.jpg') }}">
+                        <img src="{{ secure_asset('img/portal/cola-3.jpg') }}">
                     </div>
                     <div class="item">
-                        <img src="{{ asset('img/portal/cola-4.jpg') }}">
+                        <img src="{{ secure_asset('img/portal/cola-4.jpg') }}">
                     </div>
                     <div class="item">
-                        <img src="{{ asset('img/portal/cola-5.jpg') }}">
+                        <img src="{{ secure_asset('img/portal/cola-5.jpg') }}">
                     </div>
                     <div class="item">
-                        <img src="{{ asset('img/portal/cola-6.jpg') }}">
+                        <img src="{{ secure_asset('img/portal/cola-6.jpg') }}">
                     </div>
                     <div class="item">
-                        <img src="{{ asset('img/portal/cola-7.jpg') }}">
+                        <img src="{{ secure_asset('img/portal/cola-7.jpg') }}">
                     </div>
                 </div>
                 <div id="thumb" class="owl-carousel product-thumb">
                     <div class="item">
-                        <img src="{{ asset('img/portal/cola.jpg') }}">
+                        <img src="{{ secure_asset('img/portal/cola.jpg') }}">
                     </div>
                     <div class="item">
-                        <img src="{{ asset('img/portal/cola-2.jpg') }}">
+                        <img src="{{ secure_asset('img/portal/cola-2.jpg') }}">
                     </div>
                     <div class="item">
-                        <img src="{{ asset('img/portal/cola-3.jpg') }}">
+                        <img src="{{ secure_asset('img/portal/cola-3.jpg') }}">
                     </div>
                     <div class="item">
-                        <img src="{{ asset('img/portal/cola-4.jpg') }}">
+                        <img src="{{ secure_asset('img/portal/cola-4.jpg') }}">
                     </div>
                     <div class="item">
-                        <img src="{{ asset('img/portal/cola-5.jpg') }}">
+                        <img src="{{ secure_asset('img/portal/cola-5.jpg') }}">
                     </div>
                     <div class="item">
-                        <img src="{{ asset('img/portal/cola-6.jpg') }}">
+                        <img src="{{ secure_asset('img/portal/cola-6.jpg') }}">
                     </div>
                     <div class="item">
-                        <img src="{{ asset('img/portal/cola-7.jpg') }}">
+                        <img src="{{ secure_asset('img/portal/cola-7.jpg') }}">
                     </div>
                 </div>
             </div>
