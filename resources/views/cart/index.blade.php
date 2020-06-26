@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('js&css')
-<link href="{!! asset('css/cart/index.css') !!}" media="all" rel="stylesheet" type="text/css" />
-<script src="{!! asset('js/cart/index.js') !!}"></script>
+<link href="{!! URL::asset('css/cart/index.css') !!}" media="all" rel="stylesheet" type="text/css" />
+<script src="{!! URL::asset('js/cart/index.js') !!}"></script>
 @endsection
 @section('content')
 <div class="cart-wrap">

@@ -3,8 +3,8 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<link href="{!! asset('css/products/view.css') !!}" media="all" rel="stylesheet" type="text/css" />
-<script src="{!! asset('js/products/view.js') !!}"></script>
+<link href="{!! URL::asset('css/products/view.css') !!}" media="all" rel="stylesheet" type="text/css" />
+<script src="{!! URL::asset('js/products/view.js') !!}"></script>
 @endsection
 @section('content')
 <div class="pd-wrap">
