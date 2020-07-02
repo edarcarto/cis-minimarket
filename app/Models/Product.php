@@ -1,0 +1,90 @@
+<?php
+
+namespace App\Models;
+
+use Eloquent as Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+/**
+ * Class Product
+ * @package App\Models
+ * @version July 2, 2020, 3:14 am UTC
+ *
+ * @property string $product_name
+ * @property integer $quantity_per_unit
+ * @property integer $unit_price
+ * @property integer $units_in_stock
+ * @property integer $units_on_order
+ * @property integer $reorder_level
+ * @property integer $supplier_id
+ * @property integer $category_id
+ * @property integer $trademark_id
+ * @property integer $discontinued
+ * @property integer $active
+ */
+class Product extends Model
+{
+    use SoftDeletes;
+
+    public $table = 'products';
+    
+
+    protected $dates = ['deleted_at'];
+
+
+
+    public $fillable = [
+        'product_name',
+        'quantity_per_unit',
+        'unit_price',
+        'units_in_stock',
+        'units_on_order',
+        'reorder_level',
+        'supplier_id',
+        'category_id',
+        'trademark_id',
+        'discontinued',
+        'active'
+    ];
+
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id' => 'integer',
+        'product_name' => 'string',
+        'quantity_per_unit' => 'integer',
+        'unit_price' => 'integer',
+        'units_in_stock' => 'integer',
+        'units_on_order' => 'integer',
+        'reorder_level' => 'integer',
+        'supplier_id' => 'integer',
+        'category_id' => 'integer',
+        'trademark_id' => 'integer',
+        'discontinued' => 'integer',
+        'active' => 'integer'
+    ];
+
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $rules = [
+        'product_name' => 'required',
+        'quantity_per_unit' => 'required',
+        'unit_price' => 'required',
+        'units_in_stock' => 'required',
+        'units_on_order' => 'required',
+        'reorder_level' => 'required',
+        'supplier_id' => 'required',
+        'category_id' => 'required',
+        'trademark_id' => 'required',
+        'discontinued' => 'required',
+        'active' => 'required'
+    ];
+
+    
+}

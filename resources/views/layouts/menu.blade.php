@@ -9,3 +9,7 @@
     <a href="{{ route('suppliers.index') }}"><i class="fa fa-edit"></i><span>Proveedores</span></a>
 </li>
 
+<li class="{{ Request::is('products*') ? 'active' : '' }}">
+    <a href="{{ route('products.index') }}"><i class="fa fa-edit"></i><span>Productos</span></a>
+</li>
+

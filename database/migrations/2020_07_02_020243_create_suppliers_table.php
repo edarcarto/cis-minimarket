@@ -39,6 +39,8 @@ class CreateSuppliersTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::drop('suppliers');
+        Schema::enableForeignKeyConstraints();
     }
 }
