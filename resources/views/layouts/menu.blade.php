@@ -2,3 +2,6 @@
     <a href="{{ route('categories.index') }}"><i class="fa fa-edit"></i><span>Categorias</span></a>
 </li>
 
+<li class="{{ Request::is('trademarks*') ? 'active' : '' }}">
+    <a href="{{ route('trademarks.index') }}"><i class="fa fa-edit"></i><span>Marcas</span></a>
+</li>
