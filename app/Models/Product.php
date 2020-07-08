@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @version July 2, 2020, 3:14 am UTC
  *
  * @property string $product_name
+ * @property string $description
  * @property integer $quantity_per_unit
  * @property integer $unit_price
  * @property integer $units_in_stock
@@ -35,6 +36,7 @@ class Product extends Model
 
     public $fillable = [
         'product_name',
+        'description',
         'quantity_per_unit',
         'unit_price',
         'units_in_stock',
@@ -55,6 +57,7 @@ class Product extends Model
     protected $casts = [
         'id' => 'integer',
         'product_name' => 'string',
+        'description' => 'string',
         'quantity_per_unit' => 'integer',
         'unit_price' => 'integer',
         'units_in_stock' => 'integer',
@@ -74,6 +77,7 @@ class Product extends Model
      */
     public static $rules = [
         'product_name' => 'required',
+        'description' => 'required',
         'quantity_per_unit' => 'required',
         'unit_price' => 'required',
         'units_in_stock' => 'required',

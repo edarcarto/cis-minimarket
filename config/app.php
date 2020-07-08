@@ -233,6 +233,7 @@ return [
         'Html'      => Collective\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
         'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
+        'Cart' => Melihovv\ShoppingCart\Facades\ShoppingCart::class,
     ],
 
 ];

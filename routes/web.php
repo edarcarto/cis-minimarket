@@ -13,13 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/product', function () {
-    return view('products.view');
-});
+Route::get('/', 'PageController@index')->name('casa');
+Route::get('/product/{id}', 'PageController@viewProduct')->name('product');
+Route::get('/add-to-cart', 'PageController@addToCart')->name('addToCart');
 
 Route::get('/cart', function () {
     return view('cart.index');

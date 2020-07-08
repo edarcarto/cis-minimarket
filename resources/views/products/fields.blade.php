@@ -4,6 +4,12 @@
     {!! Form::text('product_name', null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- Description Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('description', 'Descripción:') !!}
+    {!! Form::text('description', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Quantity Per Unit Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('quantity_per_unit', 'Cantidades por unidad:') !!}
@@ -65,6 +71,7 @@
 <div class="form-group col-sm-12">
     <div id="upLoad" class="dropzone" action="/upload/images/products" method="post" enctype="multipart/form-data">
         <input type="file" name="file" multiple style="display:none;" />
+        @if(isset($images))
         @foreach($images as $i)
         <div id="{{$i->asset_id}}" class="dz-preview dz-processing dz-image-preview dz-complete">
             <div class="dz-image">
@@ -112,6 +119,7 @@
             <a class="dz-remove xproducts" data-id="{{$i->public_id}}" href="javascript:;" data-dz-remove="">Eliminar</a>
         </div>
         @endforeach
+        @endif
     </div>
 </div>
 

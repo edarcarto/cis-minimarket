@@ -15,56 +15,24 @@
         <div class="row">
             <div class="col-md-6">
                 <div id="slider" class="owl-carousel product-slider">
+                @foreach($product->product_images as $pi)
                     <div class="item">
-                        <img src="{{ secure_asset('img/portal/cola.jpg') }}">
+                        <img src="{{ $pi->url }}">
                     </div>
-                    <div class="item">
-                        <img src="{{ secure_asset('img/portal/cola-2.jpg') }}">
-                    </div>
-                    <div class="item">
-                        <img src="{{ secure_asset('img/portal/cola-3.jpg') }}">
-                    </div>
-                    <div class="item">
-                        <img src="{{ secure_asset('img/portal/cola-4.jpg') }}">
-                    </div>
-                    <div class="item">
-                        <img src="{{ secure_asset('img/portal/cola-5.jpg') }}">
-                    </div>
-                    <div class="item">
-                        <img src="{{ secure_asset('img/portal/cola-6.jpg') }}">
-                    </div>
-                    <div class="item">
-                        <img src="{{ secure_asset('img/portal/cola-7.jpg') }}">
-                    </div>
+                @endforeach
                 </div>
                 <div id="thumb" class="owl-carousel product-thumb">
+                @foreach($product->product_images as $pi)
                     <div class="item">
-                        <img src="{{ secure_asset('img/portal/cola.jpg') }}">
+                        <img src="{{ $pi->url }}">
                     </div>
-                    <div class="item">
-                        <img src="{{ secure_asset('img/portal/cola-2.jpg') }}">
-                    </div>
-                    <div class="item">
-                        <img src="{{ secure_asset('img/portal/cola-3.jpg') }}">
-                    </div>
-                    <div class="item">
-                        <img src="{{ secure_asset('img/portal/cola-4.jpg') }}">
-                    </div>
-                    <div class="item">
-                        <img src="{{ secure_asset('img/portal/cola-5.jpg') }}">
-                    </div>
-                    <div class="item">
-                        <img src="{{ secure_asset('img/portal/cola-6.jpg') }}">
-                    </div>
-                    <div class="item">
-                        <img src="{{ secure_asset('img/portal/cola-7.jpg') }}">
-                    </div>
+                @endforeach
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="product-dtl">
                     <div class="product-info">
-                        <div class="product-name">Coca Cola Jumbo</div>
+                        <div class="product-name">{{$product->product_name}}</div>
                         <div class="reviews-counter">
                             <div class="rate">
                                 <input type="radio" id="star5" name="rate" value="5" checked />
@@ -80,37 +48,20 @@
                                 </div>
                             <span>3 Reviews</span>
                         </div>
-                        <div class="product-price-discount"><span>S/2.50</span></div>
+                        <div class="product-price-discount"><span>S/{{$product->unit_price}}</span></div>
                         <!-- <span class="line-through">$29.00</span> -->
                     </div>
-                    <p>Coca-Cola, conocida comúnmente como Coca en muchos países hispanohablantes, es una bebida gaseosa y refrescante vendida a nivel mundial, en tiendas, restaurantes y máquinas expendedoras en más de doscientos países o territorios. Es un producto de The Coca-Cola Company, de origen estadounidense.</p>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="size">Tamaños</label>
-                            <select id="size" name="size" class="form-control">
-                                <option>Personal</option>
-                                <option>Jumbo</option>
-                                <option>2Lt</option>
-                                <option>3lt</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="color">Tipo</label>
-                            <select id="color" name="color" class="form-control">
-                                <option>Light</option>
-                                <option>Normal</option>
-                                <!-- <option>Red</option> -->
-                            </select>
-                        </div>
-                    </div>
+                    <p>{{$product->description}}</p>
                     <div class="product-count">
                         <label for="size">Cantidad</label>
-                        <form action="#" class="display-flex">
+                        <form method="GET" action="/add-to-cart">
+                            @csrf
                             <div class="qtyminus">-</div>
-                            <input type="text" name="quantity" value="1" class="qty">
+                            <input type="hidden" id="id" name="id" value="{{$product->id}}">
+                            <input type="text" id="quantity" name="quantity" value="1" class="qty">
                             <div class="qtyplus">+</div>
+                            <button type="submit" class="round-black-btn">Agregar al Carrito</button>
                         </form>
-                        <a href="#" class="round-black-btn">Agregar al Carrito</a>
                     </div>
                 </div>
             </div>
@@ -126,7 +77,7 @@
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-                    Coca-Cola, conocida comúnmente como Coca en muchos países hispanohablantes, es una bebida gaseosa y refrescante vendida a nivel mundial, en tiendas, restaurantes y máquinas expendedoras en más de doscientos países o territorios. Es un producto de The Coca-Cola Company, de origen estadounidense.
+                    {{$product->description}}
                 </div>
                 <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
                     <div class="review-heading">REVIEWS</div>

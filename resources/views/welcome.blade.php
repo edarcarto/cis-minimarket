@@ -127,16 +127,18 @@
   <div class="container">
     <h3 class="h3">Listado de Productos </h3>
     <div class="row">
+        @foreach($products as $p)
         <div class="col-md-3 col-sm-6">
             <div class="product-grid4">
                 <div class="product-image4">
                     <a href="#">
-                        <img class="pic-1" src="{{ secure_asset('img/portal/beer.jpg') }}">
-                        <img class="pic-2" src="{{ secure_asset('img/portal/beer-2.jpg') }}">
+                        @for($i=0;$i < count($p->product_image);$i++)
+                            <img class="pic-{{$i + 1}}" src="{{$p->product_image[$i]->url}}" />
+                        @endfor
                     </a>
                     <ul class="social">
                         <li>
-                            <a href="#" data-tip="Quick View">
+                            <a href="/product/{{$p->id}}" data-tip="Quick View">
                                 <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
                                     <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
@@ -155,135 +157,21 @@
                             </svg>
                         </a></li>
                     </ul>
-                    <span class="product-new-label">New</span>
-                    <span class="product-discount-label">-10%</span>
-                </div>
-                <div class="product-content">
-                    <h3 class="title"><a href="#">Cerveza Peroni</a></h3>
-                    <div class="price">
-                        S/ 14.40 und
-                        <span>S/ 16.00 und</span>
-                    </div>
-                    <a class="add-to-cart" href="">AGREGAR AL CARRITO</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="product-grid4">
-                <div class="product-image4">
-                    <a href="#">
-                        <img class="pic-1" src="{{ secure_asset('img/portal/mm.jpg') }}">
-                        <img class="pic-2" src="{{ secure_asset('img/portal/mm-2.jpg') }}">
-                    </a>
-                    <ul class="social">
-                        <li><a href="#" data-tip="Quick View">
-                            <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-                                <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-                            </svg>
-                        </a></li>
-                        <li><a href="#" data-tip="Add to Wishlist">
-                            <svg class="bi bi-handbag-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 1a2 2 0 0 0-2 2v2H5V3a3 3 0 1 1 6 0v2h-1V3a2 2 0 0 0-2-2z"/>
-                                <path d="M3.405 5a1.5 1.5 0 0 0-1.493 1.35L1 13.252A2.5 2.5 0 0 0 3.488 16h9.024A2.5 2.5 0 0 0 15 13.251l-.912-6.9A1.5 1.5 0 0 0 12.595 5H11v2.5a.5.5 0 1 1-1 0V5H6v2.5a.5.5 0 0 1-1 0V5H3.405z"/>
-                            </svg>
-                        </a></li>
-                        <li><a href="#" data-tip="AGREGAR AL CARRITO">
-                            <svg class="bi bi-cart-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-                            </svg>
-                        </a></li>
-                    </ul>
-                    <!-- <span class="product-discount-label">-12%</span> -->
-                </div>
-                <div class="product-content">
-                    <h3 class="title"><a href="#">M&M</a></h3>
-                    <div class="price">
-                        S/ 6.90 und
-                        <!-- <span>S/ 6.90 und</span> -->
-                    </div>
-                    <a class="add-to-cart" href="">AGREGAR AL CARRITO</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="product-grid4">
-                <div class="product-image4">
-                    <a href="#">
-                        <img class="pic-1" src="{{ secure_asset('img/portal/snack.jpg') }}">
-                        <img class="pic-2" src="{{ secure_asset('img/portal/snack-2.jpg') }}">
-                    </a>
-                    <ul class="social">
-                        <li><a href="#" data-tip="Quick View">
-                            <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-                                <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-                            </svg>
-                        </a></li>
-                        <li><a href="#" data-tip="Add to Wishlist">
-                            <svg class="bi bi-handbag-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 1a2 2 0 0 0-2 2v2H5V3a3 3 0 1 1 6 0v2h-1V3a2 2 0 0 0-2-2z"/>
-                                <path d="M3.405 5a1.5 1.5 0 0 0-1.493 1.35L1 13.252A2.5 2.5 0 0 0 3.488 16h9.024A2.5 2.5 0 0 0 15 13.251l-.912-6.9A1.5 1.5 0 0 0 12.595 5H11v2.5a.5.5 0 1 1-1 0V5H6v2.5a.5.5 0 0 1-1 0V5H3.405z"/>
-                            </svg>
-                        </a></li>
-                        <li><a href="#" data-tip="AGREGAR AL CARRITO">
-                            <svg class="bi bi-cart-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-                            </svg>
-                        </a></li>
-                    </ul>
-                    <span class="product-new-label">New</span>
-                    <span class="product-discount-label">-5%</span>
-                </div>
-                <div class="product-content">
-                    <h3 class="title"><a href="#">Tostito</a></h3>
-                    <div class="price">
-                       S/ 3.40
-                        <span>S/5.10</span>
-                    </div>
-                    <a class="add-to-cart" href="">AGREGAR AL CARRITO</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="product-grid4">
-                <div class="product-image4">
-                    <a href="#">
-                        <img class="pic-1" src="{{ secure_asset('img/portal/cola.jpg') }}">
-                        <img class="pic-2" src="{{ secure_asset('img/portal/cola-2.jpg') }}">
-                    </a>
-                    <ul class="social">
-                        <li><a href="#" data-tip="Quick View">
-                            <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-                                <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-                            </svg>
-                        </a></li>
-                        <li><a href="#" data-tip="Add to Wishlist">
-                            <svg class="bi bi-handbag-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 1a2 2 0 0 0-2 2v2H5V3a3 3 0 1 1 6 0v2h-1V3a2 2 0 0 0-2-2z"/>
-                                <path d="M3.405 5a1.5 1.5 0 0 0-1.493 1.35L1 13.252A2.5 2.5 0 0 0 3.488 16h9.024A2.5 2.5 0 0 0 15 13.251l-.912-6.9A1.5 1.5 0 0 0 12.595 5H11v2.5a.5.5 0 1 1-1 0V5H6v2.5a.5.5 0 0 1-1 0V5H3.405z"/>
-                            </svg>
-                        </a></li>
-                        <li><a href="#" data-tip="AGREGAR AL CARRITO">
-                            <svg class="bi bi-cart-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-                            </svg>
-                        </a></li>
-                    </ul>
                     <!-- <span class="product-new-label">New</span>
                     <span class="product-discount-label">-10%</span> -->
                 </div>
                 <div class="product-content">
-                    <h3 class="title"><a href="#">Coca Cola Jumbo</a></h3>
+                    <h3 class="title"><a href="#">{{$p->product_name}}</a></h3>
                     <div class="price">
-                        S/ 2.50
-                        <!-- <span>S/ 2.00</span> -->
+                        S/ {{$p->unit_price}} und
+                        <!-- <span>S/ 16.00 und</span> -->
                     </div>
                     <a class="add-to-cart" href="">AGREGAR AL CARRITO</a>
                 </div>
             </div>
         </div>
+        @endforeach
+        
     </div>
     </div>
   </div>

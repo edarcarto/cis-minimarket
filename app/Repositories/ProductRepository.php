@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Product;
+use App\Models\ProductImage;
 use App\Repositories\BaseRepository;
 
 /**
@@ -45,5 +46,26 @@ class ProductRepository extends BaseRepository
     public function model()
     {
         return Product::class;
+    }
+
+    function getProductImages()
+    {
+        $all = [];
+        $products = Product::paginate(20);
+        foreach ($products as $product => $p) {
+            $p = $p;
+            $images = ProductImage::where('product_id',$p->id)->limit(2)->get();
+            $p->product_image = $images;
+            array_push($all,$p);
+        }
+        return $all;
+    }
+
+    function getProductImage($id)
+    {
+        $product = Product::find($id);
+        $images = ProductImage::where('product_id',$id)->get();
+        $product->product_images = $images;
+        return $product;
     }
 }

@@ -4,6 +4,12 @@
     <p>{{ $product->product_name }}</p>
 </div>
 
+<!-- Description Field -->
+<div class="form-group">
+    {!! Form::label('description', 'Descripción:') !!}
+    <p>{{ $product->description }}</p>
+</div>
+
 <!-- Quantity Per Unit Field -->
 <div class="form-group">
     {!! Form::label('quantity_per_unit', 'Cantidades por Unidad:') !!}
