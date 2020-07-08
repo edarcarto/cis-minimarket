@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Repositories\ProductRepository;
+use App\Repositories\ProductImageRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
@@ -13,11 +14,13 @@ use Response;
 class ProductController extends AppBaseController
 {
     /** @var  ProductRepository */
+    /** @var  ProductImageRepository */
     private $productRepository;
 
-    public function __construct(ProductRepository $productRepo)
+    public function __construct(ProductRepository $productRepo,ProductImageRepository $productImageRepo)
     {
         $this->productRepository = $productRepo;
+        $this->productImageRepository = $productImageRepo;
     }
 
     /**
@@ -58,6 +61,11 @@ class ProductController extends AppBaseController
 
         $product = $this->productRepository->create($input);
 
+        // save imagenes of products
+        if($request->images_products){
+            $this->productImageRepository->saveImages($request->images_products,$product->id);
+        }
+
         Flash::success('Product saved successfully.');
 
         return redirect(route('products.index'));
@@ -80,7 +88,9 @@ class ProductController extends AppBaseController
             return redirect(route('products.index'));
         }
 
-        return view('products.show')->with('product', $product);
+        $images = $this->productImageRepository->getImagesProduct($id);
+
+        return view('products.show')->with('product', $product)->with('images', $images);
     }
 
     /**
@@ -100,7 +110,9 @@ class ProductController extends AppBaseController
             return redirect(route('products.index'));
         }
 
-        return view('products.edit')->with('product', $product);
+        $images = $this->productImageRepository->getImagesProduct($id);
+
+        return view('products.edit')->with('product', $product)->with('images', $images);
     }
 
     /**
@@ -119,6 +131,11 @@ class ProductController extends AppBaseController
             Flash::error('Product not found');
 
             return redirect(route('products.index'));
+        }
+
+        // save imagenes of products
+        if($request->images_products){
+            $this->productImageRepository->saveImages($request->images_products,$product->id);
         }
 
         $product = $this->productRepository->update($request->all(), $id);
@@ -146,6 +163,8 @@ class ProductController extends AppBaseController
 
             return redirect(route('products.index'));
         }
+
+        $this->productImageRepository->delImagesProduct($id);
 
         $this->productRepository->delete($id);
 

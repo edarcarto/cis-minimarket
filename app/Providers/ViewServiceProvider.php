@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+use App\Models\Customer;
 use App\Models\Trademark;
 use App\Models\Supplier;
 use App\Models\Category;
@@ -27,6 +28,10 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::composer(['orders.fields'], function ($view) {
+            $customerItems = Customer::pluck('first_name','id')->toArray();
+            $view->with('customerItems', $customerItems);
+        });
         View::composer(['products.fields'], function ($view) {
             $trademarkItems = array(0 => 'Seleccione');
             $trademarkItems = array_merge($trademarkItems,Trademark::pluck('trade_name','id')->toArray());

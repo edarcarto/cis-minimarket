@@ -176,6 +176,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Laraveles\Spanish\SpanishServiceProvider::class,
+        JD\Cloudder\CloudderServiceProvider::class,
 
     ],
 
@@ -231,7 +232,7 @@ return [
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
-
+        'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
     ],
 
 ];

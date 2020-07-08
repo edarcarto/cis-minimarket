@@ -13,3 +13,11 @@
     <a href="{{ route('products.index') }}"><i class="fa fa-edit"></i><span>Productos</span></a>
 </li>
 
+<li class="{{ Request::is('customers*') ? 'active' : '' }}">
+    <a href="{{ route('customers.index') }}"><i class="fa fa-edit"></i><span>Clientes</span></a>
+</li>
+
+<li class="{{ Request::is('orders*') ? 'active' : '' }}">
+    <a href="{{ route('orders.index') }}"><i class="fa fa-edit"></i><span>Ordenes</span></a>
+</li>
+

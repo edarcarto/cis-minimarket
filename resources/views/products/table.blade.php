@@ -25,11 +25,11 @@
                 <td>{{ $product->units_in_stock }}</td>
                 <td>{{ $product->units_on_order }}</td>
                 <td>{{ $product->reorder_level }}</td>
-                <td>{{ $product->supplier_id }}</td>
-                <td>{{ $product->category_id }}</td>
-                <td>{{ $product->trademark_id }}</td>
-                <td>{{ $product->descontinued }}</td>
-                <td>{{ $product->active }}</td>
+                <td>{{ $product->supplier->company_name }}</td>
+                <td>{{ $product->category->category_name }}</td>
+                <td>{{ $product->trademark->trade_name }}</td>
+                <td>{{ ($product->descontinued) ? 'Si' : 'No' }}</td>
+                <td>{{ ($product->active) ? 'Si' : 'No' }}</td>
                 <td>
                     {!! Form::open(['route' => ['products.destroy', $product->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

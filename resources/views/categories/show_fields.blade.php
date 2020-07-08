@@ -7,19 +7,19 @@
 <!-- Category Id Field -->
 <div class="form-group">
     {!! Form::label('category_id', 'Categoría Padre:') !!}
-    <p>{{ $category->category_id }}</p>
+    <p>{{ ($category->category) ? $category->category->category_name : '' }}</p>
 </div>
 
 <!-- Parent Field -->
 <div class="form-group">
     {!! Form::label('parent', 'Padre:') !!}
-    <p>{{ $category->parent }}</p>
+    <p>{{ ($category->parent === 1) ? 'Si' : 'No' }}</p>
 </div>
 
 <!-- Active Field -->
 <div class="form-group">
     {!! Form::label('active', 'Activo:') !!}
-    <p>{{ $category->active }}</p>
+    <p>{{ ($category->active === 1) ? 'Si' : 'No' }}</p>
 </div>
 
 <!-- Created At Field -->

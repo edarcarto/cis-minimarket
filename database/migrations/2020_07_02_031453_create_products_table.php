@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('product_name');
             $table->integer('quantity_per_unit');
-            $table->float('unit_price');
+            $table->float('unit_price',8,2);
             $table->integer('units_in_stock');
             $table->integer('units_on_order');
             $table->integer('reorder_level');

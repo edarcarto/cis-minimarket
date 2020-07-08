@@ -41,3 +41,7 @@ Route::resource('trademarks', 'TrademarkController');
 Route::resource('suppliers', 'SupplierController');
 
 Route::resource('products', 'ProductController');
+
+Route::resource('customers', 'CustomerController');
+
+Route::resource('orders', 'OrderController');

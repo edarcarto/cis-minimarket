@@ -86,5 +86,27 @@ class Product extends Model
         'active' => 'required'
     ];
 
-    
+    /**
+     * Get the phone record associated with the supplier.
+     */
+    public function supplier()
+    {
+        return $this->belongsTo('App\Models\Supplier','supplier_id','id');
+    }
+
+    /**
+     * Get the phone record associated with the category.
+     */
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category','category_id','id');
+    }
+
+    /**
+     * Get the phone record associated with the trademark.
+     */
+    public function trademark()
+    {
+        return $this->belongsTo('App\Models\Trademark','trademark_id','id');
+    }
 }
