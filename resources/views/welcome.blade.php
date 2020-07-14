@@ -166,7 +166,12 @@
                         S/ {{$p->unit_price}} und
                         <!-- <span>S/ 16.00 und</span> -->
                     </div>
-                    <a class="add-to-cart" href="">AGREGAR AL CARRITO</a>
+                    <form method="GET" action="/add-to-cart">
+                        @csrf
+                        <input type="hidden" id="id" name="id" value="{{$p->id}}">
+                        <input type="hidden" id="quantity" name="quantity" value="1" class="qty">
+                        <button type="submit" class="add-to-cart" href="">AGREGAR AL CARRITO</button>
+                    </form>
                 </div>
             </div>
         </div>

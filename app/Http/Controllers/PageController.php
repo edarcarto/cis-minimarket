@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\ProductRepository;
-use Melihovv\ShoppingCart\Facades\ShoppingCart as Cart;
+use Darryldecode\Cart\Facades\CartFacade as Cart;
+use Flash;
 
 class PageController extends Controller
 {
@@ -36,8 +37,18 @@ class PageController extends Controller
     {
         $product = $this->productRepository->getProductImage($request->get('id'));
         $cartItem = Cart::add(uniqid(), $product->product_name, $product->unit_price, intval($request->get('quantity')), [
-            'all' => $product,
+            'all' => $product
         ]);
-        return redirect()->route('product',['id' => $request->get('id')]);
+        // dd($cartItem);
+        Flash::success('Producto agregado al carrito.');
+        // return redirect()->route('product',['id' => $request->get('id')]);
+        return redirect()->back();
+    }
+
+    public function cart()
+    {
+        $cart = Cart::getContent();
+        // dd(Cart::getContent());
+        return view('cart.index')->with('cart', $cart);
     }
 }

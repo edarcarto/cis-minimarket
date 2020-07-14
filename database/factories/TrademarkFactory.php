@@ -9,7 +9,7 @@ $factory->define(Trademark::class, function (Faker $faker) {
 
     return [
         'trade_name' => $faker->word,
-        'active' => $faker->randomDigitNotNull,
+        'active' => '1',
         'created_at' => $faker->date('Y-m-d H:i:s'),
         'updated_at' => $faker->date('Y-m-d H:i:s')
     ];

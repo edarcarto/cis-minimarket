@@ -8,17 +8,17 @@ use Faker\Generator as Faker;
 $factory->define(Supplier::class, function (Faker $faker) {
 
     return [
-        'company_name' => $faker->word,
-        'contact_name' => $faker->word,
-        'contact_title' => $faker->word,
-        'address' => $faker->word,
-        'city' => $faker->word,
-        'region' => $faker->word,
-        'postal_code' => $faker->word,
-        'country' => $faker->word,
-        'phone' => $faker->word,
-        'fax' => $faker->word,
-        'homepage' => $faker->word,
+        'company_name' => $faker->company,
+        'contact_name' => $faker->name,
+        'contact_title' => $faker->jobTitle,
+        'address' => $faker->address,
+        'city' => $faker->city,
+        'region' => $faker->citySuffix,
+        'postal_code' => $faker->postcode,
+        'country' => $faker->country,
+        'phone' => $faker->mobileNumber,
+        'fax' => $faker->faxNumber,
+        'homepage' => $faker->url,
         'created_at' => $faker->date('Y-m-d H:i:s'),
         'updated_at' => $faker->date('Y-m-d H:i:s')
     ];

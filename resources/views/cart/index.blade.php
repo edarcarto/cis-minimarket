@@ -20,18 +20,19 @@
 	                            </tr>
 	                        </thead>
 	                        <tbody>
+								@foreach($cart as $c)
 	                            <tr>
 	                                <td>
 	                                	<div class="display-flex align-center">
 		                                    <div class="img-product">
-												<img src="{{ secure_asset('img/portal/cola.jpg') }}" class="mCS_img_loaded">
+												<img src="{{$c->attributes->all->product_images[0]->url}}" class="mCS_img_loaded">
 		                                    </div>
 		                                    <div class="name-product">
-		                                        Coca Cola
-		                                        <br>Light
+		                                        {{$c->name}}
+		                                        <!-- <br>Light -->
 		                                    </div>
 		                                    <div class="price">
-		                                        S/2.50
+		                                        S/{{$c->price}}
 		                                    </div>
 	                                    </div>
 	                                </td>
@@ -44,7 +45,7 @@
 	                                </td>
 	                                <td>
 	                                    <div class="total">
-	                                        S/2.50
+	                                        S/{{$c->price * $c->quantity}}
 	                                    </div>
 	                                </td>
 	                                <td>
@@ -53,39 +54,7 @@
 	                                    </a>
 	                                </td>
 	                            </tr>
-	                            <tr>
-	                                <td>
-	                                	<div class="display-flex align-center">
-		                                    <div class="img-product">
-												<img src="{{ secure_asset('img/portal/cola-2.jpg') }}" class="mCS_img_loaded">
-		                                    </div>
-		                                    <div class="name-product">
-		                                        Coca Cola
-		                                        <br>Nomal Jumbo
-		                                    </div>
-		                                    <div class="price">
-		                                        S/4.50
-		                                    </div>
-	                                    </div>
-	                                </td>
-	                                <td class="product-count">
-	                                    <form action="#" class="count-inlineflex">
-										    <div class="qtyminus">-</div>
-										    <input type="text" name="quantity" value="1" class="qty">
-										    <div class="qtyplus">+</div>
-										</form>
-	                                </td>
-	                                <td>
-	                                    <div class="total">
-	                                        S/4.50
-	                                    </div>
-	                                </td>
-	                                <td>
-	                                    <a href="#" title="">
-	                                        <img src="images/icons/delete.png" alt="" class="mCS_img_loaded">
-	                                    </a>
-	                                </td>
-	                            </tr>
+								@endforeach
 	                        </tbody>
 	                    </table>
 	                    <div class="coupon-box">

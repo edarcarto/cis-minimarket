@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table->datetime('required_date');
             $table->datetime('shipped_date');
             $table->integer('ship_via');
-            $table->float('freight',8,2);
+            $table->decimal('freight',8,2);
             $table->string('ship_name');
             $table->string('ship_address');
             $table->string('ship_city');

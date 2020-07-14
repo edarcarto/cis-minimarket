@@ -11,6 +11,7 @@
 <div class="container">
         <div class="heading-section">
             <h2>Detalle del Producto</h2>
+            @include('flash::message')
         </div>
         <div class="row">
             <div class="col-md-6">

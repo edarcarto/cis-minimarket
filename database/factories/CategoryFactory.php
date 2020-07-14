@@ -9,10 +9,10 @@ $factory->define(Category::class, function (Faker $faker) {
 
     return [
         'category_name' => $faker->word,
-        'category_id' => $faker->randomDigitNotNull,
-        'parent' => $faker->randomDigitNotNull,
-        'active' => $faker->randomDigitNotNull,
-        'created_at' => $faker->date('Y-m-d H:i:s'),
-        'updated_at' => $faker->date('Y-m-d H:i:s')
+        'category_id' => 0,
+        'parent'        => 1,
+        'active'        => 1,
+        'created_at'    => $faker->date('Y-m-d H:i:s'),
+        'updated_at'    => $faker->date('Y-m-d H:i:s')
     ];
 });

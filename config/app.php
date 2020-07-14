@@ -177,6 +177,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Laraveles\Spanish\SpanishServiceProvider::class,
         JD\Cloudder\CloudderServiceProvider::class,
+        Darryldecode\Cart\CartServiceProvider::class,
 
     ],
 
@@ -233,7 +234,7 @@ return [
         'Html'      => Collective\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
         'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
-        'Cart' => Melihovv\ShoppingCart\Facades\ShoppingCart::class,
+        'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
     ],
 
 ];
