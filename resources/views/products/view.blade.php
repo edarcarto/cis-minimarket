@@ -57,10 +57,12 @@
                         <label for="size">Cantidad</label>
                         <form method="GET" action="/add-to-cart">
                             @csrf
-                            <div class="qtyminus">-</div>
-                            <input type="hidden" id="id" name="id" value="{{$product->id}}">
-                            <input type="text" id="quantity" name="quantity" value="1" class="qty">
-                            <div class="qtyplus">+</div>
+                            <div class="caja_producto">
+                                <div class="qtyminus">-</div>
+                                <input type="hidden" id="id" name="id" value="{{$product->id}}">
+                                <input type="text" id="quantity" name="quantity" value="1" class="qty">
+                                <div class="qtyplus">+</div>
+                            </div>
                             <button type="submit" class="round-black-btn">Agregar al Carrito</button>
                         </form>
                     </div>

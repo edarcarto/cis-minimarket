@@ -12,7 +12,7 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        Category::insert(
+        Category::insert([
             [
                 'category_name' => 'Cervezas, Vinos y Bebidas',
                 'category_id' => 0,
@@ -31,6 +31,6 @@ class CategoryTableSeeder extends Seeder
                 'parent'        => 0,
                 'active'        => 1
             ]
-        );
+        ]);
     }
 }

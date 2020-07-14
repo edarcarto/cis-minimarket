@@ -264,3 +264,24 @@ Carrito de compras
 	text-transform: uppercase;
 	cursor: pointer;
 }
+
+.caja_producto{
+	float: left;
+    width: 100%;
+}
+
+.qtyminus{
+	display: inline-block;
+    float: left;
+}
+
+.qty{
+	display: inline-block;
+    height: 34px;
+    float: left;
+}
+
+.qtyplus{
+	display: inline-block;
+	float: left;
+}

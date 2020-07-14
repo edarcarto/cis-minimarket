@@ -12,7 +12,7 @@ class ProductImageSeeder extends Seeder
      */
     public function run()
     {
-        ProductImage::insert(
+        ProductImage::insert([
             [
                 'public_id' => 'products/5f091772f18d8.jpg',
                 'url' => 'https://res.cloudinary.com/eecc/image/upload/v1594431352/products/5f091772f18d8.jpg',
@@ -43,6 +43,6 @@ class ProductImageSeeder extends Seeder
                 'product_id' => 1,
                 'asset_id' => '5f0917906781e'
             ]
-        );
+        ]);
     }
 }
