@@ -1,11 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-// use Seeder\CategorySeeder;
-// use Seeder\TrademarkSeeder;
-// use Seeder\SupplierSeeder;
-// use Seeder\ProductSeeder;
-// use Seeder\ProductImageSeeder;
+use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,13 +12,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call([
-        //     CategorySeeder::class,
-        //     TrademarkSeeder::class,
-        //     SupplierSeeder::class,
-        //     ProductSeeder::class,
-        //     ProductImageSeeder::class
-        // ]);
-        $this->call(CategorySeeder::class);
+        Model::unguard();
+        $this->call([
+            CategoryTableSeeder::class,
+            TrademarkSeeder::class,
+            SupplierSeeder::class,
+            ProductSeeder::class,
+            ProductImageSeeder::class
+        ]);
+        Model::reguard();
     }
 }

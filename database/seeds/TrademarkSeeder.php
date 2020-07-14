@@ -12,6 +12,9 @@ class TrademarkSeeder extends Seeder
      */
     public function run()
     {
-        factory(Trademark::class, 1)->make();
+        Trademark::create([
+            'trade_name' => 'Coca Cola',
+            'active' => '1'
+        ]);
     }
 }

@@ -12,6 +12,18 @@ class SupplierSeeder extends Seeder
      */
     public function run()
     {
-        factory(Supplier::class,15)->make();
+        Supplier::create([
+            'company_name' => 'Coca Cola',
+            'contact_name' => 'Jhon Doe',
+            'contact_title' => 'Marketing',
+            'address' => 'Lima #1542',
+            'city' => 'Lima',
+            'region' => 'Lima',
+            'postal_code' => '12345',
+            'country' => 'Perú',
+            'phone' => '999999999',
+            'fax' => '999999',
+            'homepage' => 'https://www.cocacolalatinamerica.com/pe/es/home'
+        ]);
     }
 }
