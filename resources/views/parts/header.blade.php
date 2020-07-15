@@ -25,7 +25,7 @@
             <a class="nav-link" href="/cart">Carrito</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" href="/login">Iniciar Sesión</a>
         </li>
         <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -131,7 +131,7 @@
         <div class="col-md-3 col-sm-6">
             <div class="product-grid4">
                 <div class="product-image4">
-                    <a href="#">
+                    <a href="/product/{{$p->id}}">
                         @for($i=0;$i < count($p->product_image);$i++)
                             <img class="pic-{{$i + 1}}" src="{{$p->product_image[$i]->url}}" />
                         @endfor
@@ -161,7 +161,7 @@
                     <span class="product-discount-label">-10%</span> -->
                 </div>
                 <div class="product-content">
-                    <h3 class="title"><a href="#">{{$p->product_name}}</a></h3>
+                    <h3 class="title"><a href="/product/{{$p->id}}">{{$p->product_name}}</a></h3>
                     <div class="price">
                         S/ {{$p->unit_price}} und
                         <!-- <span>S/ 16.00 und</span> -->

@@ -1,7 +1,8 @@
 @extends('layouts.web')
 @section('js&css')
-<link href="{{ secure_asset('css/cart/index.css') }}" media="all" rel="stylesheet" type="text/css" />
-<script src="{{ secure_asset('js/cart/index.js') }}"></script>
+<link href="{{ asset('css/cart/index.css') }}" media="all" rel="stylesheet" type="text/css" />
+<script src="https://checkout.culqi.com/js/v3"></script>
+<script src="{{ asset('js/cart/index.js') }}"></script>
 @endsection
 @section('content')
 <div class="cart-wrap">
@@ -38,20 +39,24 @@
 	                                </td>
 	                                <td class="product-count">
 	                                    <form action="#" class="count-inlineflex">
+											<input type="hidden" name="id" value="{{$c->id}}" class="idCart">
 										    <div class="qtyminus">-</div>
-										    <input type="text" name="quantity" value="1" class="qty">
+										    <input type="text" name="quantity" value="{{$c->quantity}}" class="qty">
 										    <div class="qtyplus">+</div>
 										</form>
 	                                </td>
 	                                <td>
 	                                    <div class="total">
-	                                        S/{{$c->price * $c->quantity}}
+	                                        S/{{$c->getPriceSum()}}
 	                                    </div>
 	                                </td>
 	                                <td>
-	                                    <a href="#" title="">
-	                                        <img src="images/icons/delete.png" alt="" class="mCS_img_loaded">
-	                                    </a>
+									{!! Form::open(['route' => ['delCart', $c->id], 'method' => 'delete']) !!}
+										{!! Form::button('<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+											<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+											<path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+											</svg>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Estas seguro?')"]) !!}
+									{!! Form::close() !!}
 	                                </td>
 	                            </tr>
 								@endforeach
@@ -77,21 +82,25 @@
 			                    <tbody>
 			                        <tr>
 			                            <td>Subtotal</td>
-			                            <td class="subtotal">S/5.74</td>
+			                            <td class="subtotal">S/{{round(Cart::getSubTotal(),2)}}</td>
 			                        </tr>
 			                        <tr>
 			                            <td>IGV</td>
-			                            <td class="free-shipping">S/1.26</td>
+			                            <td class="igv">S/{{ $igv }}</td>
+			                        </tr>
+									<tr>
+			                            <td>Delivery</td>
+			                            <td class="free-shipping">S/0.00</td>
 			                        </tr>
 			                        <tr class="total-row">
 			                            <td>Total</td>
-			                            <td class="price-total">S/7.00</td>
+			                            <td class="price-total">S/{{ round(round(Cart::getTotal() + $igv,3),2) }}</td>
 			                        </tr>
 			                    </tbody>
 			                </table>
 			                <div class="btn-cart-totals">
-			                    <a href="#" class="update round-black-btn" title="">Actualizar Carrito</a>
-			                    <a href="#" class="checkout round-black-btn" title="">Pagar</a>
+			                    <!-- <a href="#" class="update round-black-btn" title="">Actualizar Carrito</a> -->
+			                    <a href="#" id="buyButton" class="checkout round-black-btn" title="">Pagar</a>
 			                </div>
 			                <!-- /.btn-cart-totals -->
 			            </form>

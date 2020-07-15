@@ -1,82 +1,125 @@
 
-// $(document).ready(function() {
-// var slider = $("#slider");
-// var thumb = $("#thumb");
-// var slidesPerPage = 4; //globaly define number of elements per page
-// var syncedSecondary = true;
-// slider.owlCarousel({
-//     items: 1,
-//     slideSpeed: 2000,
-//     nav: false,
-//     autoplay: false, 
-//     dots: false,
-//     loop: true,
-//     responsiveRefreshRate: 200
-// }).on('changed.owl.carousel', syncPosition);
-// thumb
-//     .on('initialized.owl.carousel', function() {
-//         thumb.find(".owl-item").eq(0).addClass("current");
-//     })
-//     .owlCarousel({
-//         items: slidesPerPage,
-//         dots: false,
-//         nav: true,
-//         item: 4,
-//         smartSpeed: 200,
-//         slideSpeed: 500,
-//         slideBy: slidesPerPage, 
-//         navText: ['<svg width="18px" height="18px" viewBox="0 0 11 20"><path style="fill:none;stroke-width: 1px;stroke: #000;" d="M9.554,1.001l-8.607,8.607l8.607,8.606"/></svg>', '<svg width="25px" height="25px" viewBox="0 0 11 20" version="1.1"><path style="fill:none;stroke-width: 1px;stroke: #000;" d="M1.054,18.214l8.606,-8.606l-8.606,-8.607"/></svg>'],
-//         responsiveRefreshRate: 100
-//     }).on('changed.owl.carousel', syncPosition2);
-// function syncPosition(el) {
-//     var count = el.item.count - 1;
-//     var current = Math.round(el.item.index - (el.item.count / 2) - .5);
-//     if (current < 0) {
-//         current = count;
-//     }
-//     if (current > count) {
-//         current = 0;
-//     }
-//     thumb
-//         .find(".owl-item")
-//         .removeClass("current")
-//         .eq(current)
-//         .addClass("current");
-//     var onscreen = thumb.find('.owl-item.active').length - 1;
-//     var start = thumb.find('.owl-item.active').first().index();
-//     var end = thumb.find('.owl-item.active').last().index();
-//     if (current > end) {
-//         thumb.data('owl.carousel').to(current, 100, true);
-//     }
-//     if (current < start) {
-//         thumb.data('owl.carousel').to(current - onscreen, 100, true);
-//     }
-// }
-// function syncPosition2(el) {
-//     if (syncedSecondary) {
-//         var number = el.item.index;
-//         slider.data('owl.carousel').to(number, 100, true);
-//     }
-// }
-// thumb.on("click", ".owl-item", function(e) {
-//     e.preventDefault();
-//     var number = $(this).index();
-//     slider.data('owl.carousel').to(number, 300, true);
-// });
+$(document).ready(function() {
+    loadCulqi();
+    function loadCulqi(){
+        var amount = $(".price-total").html();
+        amount = amount.replace("S/","");
+        amount = amount.replace(".","");
+        console.log("[amount]",amount)
+        // Configura tu llave pública
+        Culqi.publicKey = 'pk_test_33XmGUB2OWUAplwf';
+        // Configura tu Culqi Checkout
+        Culqi.settings({
+            title: 'Minimarket',
+            currency: 'PEN',
+            description: 'Compra de productos',
+            amount: `${amount}`
+        });
+        // Usa la funcion Culqi.open() en el evento que desees
+    }
+    $('#buyButton').on('click', function(e) {
+        // Abre el formulario con las opciones de Culqi.settings
+        Culqi.open();
+        e.preventDefault();
+    });
+    $('.qtyminus').on('click', function(e) {
+        // Abre el formulario con las opciones de Culqi.settings
+        e.preventDefault();
+        var parent = $(this).parent();
+        var qty = parseInt(parent.find(".qty").val());
+        var id = parent.find(".idCart").val()
+        var tr = $(this).parent().parent().parent().parent();
+        var borrar = false;
+        if((qty - 1) <= 0){
+            parent.find(".qty").val(0);
+            console.log(tr);
+            tr.hide();
+            borrar = true;
+            // return false;
+        }else{
+            parent.find(".qty").val(qty - 1);
+        }
+        // buscando el precio y sacando total
+        var price = $(this).parent().parent().parent().find("td:eq(0)").find(".price").html();
+        price = price.replace("S/","");
+        price = parseFloat(price);
+        var total = price * (qty - 1);
+        console.log("[price]",price,total);
+        $(this).parent().parent().parent().find("td:eq(2)").find(".total").html(`S/${parseFloat(total).toFixed(2)}`);
+        var url = '/update-cart';
+        var data = {id:id, qty:-1,borrar:borrar};
+        fetch(url, {
+        method: 'POST', // or 'PUT'
+        body: JSON.stringify(data), // data can be `string` or {object}!
+        headers:{
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+        }).then(res => res.json())
+        .catch(error => console.error('Error:', error))
+        .then(response => {
+            console.log('Success:', response);
+            var subtotal = $(".subtotal").html();
+            var igv = $(".igv").html();
+            var total = $(".price-total").html();
+            var subtotal = subtotal.replace("S/","");
+            var igv = igv.replace("S/","");
+            var total = total.replace("S/","");
+            $(".subtotal").html(`S/${response.body.subtotal}`);
+            $(".igv").html(`S/${response.body.igv}`);
+            $(".price-total").html(`S/${response.body.total}`);
+            loadCulqi();
+        });
+    });
+    $('.qtyplus').on('click', function(e) {
+        // Abre el formulario con las opciones de Culqi.settings
+        e.preventDefault();
+        var parent = $(this).parent();
+        var qty = parseInt(parent.find(".qty").val());
+        var id = parent.find(".idCart").val()
+        parent.find(".qty").val(qty + 1);
+        // buscando el precio y sacando total
+        var price = $(this).parent().parent().parent().find("td:eq(0)").find(".price").html();
+        price = price.replace("S/","");
+        price = parseFloat(price);
+        var total = price * (qty + 1);
+        console.log("[price]",price,total);
+        $(this).parent().parent().parent().find("td:eq(2)").find(".total").html(`S/${total.toFixed(2)}`);
+        // maandar un ajax
+        // $.ajax({
+        //     type:"POST",
+        //     url:"/update-cart",
+        //     data:{id:id, qty:(qty + 1)},
+        //     success:function(datos){
+        //          console.log(datos)
+        //      },
+        //     dataType: 'json'
+        // })
+        var url = '/update-cart';
+        var data = {id:id, qty:1};
 
+        fetch(url, {
+        method: 'POST', // or 'PUT'
+        body: JSON.stringify(data), // data can be `string` or {object}!
+        headers:{
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+        }).then(res => res.json())
+        .catch(error => console.error('Error:', error))
+        .then(response => {
+            console.log('Success:', response);
+            var subtotal = $(".subtotal").html();
+            var igv = $(".igv").html();
+            var total = $(".price-total").html();
+            var subtotal = subtotal.replace("S/","");
+            var igv = igv.replace("S/","");
+            var total = total.replace("S/","");
+            $(".subtotal").html(`S/${response.body.subtotal}`);
+            $(".igv").html(`S/${response.body.igv}`);
+            $(".price-total").html(`S/${response.body.total}`);
+            loadCulqi()
+        });
+    });
 
-// $(".qtyminus").on("click",function(){
-//     var now = $(".qty").val();
-//     if ($.isNumeric(now)){
-//         if (parseInt(now) -1> 0)
-//         { now--;}
-//         $(".qty").val(now);
-//     }
-// })            
-// $(".qtyplus").on("click",function(){
-//     var now = $(".qty").val();
-//     if ($.isNumeric(now)){
-//         $(".qty").val(parseInt(now)+1);
-//     }
-// });
-// });
+});{}

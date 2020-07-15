@@ -27,3 +27,8 @@ Route::post('/delete/images',[
     'uses'  => 'ImageUploadController@deleteImage',
     'as'    => 'deleteImage'
 ]);
+
+Route::post('update-cart',[
+    'uses'  => 'PageController@updateCart',
+    'as'    => 'updateCart'
+]);
