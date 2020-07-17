@@ -4,10 +4,19 @@
     {!! Form::text('address', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- [A[Bphone Field -->
+<!-- phone Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('[A[Bphone', '[A[Bphone:') !!}
-    {!! Form::text('[A[Bphone', null, ['class' => 'form-control']) !!}
+    {!! Form::label('phone', 'phone:') !!}
+    {!! Form::text('phone', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Active Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('status', 'Status:') !!}
+    <label class="checkbox-inline">
+        {!! Form::hidden('status', 0) !!}
+        {!! Form::checkbox('status', '1', null) !!}
+    </label>
 </div>
 
 <!-- Submit Field -->

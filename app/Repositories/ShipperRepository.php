@@ -18,7 +18,7 @@ class ShipperRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'address',
-        '[A[Bphone',
+        'phone',
         'status'
     ];
 

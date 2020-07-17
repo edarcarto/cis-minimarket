@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @version July 17, 2020, 1:27 am UTC
  *
  * @property string $address
- * @property string $[A[Bphone
+ * @property string $phone
  * @property integer $status
  */
 class Shipper extends Model
@@ -39,7 +39,7 @@ class Shipper extends Model
     protected $casts = [
         'id' => 'integer',
         'address' => 'string',
-        '[A[Bphone' => 'string',
+        'phone' => 'string',
         'status' => 'integer'
     ];
 
@@ -50,7 +50,7 @@ class Shipper extends Model
      */
     public static $rules = [
         'address' => 'required',
-        '[A[Bphone' => 'required',
+        'phone' => 'required',
         'status' => 'required'
     ];
 

@@ -4,10 +4,10 @@
     <p>{{ $shipper->address }}</p>
 </div>
 
-<!-- [A[Bphone Field -->
+<!-- phone Field -->
 <div class="form-group">
-    {!! Form::label('[A[Bphone', '[A[Bphone:') !!}
-    <p>{{ $shipper->[A[Bphone }}</p>
+    {!! Form::label('phone', 'phone:') !!}
+    <p>{{ $shipper->phone }}</p>
 </div>
 
 <!-- Status Field -->
