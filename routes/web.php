@@ -40,3 +40,6 @@ Route::resource('products', 'ProductController');
 Route::resource('customers', 'CustomerController');
 
 Route::resource('orders', 'OrderController');
+
+
+Route::resource('shippers', 'ShipperController');

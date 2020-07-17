@@ -8,9 +8,11 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Repositories\CustomerRepository;
 
 class RegisterController extends Controller
 {
+    private $customerRepository;
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -36,9 +38,10 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(CustomerRepository $customerRepo)
     {
         $this->middleware('guest');
+        $this->customerRepository = $customerRepo;
     }
 
     /**
@@ -64,10 +67,27 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        // registar cliente
+        $this->customerRepository->create([
+            'first_name'        => $data['name'],
+            'last_name'         => $data['last_name'],
+            'document_type'     => 1,
+            'document_number'   => $data['document_number'],
+            'phone'             => $data['phone'],
+            'departament'       => 0,
+            'province'          => 0,
+            'district'          => 0,
+            'address'           => $data['address'],
+            'number'            => '',
+            'legal'             => 1,
+            'tyc'               => 1,
+            'active'            => 1
+        ]);
+        return $user;
     }
 }

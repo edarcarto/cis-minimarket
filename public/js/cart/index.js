@@ -1,6 +1,8 @@
 
 $(document).ready(function() {
     loadCulqi();
+    calcularSubtotal();
+    calcularTotal();
     function loadCulqi(){
         var amount = $(".price-total").html();
         amount = amount.replace("S/","");
@@ -18,6 +20,11 @@ $(document).ready(function() {
         // Usa la funcion Culqi.open() en el evento que desees
     }
     $('#buyButton').on('click', function(e) {
+        // preguntar si inicio sesión
+        if($("#idUser").val() === ""){
+            $('#myModal').modal('show');
+            return false;
+        }
         // Abre el formulario con las opciones de Culqi.settings
         Culqi.open();
         e.preventDefault();
@@ -60,15 +67,17 @@ $(document).ready(function() {
         .then(response => {
             console.log('Success:', response);
             var subtotal = $(".subtotal").html();
-            var igv = $(".igv").html();
+            // var igv = $(".igv").html();
             var total = $(".price-total").html();
             var subtotal = subtotal.replace("S/","");
-            var igv = igv.replace("S/","");
+            // var igv = igv.replace("S/","");
             var total = total.replace("S/","");
-            $(".subtotal").html(`S/${response.body.subtotal}`);
-            $(".igv").html(`S/${response.body.igv}`);
-            $(".price-total").html(`S/${response.body.total}`);
+            // $(".subtotal").html(`S/${response.body.subtotal}`);
+            // $(".igv").html(`S/${response.body.igv}`);
+            // $(".price-total").html(`S/${response.body.total}`);
             loadCulqi();
+            calcularSubtotal();
+            calcularTotal();
         });
     });
     $('.qtyplus').on('click', function(e) {
@@ -110,16 +119,60 @@ $(document).ready(function() {
         .then(response => {
             console.log('Success:', response);
             var subtotal = $(".subtotal").html();
-            var igv = $(".igv").html();
+            // var igv = $(".igv").html();
             var total = $(".price-total").html();
             var subtotal = subtotal.replace("S/","");
-            var igv = igv.replace("S/","");
+            // var igv = igv.replace("S/","");
             var total = total.replace("S/","");
-            $(".subtotal").html(`S/${response.body.subtotal}`);
-            $(".igv").html(`S/${response.body.igv}`);
-            $(".price-total").html(`S/${response.body.total}`);
+            // $(".subtotal").html(`S/${response.body.subtotal}`);
+            // $(".igv").html(`S/${response.body.igv}`);
+            // $(".price-total").html(`S/${response.body.total}`);
             loadCulqi()
+            calcularSubtotal();
+            calcularTotal();
         });
     });
 
+    function calcularSubtotal() {
+        console.log("[calcularSubtotal]");
+        var total = 0;
+        $(".qty").each((i,e) => {
+            console.log("[i,e]",i,e);
+            var price = parseFloat($(".sumPriceCart").eq(i).val()) || 0;
+            var qty = parseInt(e.value) || 0;
+            var t = price * qty;
+            total += parseFloat( t ) || 0;
+        });
+        $(".subtotal").html(`S/${total.toFixed(2)}`);
+    }
+
+    function calcularTotal() {
+        console.log("[calcularSubtotal]");
+        var total = 0;
+        $(".qty").each((i,e) => {
+            console.log("[i,e]",i,e);
+            var price = parseFloat($(".sumPriceCart").eq(i).val()) || 0;
+            var qty = parseInt(e.value) || 0;
+            var t = price * qty;
+            // aqui se suma el delivery
+            total += parseFloat( t ) || 0;
+        });
+        $(".price-total").html(`S/${total.toFixed(2)}`);
+    }
+
 });{}
+
+function culqi() {
+    if (Culqi.token) { // ¡Objeto Token creado exitosamente!
+        var token = Culqi.token.id;
+        // alert('Se ha creado un token: ' + token);
+        //En esta linea de codigo debemos enviar el "Culqi.token.id"
+        //hacia tu servidor con Ajax
+
+
+    } else { // ¡Hubo algún problema!
+        // Mostramos JSON de objeto error en consola
+        console.log(Culqi.error);
+        alert(Culqi.error.user_message);
+    }
+  };

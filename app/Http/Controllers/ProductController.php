@@ -16,6 +16,7 @@ class ProductController extends AppBaseController
     /** @var  ProductRepository */
     /** @var  ProductImageRepository */
     private $productRepository;
+    private $productImageRepository;
 
     public function __construct(ProductRepository $productRepo,ProductImageRepository $productImageRepo)
     {

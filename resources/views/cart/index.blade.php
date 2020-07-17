@@ -1,12 +1,13 @@
 @extends('layouts.web')
 @section('js&css')
-<link href="{{ secure_asset('css/cart/index.css') }}" media="all" rel="stylesheet" type="text/css" />
+<link href="{{ asset('css/cart/index.css') }}" media="all" rel="stylesheet" type="text/css" />
 <script src="https://checkout.culqi.com/js/v3"></script>
-<script src="{{ secure_asset('js/cart/index.js') }}"></script>
+<script src="{{ asset('js/cart/index.js') }}"></script>
 @endsection
 @section('content')
 <div class="cart-wrap">
 		<div class="container">
+			<input type="hidden" name="idUser" id="idUser" value="{{(auth() && auth()->user()) ? auth()->user()->id : '' }}">
 	        <div class="row">
 			    <div class="col-lg-8">
 			        <div class="main-heading">Carrito</div>
@@ -34,6 +35,7 @@
 		                                    </div>
 		                                    <div class="price">
 		                                        S/{{$c->price}}
+												<input type="hidden" class="sumPriceCart" name="sumPriceCart[]" value="{{$c->price}}">
 		                                    </div>
 	                                    </div>
 	                                </td>
@@ -82,19 +84,19 @@
 			                    <tbody>
 			                        <tr>
 			                            <td>Subtotal</td>
-			                            <td class="subtotal">S/{{round(Cart::getSubTotal(),2)}}</td>
+			                            <td class="subtotal">S/0.00</td>
 			                        </tr>
-			                        <tr>
+			                        <!-- <tr>
 			                            <td>IGV</td>
 			                            <td class="igv">S/{{ $igv }}</td>
-			                        </tr>
+			                        </tr> -->
 									<tr>
 			                            <td>Delivery</td>
 			                            <td class="free-shipping">S/0.00</td>
 			                        </tr>
 			                        <tr class="total-row">
 			                            <td>Total</td>
-			                            <td class="price-total">S/{{ round(round(Cart::getTotal() + $igv,3),2) }}</td>
+			                            <td class="price-total">S/0.00</td>
 			                        </tr>
 			                    </tbody>
 			                </table>
@@ -111,5 +113,24 @@
 			    <!-- /.col-lg-4 -->
 			</div>
 		</div>
+	</div>
+	<div id="myModal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title">Atención</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			<p>Usted no ha iniciado sesión.</p>
+		</div>
+		<div class="modal-footer">
+			<a href="/login"  class="btn btn-primary">Iniciar Sesión</a>
+			<a href="/register" class="btn btn-secondary" >Registrarse</a>
+		</div>
+		</div>
+	</div>
 	</div>
 @endsection

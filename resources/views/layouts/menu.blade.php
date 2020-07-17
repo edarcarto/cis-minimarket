@@ -21,3 +21,7 @@
     <a href="{{ route('orders.index') }}"><i class="fa fa-edit"></i><span>Ordenes</span></a>
 </li>
 
+<li class="{{ Request::is('shippers*') ? 'active' : '' }}">
+    <a href="{{ route('shippers.index') }}"><i class="fa fa-edit"></i><span>Envios</span></a>
+</li>
+

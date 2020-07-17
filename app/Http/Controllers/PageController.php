@@ -4,14 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\ProductRepository;
+use App\Repositories\ShipperRepository;
 use Darryldecode\Cart\Facades\CartFacade as Cart;
+// use App\Repositories\ProductRepository;
 use Flash;
 
 class PageController extends Controller
 {
-    public function __construct(ProductRepository $productRepo)
+    private $productRepository;
+    private $shipperRepository;
+
+    public function __construct(ProductRepository $productRepo,ShipperRepository $shipperRepo)
     {
         $this->productRepository = $productRepo;
+        $this->shipperRepository = $shipperRepo;
     }
 
     /**
@@ -100,5 +106,45 @@ class PageController extends Controller
                 'total'     => round(round(Cart::getTotal() + $igv,3),2)
             ]
         ]);        
+    }
+
+    public function pagarCarrito(Request $request)
+    {
+        # pagar el carrito
+        $SECRET_KEY = "sk_test_Co3xVE48PnOD0In3";
+        $culqi = new Culqi\Culqi(array('api_key' => $SECRET_KEY));
+        // Creamos Cargo a una tarjeta
+        $charge = $culqi->Charges->create(
+            array(
+            "amount"        => $request->get('amount'),
+            "capture"       => true,
+            "currency_code" => "PEN",
+            "description"   => "Pago de Carrito",
+            "email"         => $request->get('email'),
+            "installments"  => 0,
+            // "antifraud_details" => array(
+            //     "address" => "Av. Lima 123",
+            //     "address_city" => "LIMA",
+            //     "country_code" => "PE",
+            //     "first_name" => "Will",
+            //     "last_name" => "Muro",
+            //     "phone_number" => "9889678986",
+            // ),
+            "source_id" => $request->get('token'),
+            )
+        );
+
+        if($charge){
+            // buscar al usuario con datos de cliente
+
+            // Seteando a donde se enviará el pedido
+            $ship = $this->shipperRepository->create([
+                'address' => $address,
+                'phone' => $phone,
+                'status' => 0,
+            ]);
+            // Hacer una orden de pedido
+            
+        }
     }
 }

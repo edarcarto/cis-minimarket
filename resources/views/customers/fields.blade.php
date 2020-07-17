@@ -31,19 +31,19 @@
 <!-- Departament Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('departament', 'Departament:') !!}
-    {!! Form::select('departament', ], null, ['class' => 'form-control']) !!}
+    {!! Form::select('departament', [], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Province Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('province', 'Province:') !!}
-    {!! Form::select('province', ], null, ['class' => 'form-control']) !!}
+    {!! Form::select('province', [], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- District Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('district', 'District:') !!}
-    {!! Form::select('district', ], null, ['class' => 'form-control']) !!}
+    {!! Form::select('district', [], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Address Field -->
