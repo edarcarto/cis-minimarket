@@ -28,7 +28,7 @@ class AddColumnTypeUser extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropForeign('users_type_user_id_foreign');
-            $table->dropColumn('user_id');
+            $table->dropColumn('type_user_id');
         });
     }
 }
