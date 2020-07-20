@@ -11,8 +11,7 @@ use App\Repositories\BaseRepository;
  * @version July 3, 2020, 8:05 pm UTC
 */
 
-class 
- extends BaseRepository
+class CustomerRepository  extends BaseRepository
 {
     /**
      * @var array
