@@ -11,7 +11,8 @@ use App\Repositories\BaseRepository;
  * @version July 3, 2020, 8:05 pm UTC
 */
 
-class CustomerRepository extends BaseRepository
+class 
+ extends BaseRepository
 {
     /**
      * @var array
@@ -48,5 +49,9 @@ class CustomerRepository extends BaseRepository
     public function model()
     {
         return Customer::class;
+    }
+
+    function getForUser($id){
+        return Customer::where('user_id',$id)->first();
     }
 }

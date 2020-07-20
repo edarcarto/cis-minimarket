@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\ProductRepository;
 use App\Repositories\ShipperRepository;
+use App\Repositories\CustomerRepository;
+use App\Repositories\OrderRepository;
 use Darryldecode\Cart\Facades\CartFacade as Cart;
 // use App\Repositories\ProductRepository;
 use Flash;
@@ -13,11 +15,16 @@ class PageController extends Controller
 {
     private $productRepository;
     private $shipperRepository;
+    private $customerRepository;
+    private $orderRepository;
 
-    public function __construct(ProductRepository $productRepo,ShipperRepository $shipperRepo)
+    public function __construct(ProductRepository $productRepo,ShipperRepository $shipperRepo,
+    CustomerRepository $custormerRepo, OrderRepository $orderRepo)
     {
         $this->productRepository = $productRepo;
         $this->shipperRepository = $shipperRepo;
+        $this->customerRepository = $custormerRepo;
+        $this->orderRepository = $orderRepo;
     }
 
     /**
@@ -136,7 +143,7 @@ class PageController extends Controller
 
         if($charge){
             // buscar al usuario con datos de cliente
-
+            $customer = $this->customerRepository->getForUser(Auth::id());
             // Seteando a donde se enviará el pedido
             $ship = $this->shipperRepository->create([
                 'address' => $address,
@@ -144,7 +151,51 @@ class PageController extends Controller
                 'status' => 0,
             ]);
             // Hacer una orden de pedido
-            
+            $cart = Cart::getContent();
+            $products = [];
+            if($cart){
+                #order 
+                $order = $this->orderRepository->create([
+                    'customer_id'  => $customer->id,
+                    'order_date'   => now(),
+                    'required_date'=> null,
+                    'shipped_date' => null,
+                    'ship_via'     => $ship->id,
+                    'freight'      => 'Delivery',
+                    'ship_name'    => $customer->first_name.' '.$customer->last_name, #configurar |v|
+                    'ship_address' => $customer->address,
+                    'ship_city'    => 'Lima',
+                    'ship_region'  => 'Lima',
+                    'ship_postal_code' => '51',
+                    'ship_country' => 'Perú'
+                ]);
+                # prepare details
+                foreach ($items as $row) {
+                    arrat_push($products,[
+                        'order_id'   => $order->id,
+                        'product_id' => $row->attributes->all->id,
+                        'unit_price' => $row->price,
+                        'quantity'   => $row->qty,
+                        'discount'   => '0.00' #falta
+                    ]);
+                }
+                $details = $this->orderRepository->saveOrderAndDetails($products);
+                $order->details = $details;
+                return response()->json([
+                    'message'   => 'Pedido registrado con exito',
+                    'body'      => $order
+                ]);
+            }else{
+                return response(500)->json([
+                    'message'   => 'El carrito está vacio',
+                    'body'      => null
+                ]);
+            }
+        }else{
+            return response(500)->json([
+                'message'   => 'No se pudo efectuar el pago',
+                'body'      => null
+            ]);
         }
     }
 }

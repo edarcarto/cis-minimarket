@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('product_name');
             $table->string('description');
             $table->integer('quantity_per_unit');
-            $table->decimal('unit_price',8,2);
+            $table->decimal('unit_price',10,4);
             $table->integer('units_in_stock');
             $table->integer('units_on_order');
             $table->integer('reorder_level');
@@ -27,7 +27,7 @@ class CreateProductsTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->integer('trademark_id')->unsigned();
             $table->integer('discontinued');
-            $table->integer('active');
+            $table->boolean('active')->default(true);
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('supplier_id')->references('id')->on('suppliers');

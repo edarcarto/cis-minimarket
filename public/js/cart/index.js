@@ -20,11 +20,22 @@ $(document).ready(function() {
         // Usa la funcion Culqi.open() en el evento que desees
     }
     $('#buyButton').on('click', function(e) {
-        // preguntar si inicio sesión
         if($("#idUser").val() === ""){
             $('#myModal').modal('show');
             return false;
         }
+        $('#mDelivery').modal('show');
+    });
+
+    $("#mDeliverySi").on('click', function(e) {
+        $('#mDelivery').modal('hide');
+        $("#staticBackdrop").modal('show');
+    });
+    
+    $('#btnPay').on('click', function(e) {
+        $('#mDelivery').modal('hide');
+        // validar las opciones que no estén vacias
+        $(this).modal('hide');
         // Abre el formulario con las opciones de Culqi.settings
         Culqi.open();
         e.preventDefault();

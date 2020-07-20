@@ -7,7 +7,7 @@
 @section('content')
 <div class="cart-wrap">
 		<div class="container">
-			<input type="hidden" name="idUser" id="idUser" value="{{(auth() && auth()->user()) ? auth()->user()->id : '' }}">
+			<input type="hidden" name="idUser" id="idUser" value="{{(Auth::check()) ? auth()->user()->id : '' }}">
 	        <div class="row">
 			    <div class="col-lg-8">
 			        <div class="main-heading">Carrito</div>
@@ -115,22 +115,82 @@
 		</div>
 	</div>
 	<div id="myModal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog">
-	<div class="modal-dialog modal-sm" role="document">
-		<div class="modal-content">
-		<div class="modal-header">
-			<h5 class="modal-title">Atención</h5>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-			</button>
-		</div>
-		<div class="modal-body">
-			<p>Usted no ha iniciado sesión.</p>
-		</div>
-		<div class="modal-footer">
-			<a href="/login"  class="btn btn-primary">Iniciar Sesión</a>
-			<a href="/register" class="btn btn-secondary" >Registrarse</a>
-		</div>
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Atención</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>Usted no ha iniciado sesión.</p>
+			</div>
+			<div class="modal-footer">
+				<a href="/login"  class="btn btn-primary">Iniciar Sesión</a>
+				<a href="/register" class="btn btn-secondary" >Registrarse</a>
+			</div>
+			</div>
 		</div>
 	</div>
+	<div id="mDelivery" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Atención</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>Desea incluir el delivery?.</p>
+			</div>
+			<div class="modal-footer">
+				<button id="mDeliverySi" type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        		<button id="mDeliveryNo" type="button" class="btn btn-primary">Si</button>
+			</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="staticBackdropLabel">Información Delivery</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-group">
+						<label for="ship_name" class="col-form-label">Dirigido a:</label>
+						<input type="text" class="form-control" id="ship_name" value="{{Auth::user()->name}}">
+					</div>
+					<div class="form-group">
+						<label for="message-text" class="col-form-label">Dirección:</label>
+						<input type="text" class="form-control" id="ship_address" value="">
+					</div>
+					<div class="form-group">
+						<label for="message-text" class="col-form-label">Ciudad:</label>
+						<input type="text" class="ship_city" id="ship_city" value="">
+					</div>
+					<div class="form-group">
+						<label for="message-text" class="col-form-label">Region:</label>
+						<input type="text" class="ship_region" id="ship_region" value="">
+					</div>
+					<div class="form-group">
+						<label for="message-text" class="col-form-label">Codígo Postal:</label>
+						<input type="text" class="ship_postal_code" id="ship_postal_code" value="">
+					</div>
+				</form>								
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+				<button id="btnPay" type="button" class="btn btn-primary">Aceptar</button>
+			</div>
+			</div>
+		</div>
 	</div>
 @endsection

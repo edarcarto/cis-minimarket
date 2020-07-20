@@ -28,9 +28,11 @@ class CreateCustomersTable extends Migration
             $table->string('number');
             $table->integer('legal');
             $table->integer('tyc');
-            $table->integer('active');
+            $table->boolean('active')->default(true);
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

@@ -19,7 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->string('category_name');
             $table->integer('category_id')->nullable();
             $table->integer('parent');
-            $table->integer('active');
+            $table->boolean('active')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });

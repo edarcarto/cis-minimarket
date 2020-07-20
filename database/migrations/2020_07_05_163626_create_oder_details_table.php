@@ -17,9 +17,9 @@ class CreateOderDetailsTable extends Migration
             $table->id();
             $table->integer('order_id')->unsigned();
             $table->integer('product_id')->unsigned();
-            $table->decimal('unit_price',8,2);
+            $table->decimal('unit_price',10,4);
             $table->integer('quantity');
-            $table->decimal('discount',8,2);
+            $table->decimal('discount',10,4)->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('order_id')->references('id')->on('orders');

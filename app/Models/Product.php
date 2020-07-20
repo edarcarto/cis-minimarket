@@ -59,7 +59,7 @@ class Product extends Model
         'product_name' => 'string',
         'description' => 'string',
         'quantity_per_unit' => 'integer',
-        'unit_price' => 'float,8,2',
+        'unit_price' => 'float,10,4',
         'units_in_stock' => 'integer',
         'units_on_order' => 'integer',
         'reorder_level' => 'integer',

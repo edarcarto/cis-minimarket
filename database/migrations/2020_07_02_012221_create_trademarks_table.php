@@ -17,7 +17,7 @@ class CreateTrademarksTable extends Migration
         Schema::create('trademarks', function (Blueprint $table) {
             $table->increments('id');
             $table->string('trade_name');
-            $table->integer('active');
+            $table->boolean('active')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });

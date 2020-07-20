@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Order;
+use App\Models\OrderDetail;
 use App\Repositories\BaseRepository;
 
 /**
@@ -48,5 +49,10 @@ class OrderRepository extends BaseRepository
     public function model()
     {
         return Order::class;
+    }
+
+    function saveDetails($detail){
+        
+        return OrderDetail::insert($detail);
     }
 }
