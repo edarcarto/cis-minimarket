@@ -166,7 +166,7 @@
 				<form>
 					<div class="form-group">
 						<label for="ship_name" class="col-form-label">Dirigido a:</label>
-						<input type="text" class="form-control" id="ship_name" value="{{Auth::user()->name}}">
+						<input type="text" class="form-control" id="ship_name" value="">
 					</div>
 					<div class="form-group">
 						<label for="message-text" class="col-form-label">Dirección:</label>
