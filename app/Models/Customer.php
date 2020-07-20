@@ -48,7 +48,8 @@ class Customer extends Model
         'number',
         'legal',
         'tyc',
-        'active'
+        'active',
+        'user_id'
     ];
 
     /**
@@ -70,7 +71,8 @@ class Customer extends Model
         'number' => 'string',
         'legal' => 'integer',
         'tyc' => 'integer',
-        'active' => 'integer'
+        'active' => 'integer',
+        'user_id'=> 'integer'
     ];
 
     /**
@@ -91,7 +93,8 @@ class Customer extends Model
         'number' => 'required',
         'legal' => 'required',
         'tyc' => 'required',
-        'active' => 'required'
+        'active' => 'required',
+        'user_id' => 'required'
     ];
 
     
