@@ -49,7 +49,7 @@
                                 </div>
                             <span>3 Reviews</span>
                         </div>
-                        <div class="product-price-discount"><span>S/{{$product->unit_price}}</span></div>
+                        <div class="product-price-discount"><span>S/{{round($product->unit_price,2)}}</span></div>
                         <!-- <span class="line-through">$29.00</span> -->
                     </div>
                     <p>{{$product->description}}</p>
