@@ -9,6 +9,8 @@ use App\Repositories\CustomerRepository;
 use App\Repositories\OrderRepository;
 use Darryldecode\Cart\Facades\CartFacade as Cart;
 // use App\Repositories\ProductRepository;
+use Culqi\Culqi;
+use Culqi\CulqiException;
 use Flash;
 
 class PageController extends Controller
@@ -119,7 +121,7 @@ class PageController extends Controller
     {
         # pagar el carrito
         $SECRET_KEY = "sk_test_Co3xVE48PnOD0In3";
-        $culqi = new Culqi\Culqi(array('api_key' => $SECRET_KEY));
+        $culqi = new Culqi(array('api_key' => $SECRET_KEY));
         // Creamos Cargo a una tarjeta
         $charge = $culqi->Charges->create(
             array(
@@ -127,7 +129,7 @@ class PageController extends Controller
             "capture"       => true,
             "currency_code" => "PEN",
             "description"   => "Pago de Carrito",
-            "email"         => $request->get('email'),
+            "email"         => \Auth::user()->email,
             "installments"  => 0,
             // "antifraud_details" => array(
             //     "address" => "Av. Lima 123",
@@ -143,11 +145,11 @@ class PageController extends Controller
 
         if($charge){
             // buscar al usuario con datos de cliente
-            $customer = $this->customerRepository->getForUser(Auth::id());
+            $customer = $this->customerRepository->getForUser(\Auth::id());
             // Seteando a donde se enviará el pedido
             $ship = $this->shipperRepository->create([
-                'address' => $address,
-                'phone' => $phone,
+                'address' => $request->get('address'),
+                'phone' => $request->get('phone'),
                 'status' => 0,
             ]);
             // Hacer una orden de pedido
@@ -156,31 +158,32 @@ class PageController extends Controller
             if($cart){
                 #order 
                 $order = $this->orderRepository->create([
-                    'customer_id'  => $customer->id,
-                    'order_date'   => now(),
-                    'required_date'=> null,
-                    'shipped_date' => null,
-                    'ship_via'     => $ship->id,
-                    'freight'      => 'Delivery',
-                    'ship_name'    => $customer->first_name.' '.$customer->last_name, #configurar |v|
-                    'ship_address' => $customer->address,
-                    'ship_city'    => 'Lima',
-                    'ship_region'  => 'Lima',
-                    'ship_postal_code' => '51',
-                    'ship_country' => 'Perú'
+                    'customer_id'       => $customer->id,
+                    'order_date'        => now(),
+                    'required_date'     => null,
+                    'shipped_date'      => null,
+                    'ship_via'          => $ship->id,
+                    'freight'           => '0.00',
+                    'ship_name'         => $request->get('full_name'),
+                    'ship_address'      => $request->get('address'),
+                    'ship_city'         => $request->get('city'),
+                    'ship_region'       => $request->get('region'),
+                    'ship_postal_code'  => $request->get('code'),
+                    'ship_country'      => 'Perú'
                 ]);
                 # prepare details
-                foreach ($items as $row) {
-                    arrat_push($products,[
+                foreach ($cart as $row) {
+                    array_push($products,[
                         'order_id'   => $order->id,
                         'product_id' => $row->attributes->all->id,
                         'unit_price' => $row->price,
-                        'quantity'   => $row->qty,
+                        'quantity'   => $row->quantity,
                         'discount'   => '0.00' #falta
                     ]);
                 }
-                $details = $this->orderRepository->saveOrderAndDetails($products);
+                $details = $this->orderRepository->saveDetails($products);
                 $order->details = $details;
+                Cart::clear();
                 return response()->json([
                     'message'   => 'Pedido registrado con exito',
                     'body'      => $order

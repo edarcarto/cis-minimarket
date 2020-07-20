@@ -19,6 +19,7 @@ Route::get('/add-to-cart', 'PageController@addToCart')->name('addToCart');
 Route::get('/cart', 'PageController@cart')->name('cart');
 Route::delete('/product/{id}/delete', 'PageController@deleteProduct')->name('delCart');
 Route::post('update-cart','PageController@updateCart')->name('updateCart');
+Route::post('/payme','PageController@pagarCarrito')->name('payme');
 
 Auth::routes();
 
@@ -43,3 +44,5 @@ Route::resource('orders', 'OrderController');
 
 
 Route::resource('shippers', 'ShipperController');
+
+Route::resource('userTypes', 'UserTypeController');

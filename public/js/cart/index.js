@@ -35,8 +35,9 @@ $(document).ready(function() {
     $('#btnPay').on('click', function(e) {
         $('#mDelivery').modal('hide');
         // validar las opciones que no estén vacias
-        $(this).modal('hide');
+        $("#staticBackdrop").modal('hide');
         // Abre el formulario con las opciones de Culqi.settings
+        loadCulqi();
         Culqi.open();
         e.preventDefault();
     });
@@ -175,15 +176,55 @@ $(document).ready(function() {
 
 function culqi() {
     if (Culqi.token) { // ¡Objeto Token creado exitosamente!
+        console.log("[culqi]",Culqi);
         var token = Culqi.token.id;
+        var amount = $(".price-total").html();
+        amount = amount.replace("S/","");
+        amount = amount.replace(".","");
         // alert('Se ha creado un token: ' + token);
         //En esta linea de codigo debemos enviar el "Culqi.token.id"
         //hacia tu servidor con Ajax
+        var url = '/payme';
+        var data = {
+            amount:amount,
+            token: token,
+            address: document.querySelector("#ship_address").value,
+            phone: document.querySelector("#phone").value,
+            phone: document.querySelector("#phone").value,
+            type: 'Delivery',
+            full_name: document.querySelector("#ship_name").value,
+            city: document.querySelector("#ship_city").value,
+            region: document.querySelector("#ship_region").value,
+            code: document.querySelector("#ship_postal_code").value
+        };
 
+        fetch(url, {
+        method: 'POST', // or 'PUT'
+        body: JSON.stringify(data), // data can be `string` or {object}!
+        headers:{
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+        }).then(res => res.json())
+        .catch(error => {
+            console.error('Error:', error);
+            $(".showMessage").html(error.body.message);
+            $("#msg").modal('show');
+        })
+        .then(response => {
+            console.log('Success:', response);
+            $(".showMessage").html(response.body.message);
+            $("#msg").modal('show');
+            setTimeout(()=>{
+                window.location.reload();
+            },2500)
+        });
 
     } else { // ¡Hubo algún problema!
         // Mostramos JSON de objeto error en consola
         console.log(Culqi.error);
-        alert(Culqi.error.user_message);
+        $(".showMessage").html(Culqi.error.user_message);
+        $("#msg").modal('show');
+        // alert(Culqi.error.user_message);
     }
   };

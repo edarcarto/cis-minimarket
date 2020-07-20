@@ -72,6 +72,7 @@ class RegisterController extends Controller
             'name' => $data['name'].' '.$data['last_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'type_user_id' => 3
         ]);
         // registar cliente
         $this->customerRepository->create([

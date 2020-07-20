@@ -163,7 +163,7 @@
                 <div class="product-content">
                     <h3 class="title"><a href="/product/{{$p->id}}">{{$p->product_name}}</a></h3>
                     <div class="price">
-                        S/ {{$p->unit_price}} und
+                        S/ {{round($p->unit_price,2)}} und
                         <!-- <span>S/ 16.00 und</span> -->
                     </div>
                     <form method="GET" action="/add-to-cart">

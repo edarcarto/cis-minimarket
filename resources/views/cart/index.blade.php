@@ -1,8 +1,8 @@
 @extends('layouts.web')
 @section('js&css')
-<link href="{{ secure_asset('css/cart/index.css') }}" media="all" rel="stylesheet" type="text/css" />
+<link href="{{ asset('css/cart/index.css') }}" media="all" rel="stylesheet" type="text/css" />
 <script src="https://checkout.culqi.com/js/v3"></script>
-<script src="{{ secure_asset('js/cart/index.js') }}"></script>
+<script src="{{ asset('js/cart/index.js') }}"></script>
 @endsection
 @section('content')
 <div class="cart-wrap">
@@ -62,6 +62,11 @@
 	                                </td>
 	                            </tr>
 								@endforeach
+								@if(count($cart) == 0)
+										<tr>
+											<td colsan="2">No ha realizado ninguna compra aún</td>
+										</tr>
+								@endif
 	                        </tbody>
 	                    </table>
 	                    <div class="coupon-box">
@@ -143,11 +148,11 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<p>Desea incluir el delivery?.</p>
+				<p>Seleccione el metodo de entrega de productos.</p>
 			</div>
 			<div class="modal-footer">
-				<button id="mDeliverySi" type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-        		<button id="mDeliveryNo" type="button" class="btn btn-primary">Si</button>
+				<button id="mDeliverySi" type="button" class="btn btn-secondary" data-dismiss="modal">Delivery</button>
+        		<button id="mDeliveryNo" type="button" class="btn btn-primary">Presencial</button>
 			</div>
 			</div>
 		</div>
@@ -169,26 +174,48 @@
 						<input type="text" class="form-control" id="ship_name" value="">
 					</div>
 					<div class="form-group">
+						<label for="phone" class="col-form-label">Telefono:</label>
+						<input type="text" class="form-control" id="phone" value="">
+					</div>
+					<div class="form-group">
 						<label for="message-text" class="col-form-label">Dirección:</label>
 						<input type="text" class="form-control" id="ship_address" value="">
 					</div>
 					<div class="form-group">
 						<label for="message-text" class="col-form-label">Ciudad:</label>
-						<input type="text" class="ship_city" id="ship_city" value="">
+						<input type="text" class="form-control" id="ship_city" value="">
 					</div>
 					<div class="form-group">
 						<label for="message-text" class="col-form-label">Region:</label>
-						<input type="text" class="ship_region" id="ship_region" value="">
+						<input type="text" class="form-control" id="ship_region" value="">
 					</div>
 					<div class="form-group">
 						<label for="message-text" class="col-form-label">Codígo Postal:</label>
-						<input type="text" class="ship_postal_code" id="ship_postal_code" value="">
+						<input type="text" class="form-control" id="ship_postal_code" value="">
 					</div>
 				</form>								
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 				<button id="btnPay" type="button" class="btn btn-primary">Aceptar</button>
+			</div>
+			</div>
+		</div>
+	</div>
+	<div id="msg" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Mensaje</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p class="showMessage">Gracias por su compra.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar</button>
 			</div>
 			</div>
 		</div>
