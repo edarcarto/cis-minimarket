@@ -55,4 +55,8 @@ class OrderRepository extends BaseRepository
         
         return OrderDetail::insert($detail);
     }
+
+    function  showDetails($id){
+        return OrderDetail::where('order_id',$id)->get();
+    }
 }

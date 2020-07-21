@@ -208,7 +208,7 @@ function culqi() {
         }).then(res => res.json())
         .catch(error => {
             console.error('Error:', error);
-            $(".showMessage").html(error.body.message);
+            $(".showMessage").html('Ocurrio un error, en el sistema, vuelve a intentar');
             $("#msg").modal('show');
         })
         .then(response => {

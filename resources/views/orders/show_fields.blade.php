@@ -88,3 +88,23 @@
     <p>{{ $order->updated_at }}</p>
 </div>
 
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Producto</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach($orderDetails  as $od)
+    <tr>
+      <th scope="row">{{$od->product_id}}</th>
+      <td>{{round($od->unit_price,2)}}</td>
+      <td>{{$od->quantity}}</td>
+      <td>{{$od->quantity * $od->unit_price}}</td>
+    </tr>
+    @endforeach
+  </tbody>
+</table>

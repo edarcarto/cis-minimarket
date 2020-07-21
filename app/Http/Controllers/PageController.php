@@ -180,6 +180,10 @@ class PageController extends Controller
                         'quantity'   => $row->quantity,
                         'discount'   => '0.00' #falta
                     ]);
+                    // disminuir cantidad de productos
+                    $product = $this->productRepository->find($row->attributes->all->id);
+                    $deducible = $product->units_in_stock - $row->quantity;
+                    $this->productRepository->update(['units_in_stock' => $deducible], $id);
                 }
                 $details = $this->orderRepository->saveDetails($products);
                 $order->details = $details;

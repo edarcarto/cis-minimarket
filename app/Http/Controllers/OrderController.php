@@ -73,6 +73,7 @@ class OrderController extends AppBaseController
     public function show($id)
     {
         $order = $this->orderRepository->find($id);
+        $orderDetails = $this->orderRepository->showDetails($id);
 
         if (empty($order)) {
             Flash::error('Order not found');
@@ -80,7 +81,7 @@ class OrderController extends AppBaseController
             return redirect(route('orders.index'));
         }
 
-        return view('orders.show')->with('order', $order);
+        return view('orders.show')->with('order', $order)->with('orderDetails', $orderDetails);
     }
 
     /**
