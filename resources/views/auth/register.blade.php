@@ -65,8 +65,22 @@
                 @endif
             </div>
 
+            <div class="form-group has-feedback{{ $errors->has('document_type') ? ' has-error' : '' }}">
+                <select  class="form-control" name="document_type" value="{{ old('document_type') }}">
+                    <option value="1">RUC</option>
+                    <option value="2" selected>DNI</option>
+                </select>
+                <!-- <span class="glyphicon glyphicon-user form-control-feedback"></span> -->
+
+                @if ($errors->has('document_type'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('document_type') }}</strong>
+                    </span>
+                @endif
+            </div>
+
             <div class="form-group has-feedback{{ $errors->has('document_number') ? ' has-error' : '' }}">
-                <input type="number" size="8" class="form-control" name="document_number" value="{{ old('document_number') }}" placeholder="Número de documento">
+                <input type="number" maxlength="8" class="form-control" name="document_number" value="{{ old('document_number') }}" placeholder="Número de documento">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
 
                 @if ($errors->has('document_number'))
@@ -77,7 +91,7 @@
             </div>
 
             <div class="form-group has-feedback{{ $errors->has('phone') ? ' has-error' : '' }}">
-                <input type="tel" min="9" max="9" class="form-control" name="phone" value="{{ old('phone') }}" placeholder="Telefono">
+                <input type="number" maxlength="9" class="form-control" name="phone" value="{{ old('phone') }}" placeholder="Telefono">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
 
                 @if ($errors->has('phone'))
@@ -110,7 +124,7 @@
             </div>
 
             <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
-                <input type="password" class="form-control" name="password" placeholder="Password">
+                <input type="password" class="form-control" name="password" placeholder="contraseña">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 
                 @if ($errors->has('password'))
@@ -121,7 +135,7 @@
             </div>
 
             <div class="form-group has-feedback{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm password">
+                <input type="password" name="password_confirmation" class="form-control" placeholder="Confirmar contraseña">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 
                 @if ($errors->has('password_confirmation'))

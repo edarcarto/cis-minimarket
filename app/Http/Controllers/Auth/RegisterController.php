@@ -57,6 +57,10 @@ class RegisterController extends Controller
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'document_type'=> ['required'],
+            'document_number'=> ['required'],
+            'phone'=> ['required'],
+            'address'=> ['required'],
             'remember_me' => ['required'],
         ]);
     }
@@ -79,7 +83,7 @@ class RegisterController extends Controller
         $this->customerRepository->create([
             'first_name'        => $data['name'],
             'last_name'         => $data['last_name'],
-            'document_type'     => 1,
+            'document_type'     => $data['document_type'],
             'document_number'   => $data['document_number'],
             'phone'             => $data['phone'],
             'departament'       => 0,

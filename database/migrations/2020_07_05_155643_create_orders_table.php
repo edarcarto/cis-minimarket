@@ -28,6 +28,7 @@ class CreateOrdersTable extends Migration
             $table->string('ship_region');
             $table->string('ship_postal_code');
             $table->string('ship_country');
+            $table->text('log_pay')->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();
             $table->softDeletes();

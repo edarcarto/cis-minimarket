@@ -76,7 +76,7 @@ class OrderController extends AppBaseController
         $orderDetails = $this->orderRepository->showDetails($id);
 
         if (empty($order)) {
-            Flash::error('Order no encontrado');
+            Flash::error('Orden no encontrada');
 
             return redirect(route('orders.index'));
         }
@@ -96,7 +96,7 @@ class OrderController extends AppBaseController
         $order = $this->orderRepository->find($id);
 
         if (empty($order)) {
-            Flash::error('Order no encontrado');
+            Flash::error('Orden no encontrada');
 
             return redirect(route('orders.index'));
         }
@@ -117,14 +117,14 @@ class OrderController extends AppBaseController
         $order = $this->orderRepository->find($id);
 
         if (empty($order)) {
-            Flash::error('Order no encontrado');
+            Flash::error('Orden no encontrada');
 
             return redirect(route('orders.index'));
         }
 
         $order = $this->orderRepository->update($request->all(), $id);
 
-        Flash::success('Order actualizado correctamente.');
+        Flash::success('Orden actualizada correctamente.');
 
         return redirect(route('orders.index'));
     }
@@ -143,14 +143,14 @@ class OrderController extends AppBaseController
         $order = $this->orderRepository->find($id);
 
         if (empty($order)) {
-            Flash::error('Order no encontrado');
+            Flash::error('Orden no encontrada');
 
             return redirect(route('orders.index'));
         }
 
         $this->orderRepository->delete($id);
 
-        Flash::success('Order deleted successfully.');
+        Flash::success('Orden eliminada correctamente.');
 
         return redirect(route('orders.index'));
     }

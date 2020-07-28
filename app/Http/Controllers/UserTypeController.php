@@ -58,7 +58,7 @@ class UserTypeController extends AppBaseController
 
         $userType = $this->userTypeRepository->create($input);
 
-        Flash::success('User Type guardado correctamente.');
+        Flash::success('Tipo de usuario guardado correctamente.');
 
         return redirect(route('userTypes.index'));
     }
@@ -75,7 +75,7 @@ class UserTypeController extends AppBaseController
         $userType = $this->userTypeRepository->find($id);
 
         if (empty($userType)) {
-            Flash::error('User Type no encontrado');
+            Flash::error('Tipo de usuario no encontrado');
 
             return redirect(route('userTypes.index'));
         }
@@ -95,7 +95,7 @@ class UserTypeController extends AppBaseController
         $userType = $this->userTypeRepository->find($id);
 
         if (empty($userType)) {
-            Flash::error('User Type no encontrado');
+            Flash::error('Tipo de usuario no encontrado');
 
             return redirect(route('userTypes.index'));
         }
@@ -116,14 +116,14 @@ class UserTypeController extends AppBaseController
         $userType = $this->userTypeRepository->find($id);
 
         if (empty($userType)) {
-            Flash::error('User Type no encontrado');
+            Flash::error('Tipo de usuario no encontrado');
 
             return redirect(route('userTypes.index'));
         }
 
         $userType = $this->userTypeRepository->update($request->all(), $id);
 
-        Flash::success('User Type actualizado correctamente.');
+        Flash::success('Tipo de usuario actualizado correctamente.');
 
         return redirect(route('userTypes.index'));
     }
@@ -142,14 +142,14 @@ class UserTypeController extends AppBaseController
         $userType = $this->userTypeRepository->find($id);
 
         if (empty($userType)) {
-            Flash::error('User Type no encontrado');
+            Flash::error('Tipo de usuario no encontrado');
 
             return redirect(route('userTypes.index'));
         }
 
         $this->userTypeRepository->delete($id);
 
-        Flash::success('User Type deleted successfully.');
+        Flash::success('Tipo de usuario eliminado correctamente.');
 
         return redirect(route('userTypes.index'));
     }

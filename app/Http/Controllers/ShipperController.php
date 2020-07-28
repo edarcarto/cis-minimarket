@@ -58,7 +58,7 @@ class ShipperController extends AppBaseController
 
         $shipper = $this->shipperRepository->create($input);
 
-        Flash::success('Shipper guardado correctamente.');
+        Flash::success('Envio guardado correctamente.');
 
         return redirect(route('shippers.index'));
     }
@@ -75,7 +75,7 @@ class ShipperController extends AppBaseController
         $shipper = $this->shipperRepository->find($id);
 
         if (empty($shipper)) {
-            Flash::error('Shipper no encontrado');
+            Flash::error('Envio no encontrado');
 
             return redirect(route('shippers.index'));
         }
@@ -95,7 +95,7 @@ class ShipperController extends AppBaseController
         $shipper = $this->shipperRepository->find($id);
 
         if (empty($shipper)) {
-            Flash::error('Shipper no encontrado');
+            Flash::error('Envio no encontrado');
 
             return redirect(route('shippers.index'));
         }
@@ -116,14 +116,14 @@ class ShipperController extends AppBaseController
         $shipper = $this->shipperRepository->find($id);
 
         if (empty($shipper)) {
-            Flash::error('Shipper no encontrado');
+            Flash::error('Envio no encontrado');
 
             return redirect(route('shippers.index'));
         }
 
         $shipper = $this->shipperRepository->update($request->all(), $id);
 
-        Flash::success('Shipper actualizado correctamente.');
+        Flash::success('Envio actualizado correctamente.');
 
         return redirect(route('shippers.index'));
     }
@@ -142,14 +142,14 @@ class ShipperController extends AppBaseController
         $shipper = $this->shipperRepository->find($id);
 
         if (empty($shipper)) {
-            Flash::error('Shipper no encontrado');
+            Flash::error('Envio no encontrado');
 
             return redirect(route('shippers.index'));
         }
 
         $this->shipperRepository->delete($id);
 
-        Flash::success('Shipper deleted successfully.');
+        Flash::success('Envio eliminado correctamente.');
 
         return redirect(route('shippers.index'));
     }

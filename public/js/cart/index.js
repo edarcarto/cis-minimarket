@@ -195,7 +195,8 @@ function culqi() {
             full_name: document.querySelector("#ship_name").value,
             city: document.querySelector("#ship_city").value,
             region: document.querySelector("#ship_region").value,
-            code: document.querySelector("#ship_postal_code").value
+            code: document.querySelector("#ship_postal_code").value,
+            culqi: Culqi.token
         };
 
         fetch(url, {

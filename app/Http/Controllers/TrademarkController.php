@@ -58,7 +58,7 @@ class TrademarkController extends AppBaseController
 
         $trademark = $this->trademarkRepository->create($input);
 
-        Flash::success('Trademark guardado correctamente.');
+        Flash::success('Marca guardado correctamente.');
 
         return redirect(route('trademarks.index'));
     }
@@ -75,7 +75,7 @@ class TrademarkController extends AppBaseController
         $trademark = $this->trademarkRepository->find($id);
 
         if (empty($trademark)) {
-            Flash::error('Trademark no encontrado');
+            Flash::error('Marca no encontrado');
 
             return redirect(route('trademarks.index'));
         }
@@ -95,7 +95,7 @@ class TrademarkController extends AppBaseController
         $trademark = $this->trademarkRepository->find($id);
 
         if (empty($trademark)) {
-            Flash::error('Trademark no encontrado');
+            Flash::error('Marca no encontrado');
 
             return redirect(route('trademarks.index'));
         }
@@ -116,14 +116,14 @@ class TrademarkController extends AppBaseController
         $trademark = $this->trademarkRepository->find($id);
 
         if (empty($trademark)) {
-            Flash::error('Trademark no encontrado');
+            Flash::error('Marca no encontrado');
 
             return redirect(route('trademarks.index'));
         }
 
         $trademark = $this->trademarkRepository->update($request->all(), $id);
 
-        Flash::success('Trademark actualizado correctamente.');
+        Flash::success('Marca actualizado correctamente.');
 
         return redirect(route('trademarks.index'));
     }
@@ -142,14 +142,13 @@ class TrademarkController extends AppBaseController
         $trademark = $this->trademarkRepository->find($id);
 
         if (empty($trademark)) {
-            Flash::error('Trademark no encontrado');
+            Flash::error('Marca no encontrado');
 
             return redirect(route('trademarks.index'));
         }
 
         $this->trademarkRepository->delete($id);
-
-        Flash::success('Trademark deleted successfully.');
+        Flash::success('Marca eliminado correctamente.');
 
         return redirect(route('trademarks.index'));
     }

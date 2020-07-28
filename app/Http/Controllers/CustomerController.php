@@ -58,7 +58,7 @@ class CustomerController extends AppBaseController
 
         $customer = $this->customerRepository->create($input);
 
-        Flash::success('Customer guardado correctamente.');
+        Flash::success('Cliente guardado correctamente.');
 
         return redirect(route('customers.index'));
     }
@@ -75,7 +75,7 @@ class CustomerController extends AppBaseController
         $customer = $this->customerRepository->find($id);
 
         if (empty($customer)) {
-            Flash::error('Customer no encontrado');
+            Flash::error('Cliente no encontrado');
 
             return redirect(route('customers.index'));
         }
@@ -95,7 +95,7 @@ class CustomerController extends AppBaseController
         $customer = $this->customerRepository->find($id);
 
         if (empty($customer)) {
-            Flash::error('Customer no encontrado');
+            Flash::error('Cliente no encontrado');
 
             return redirect(route('customers.index'));
         }
@@ -116,14 +116,14 @@ class CustomerController extends AppBaseController
         $customer = $this->customerRepository->find($id);
 
         if (empty($customer)) {
-            Flash::error('Customer no encontrado');
+            Flash::error('Cliente no encontrado');
 
             return redirect(route('customers.index'));
         }
 
         $customer = $this->customerRepository->update($request->all(), $id);
 
-        Flash::success('Customer actualizado correctamente.');
+        Flash::success('Cliente actualizado correctamente.');
 
         return redirect(route('customers.index'));
     }
@@ -142,14 +142,14 @@ class CustomerController extends AppBaseController
         $customer = $this->customerRepository->find($id);
 
         if (empty($customer)) {
-            Flash::error('Customer no encontrado');
+            Flash::error('Cliente no encontrado');
 
             return redirect(route('customers.index'));
         }
 
         $this->customerRepository->delete($id);
 
-        Flash::success('Customer deleted successfully.');
+        Flash::success('Cliente eliminado correctamente.');
 
         return redirect(route('customers.index'));
     }

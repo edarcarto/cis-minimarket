@@ -48,6 +48,7 @@ class Order extends Model
         'ship_region',
         'ship_postal_code',
         'ship_country',
+        'log_pay',
         'active'
     ];
 
@@ -70,6 +71,7 @@ class Order extends Model
         'ship_region' => 'string',
         'ship_postal_code' => 'string',
         'ship_country' => 'string',
+        'log_pay'=>'string',
         'active' => 'integer'
     ];
 

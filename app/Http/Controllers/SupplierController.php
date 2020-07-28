@@ -58,7 +58,7 @@ class SupplierController extends AppBaseController
 
         $supplier = $this->supplierRepository->create($input);
 
-        Flash::success('Supplier guardado correctamente.');
+        Flash::success('Proveedor guardado correctamente.');
 
         return redirect(route('suppliers.index'));
     }
@@ -75,7 +75,7 @@ class SupplierController extends AppBaseController
         $supplier = $this->supplierRepository->find($id);
 
         if (empty($supplier)) {
-            Flash::error('Supplier no encontrado');
+            Flash::error('Proveedor no encontrado');
 
             return redirect(route('suppliers.index'));
         }
@@ -95,7 +95,7 @@ class SupplierController extends AppBaseController
         $supplier = $this->supplierRepository->find($id);
 
         if (empty($supplier)) {
-            Flash::error('Supplier no encontrado');
+            Flash::error('Proveedor no encontrado');
 
             return redirect(route('suppliers.index'));
         }
@@ -116,14 +116,14 @@ class SupplierController extends AppBaseController
         $supplier = $this->supplierRepository->find($id);
 
         if (empty($supplier)) {
-            Flash::error('Supplier no encontrado');
+            Flash::error('Proveedor no encontrado');
 
             return redirect(route('suppliers.index'));
         }
 
         $supplier = $this->supplierRepository->update($request->all(), $id);
 
-        Flash::success('Supplier actualizado correctamente.');
+        Flash::success('Proveedor actualizado correctamente.');
 
         return redirect(route('suppliers.index'));
     }
@@ -142,14 +142,14 @@ class SupplierController extends AppBaseController
         $supplier = $this->supplierRepository->find($id);
 
         if (empty($supplier)) {
-            Flash::error('Supplier no encontrado');
+            Flash::error('Proveedor no encontrado');
 
             return redirect(route('suppliers.index'));
         }
 
         $this->supplierRepository->delete($id);
 
-        Flash::success('Supplier deleted successfully.');
+        Flash::success('Proveedor eliminado correctamente.');
 
         return redirect(route('suppliers.index'));
     }
