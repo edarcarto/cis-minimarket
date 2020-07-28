@@ -205,5 +205,8 @@ class PageController extends Controller
             $order->details = $details;
             Cart::clear();
             return $order;
+        }else{
+            return null;
+        }
     }
 }
