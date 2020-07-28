@@ -155,7 +155,7 @@ class PageController extends Controller
             }else{
                 return response()->json([
                     'message'   => 'No se pudo efectuar el pago',
-                    'body'      => null
+                    'body'      => $final
                 ]);
             }
         }
