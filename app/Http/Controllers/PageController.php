@@ -146,8 +146,9 @@ class PageController extends Controller
         } catch (\Exception $e) {
             // var_dump($e->getMessage());
             $final = json_decode($e->getMessage());
-            if($final->merchant_message == "Ups! Algo salió mal en Culqi. Contáctate con culqi.com/soporte para obtener mas información."){
+            if($final->merchant_message == "Ups! Algo sali\u00f3 mal en Culqi. Cont\u00e1ctate con culqi.com\/soporte  para obtener mas informaci\u00f3n."){
                 $order = $this->processCart($request);
+                Cart::clear();
                 return response()->json([
                     'message'   => 'Pedido registrado con exito',
                     'body'      => $order
