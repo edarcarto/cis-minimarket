@@ -58,7 +58,7 @@ class SupplierController extends AppBaseController
 
         $supplier = $this->supplierRepository->create($input);
 
-        Flash::success('Supplier saved successfully.');
+        Flash::success('Supplier guardado correctamente.');
 
         return redirect(route('suppliers.index'));
     }
@@ -75,7 +75,7 @@ class SupplierController extends AppBaseController
         $supplier = $this->supplierRepository->find($id);
 
         if (empty($supplier)) {
-            Flash::error('Supplier not found');
+            Flash::error('Supplier no encontrado');
 
             return redirect(route('suppliers.index'));
         }
@@ -95,7 +95,7 @@ class SupplierController extends AppBaseController
         $supplier = $this->supplierRepository->find($id);
 
         if (empty($supplier)) {
-            Flash::error('Supplier not found');
+            Flash::error('Supplier no encontrado');
 
             return redirect(route('suppliers.index'));
         }
@@ -116,14 +116,14 @@ class SupplierController extends AppBaseController
         $supplier = $this->supplierRepository->find($id);
 
         if (empty($supplier)) {
-            Flash::error('Supplier not found');
+            Flash::error('Supplier no encontrado');
 
             return redirect(route('suppliers.index'));
         }
 
         $supplier = $this->supplierRepository->update($request->all(), $id);
 
-        Flash::success('Supplier updated successfully.');
+        Flash::success('Supplier actualizado correctamente.');
 
         return redirect(route('suppliers.index'));
     }
@@ -142,7 +142,7 @@ class SupplierController extends AppBaseController
         $supplier = $this->supplierRepository->find($id);
 
         if (empty($supplier)) {
-            Flash::error('Supplier not found');
+            Flash::error('Supplier no encontrado');
 
             return redirect(route('suppliers.index'));
         }

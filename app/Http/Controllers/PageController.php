@@ -120,7 +120,7 @@ class PageController extends Controller
     public function pagarCarrito(Request $request)
     {
         # pagar el carrito
-        $SECRET_KEY = "sk_test_Co3xVE48PnOD0In3";
+        $SECRET_KEY = "sk_test_6T1bAF2IubdlqCwV";
         $culqi = new Culqi(array('api_key' => $SECRET_KEY));
         // Creamos Cargo a una tarjeta
         $charge = $culqi->Charges->create(
@@ -142,7 +142,7 @@ class PageController extends Controller
             "source_id" => $request->get('token'),
             )
         );
-
+        // $charge = true;
         if($charge){
             // buscar al usuario con datos de cliente
             $customer = $this->customerRepository->getForUser(\Auth::id());
@@ -183,7 +183,7 @@ class PageController extends Controller
                     // disminuir cantidad de productos
                     $product = $this->productRepository->find($row->attributes->all->id);
                     $deducible = $product->units_in_stock - $row->quantity;
-                    $this->productRepository->update(['units_in_stock' => $deducible], $id);
+                    $this->productRepository->update(['units_in_stock' => $deducible], $product->id);
                 }
                 $details = $this->orderRepository->saveDetails($products);
                 $order->details = $details;

@@ -58,7 +58,7 @@ class ShipperController extends AppBaseController
 
         $shipper = $this->shipperRepository->create($input);
 
-        Flash::success('Shipper saved successfully.');
+        Flash::success('Shipper guardado correctamente.');
 
         return redirect(route('shippers.index'));
     }
@@ -75,7 +75,7 @@ class ShipperController extends AppBaseController
         $shipper = $this->shipperRepository->find($id);
 
         if (empty($shipper)) {
-            Flash::error('Shipper not found');
+            Flash::error('Shipper no encontrado');
 
             return redirect(route('shippers.index'));
         }
@@ -95,7 +95,7 @@ class ShipperController extends AppBaseController
         $shipper = $this->shipperRepository->find($id);
 
         if (empty($shipper)) {
-            Flash::error('Shipper not found');
+            Flash::error('Shipper no encontrado');
 
             return redirect(route('shippers.index'));
         }
@@ -116,14 +116,14 @@ class ShipperController extends AppBaseController
         $shipper = $this->shipperRepository->find($id);
 
         if (empty($shipper)) {
-            Flash::error('Shipper not found');
+            Flash::error('Shipper no encontrado');
 
             return redirect(route('shippers.index'));
         }
 
         $shipper = $this->shipperRepository->update($request->all(), $id);
 
-        Flash::success('Shipper updated successfully.');
+        Flash::success('Shipper actualizado correctamente.');
 
         return redirect(route('shippers.index'));
     }
@@ -142,7 +142,7 @@ class ShipperController extends AppBaseController
         $shipper = $this->shipperRepository->find($id);
 
         if (empty($shipper)) {
-            Flash::error('Shipper not found');
+            Flash::error('Shipper no encontrado');
 
             return redirect(route('shippers.index'));
         }

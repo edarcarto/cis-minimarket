@@ -66,7 +66,7 @@
             </div>
 
             <div class="form-group has-feedback{{ $errors->has('document_number') ? ' has-error' : '' }}">
-                <input type="text" class="form-control" name="document_number" value="{{ old('document_number') }}" placeholder="Número de documento">
+                <input type="number" size="8" min="8" max="8" class="form-control" name="document_number" value="{{ old('document_number') }}" placeholder="Número de documento">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
 
                 @if ($errors->has('document_number'))
@@ -77,7 +77,7 @@
             </div>
 
             <div class="form-group has-feedback{{ $errors->has('phone') ? ' has-error' : '' }}">
-                <input type="tel" max="9" class="form-control" name="phone" value="{{ old('phone') }}" placeholder="Telefono">
+                <input type="tel" min="9" max="9" class="form-control" name="phone" value="{{ old('phone') }}" placeholder="Telefono">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
 
                 @if ($errors->has('phone'))
@@ -135,7 +135,12 @@
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox"> Acepto los <a href="#">terminos</a>
+                            <input name="remember_me" type="checkbox" required> Acepto los <a href="#">terminos</a>
+                            @if ($errors->has('remember_me'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('remember_me') }}</strong>
+                                </span>
+                            @endif
                         </label>
                     </div>
                 </div>

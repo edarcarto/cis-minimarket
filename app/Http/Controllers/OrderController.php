@@ -58,7 +58,7 @@ class OrderController extends AppBaseController
 
         $order = $this->orderRepository->create($input);
 
-        Flash::success('Order saved successfully.');
+        Flash::success('Order guardado correctamente.');
 
         return redirect(route('orders.index'));
     }
@@ -76,7 +76,7 @@ class OrderController extends AppBaseController
         $orderDetails = $this->orderRepository->showDetails($id);
 
         if (empty($order)) {
-            Flash::error('Order not found');
+            Flash::error('Order no encontrado');
 
             return redirect(route('orders.index'));
         }
@@ -96,7 +96,7 @@ class OrderController extends AppBaseController
         $order = $this->orderRepository->find($id);
 
         if (empty($order)) {
-            Flash::error('Order not found');
+            Flash::error('Order no encontrado');
 
             return redirect(route('orders.index'));
         }
@@ -117,14 +117,14 @@ class OrderController extends AppBaseController
         $order = $this->orderRepository->find($id);
 
         if (empty($order)) {
-            Flash::error('Order not found');
+            Flash::error('Order no encontrado');
 
             return redirect(route('orders.index'));
         }
 
         $order = $this->orderRepository->update($request->all(), $id);
 
-        Flash::success('Order updated successfully.');
+        Flash::success('Order actualizado correctamente.');
 
         return redirect(route('orders.index'));
     }
@@ -143,7 +143,7 @@ class OrderController extends AppBaseController
         $order = $this->orderRepository->find($id);
 
         if (empty($order)) {
-            Flash::error('Order not found');
+            Flash::error('Order no encontrado');
 
             return redirect(route('orders.index'));
         }

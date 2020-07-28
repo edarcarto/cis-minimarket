@@ -58,7 +58,7 @@ class CategoryController extends AppBaseController
 
         $category = $this->categoryRepository->create($input);
 
-        Flash::success('Category saved successfully.');
+        Flash::success('Categoría guardado correctamente.');
 
         return redirect(route('categories.index'));
     }
@@ -75,7 +75,7 @@ class CategoryController extends AppBaseController
         $category = $this->categoryRepository->find($id);
 
         if (empty($category)) {
-            Flash::error('Category not found');
+            Flash::error('Category no encontrado');
 
             return redirect(route('categories.index'));
         }
@@ -95,7 +95,7 @@ class CategoryController extends AppBaseController
         $category = $this->categoryRepository->find($id);
 
         if (empty($category)) {
-            Flash::error('Category not found');
+            Flash::error('Category no encontrado');
 
             return redirect(route('categories.index'));
         }
@@ -116,14 +116,14 @@ class CategoryController extends AppBaseController
         $category = $this->categoryRepository->find($id);
 
         if (empty($category)) {
-            Flash::error('Category not found');
+            Flash::error('Category no encontrado');
 
             return redirect(route('categories.index'));
         }
 
         $category = $this->categoryRepository->update($request->all(), $id);
 
-        Flash::success('Category updated successfully.');
+        Flash::success('Category actualizado correctamente.');
 
         return redirect(route('categories.index'));
     }
@@ -142,7 +142,7 @@ class CategoryController extends AppBaseController
         $category = $this->categoryRepository->find($id);
 
         if (empty($category)) {
-            Flash::error('Category not found');
+            Flash::error('Category no encontrado');
 
             return redirect(route('categories.index'));
         }

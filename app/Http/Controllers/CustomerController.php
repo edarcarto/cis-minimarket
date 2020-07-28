@@ -58,7 +58,7 @@ class CustomerController extends AppBaseController
 
         $customer = $this->customerRepository->create($input);
 
-        Flash::success('Customer saved successfully.');
+        Flash::success('Customer guardado correctamente.');
 
         return redirect(route('customers.index'));
     }
@@ -75,7 +75,7 @@ class CustomerController extends AppBaseController
         $customer = $this->customerRepository->find($id);
 
         if (empty($customer)) {
-            Flash::error('Customer not found');
+            Flash::error('Customer no encontrado');
 
             return redirect(route('customers.index'));
         }
@@ -95,7 +95,7 @@ class CustomerController extends AppBaseController
         $customer = $this->customerRepository->find($id);
 
         if (empty($customer)) {
-            Flash::error('Customer not found');
+            Flash::error('Customer no encontrado');
 
             return redirect(route('customers.index'));
         }
@@ -116,14 +116,14 @@ class CustomerController extends AppBaseController
         $customer = $this->customerRepository->find($id);
 
         if (empty($customer)) {
-            Flash::error('Customer not found');
+            Flash::error('Customer no encontrado');
 
             return redirect(route('customers.index'));
         }
 
         $customer = $this->customerRepository->update($request->all(), $id);
 
-        Flash::success('Customer updated successfully.');
+        Flash::success('Customer actualizado correctamente.');
 
         return redirect(route('customers.index'));
     }
@@ -142,7 +142,7 @@ class CustomerController extends AppBaseController
         $customer = $this->customerRepository->find($id);
 
         if (empty($customer)) {
-            Flash::error('Customer not found');
+            Flash::error('Customer no encontrado');
 
             return redirect(route('customers.index'));
         }

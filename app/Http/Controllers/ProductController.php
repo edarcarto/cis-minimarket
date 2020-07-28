@@ -67,7 +67,7 @@ class ProductController extends AppBaseController
             $this->productImageRepository->saveImages($request->images_products,$product->id);
         }
 
-        Flash::success('Product saved successfully.');
+        Flash::success('Product guardado correctamente.');
 
         return redirect(route('products.index'));
     }
@@ -84,7 +84,7 @@ class ProductController extends AppBaseController
         $product = $this->productRepository->find($id);
 
         if (empty($product)) {
-            Flash::error('Product not found');
+            Flash::error('Product no encontrado');
 
             return redirect(route('products.index'));
         }
@@ -106,7 +106,7 @@ class ProductController extends AppBaseController
         $product = $this->productRepository->find($id);
 
         if (empty($product)) {
-            Flash::error('Product not found');
+            Flash::error('Product no encontrado');
 
             return redirect(route('products.index'));
         }
@@ -129,7 +129,7 @@ class ProductController extends AppBaseController
         $product = $this->productRepository->find($id);
 
         if (empty($product)) {
-            Flash::error('Product not found');
+            Flash::error('Product no encontrado');
 
             return redirect(route('products.index'));
         }
@@ -141,7 +141,7 @@ class ProductController extends AppBaseController
 
         $product = $this->productRepository->update($request->all(), $id);
 
-        Flash::success('Product updated successfully.');
+        Flash::success('Product actualizado correctamente.');
 
         return redirect(route('products.index'));
     }
@@ -160,7 +160,7 @@ class ProductController extends AppBaseController
         $product = $this->productRepository->find($id);
 
         if (empty($product)) {
-            Flash::error('Product not found');
+            Flash::error('Product no encontrado');
 
             return redirect(route('products.index'));
         }

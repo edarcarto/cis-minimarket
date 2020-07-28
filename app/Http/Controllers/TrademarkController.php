@@ -58,7 +58,7 @@ class TrademarkController extends AppBaseController
 
         $trademark = $this->trademarkRepository->create($input);
 
-        Flash::success('Trademark saved successfully.');
+        Flash::success('Trademark guardado correctamente.');
 
         return redirect(route('trademarks.index'));
     }
@@ -75,7 +75,7 @@ class TrademarkController extends AppBaseController
         $trademark = $this->trademarkRepository->find($id);
 
         if (empty($trademark)) {
-            Flash::error('Trademark not found');
+            Flash::error('Trademark no encontrado');
 
             return redirect(route('trademarks.index'));
         }
@@ -95,7 +95,7 @@ class TrademarkController extends AppBaseController
         $trademark = $this->trademarkRepository->find($id);
 
         if (empty($trademark)) {
-            Flash::error('Trademark not found');
+            Flash::error('Trademark no encontrado');
 
             return redirect(route('trademarks.index'));
         }
@@ -116,14 +116,14 @@ class TrademarkController extends AppBaseController
         $trademark = $this->trademarkRepository->find($id);
 
         if (empty($trademark)) {
-            Flash::error('Trademark not found');
+            Flash::error('Trademark no encontrado');
 
             return redirect(route('trademarks.index'));
         }
 
         $trademark = $this->trademarkRepository->update($request->all(), $id);
 
-        Flash::success('Trademark updated successfully.');
+        Flash::success('Trademark actualizado correctamente.');
 
         return redirect(route('trademarks.index'));
     }
@@ -142,7 +142,7 @@ class TrademarkController extends AppBaseController
         $trademark = $this->trademarkRepository->find($id);
 
         if (empty($trademark)) {
-            Flash::error('Trademark not found');
+            Flash::error('Trademark no encontrado');
 
             return redirect(route('trademarks.index'));
         }
