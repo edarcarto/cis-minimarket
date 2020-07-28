@@ -66,7 +66,7 @@
             </div>
 
             <div class="form-group has-feedback{{ $errors->has('document_number') ? ' has-error' : '' }}">
-                <input type="number" size="8" min="8" max="8" class="form-control" name="document_number" value="{{ old('document_number') }}" placeholder="Número de documento">
+                <input type="number" size="8" class="form-control" name="document_number" value="{{ old('document_number') }}" placeholder="Número de documento">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
 
                 @if ($errors->has('document_number'))

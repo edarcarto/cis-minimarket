@@ -119,90 +119,94 @@ class PageController extends Controller
 
     public function pagarCarrito(Request $request)
     {
-        # pagar el carrito
-        $SECRET_KEY = "sk_test_6T1bAF2IubdlqCwV";
-        $culqi = new Culqi(array('api_key' => $SECRET_KEY));
-        // Creamos Cargo a una tarjeta
-        $charge = $culqi->Charges->create(
-            array(
-            "amount"        => $request->get('amount'),
-            "capture"       => true,
-            "currency_code" => "PEN",
-            "description"   => "Pago de Carrito",
-            "email"         => \Auth::user()->email,
-            "installments"  => 0,
-            // "antifraud_details" => array(
-            //     "address" => "Av. Lima 123",
-            //     "address_city" => "LIMA",
-            //     "country_code" => "PE",
-            //     "first_name" => "Will",
-            //     "last_name" => "Muro",
-            //     "phone_number" => "9889678986",
-            // ),
-            "source_id" => $request->get('token'),
-            )
-        );
-        // $charge = true;
-        if($charge){
+        try {
+            # pagar el carrito
+            $SECRET_KEY = "sk_test_6T1bAF2IubdlqCwV";
+            $culqi = new Culqi(array('api_key' => $SECRET_KEY));
             // buscar al usuario con datos de cliente
             $customer = $this->customerRepository->getForUser(\Auth::id());
-            // Seteando a donde se enviará el pedido
-            $ship = $this->shipperRepository->create([
-                'address' => $request->get('address'),
-                'phone' => $request->get('phone'),
-                'status' => 0,
-            ]);
-            // Hacer una orden de pedido
-            $cart = Cart::getContent();
-            $products = [];
-            if($cart){
-                #order 
-                $order = $this->orderRepository->create([
-                    'customer_id'       => $customer->id,
-                    'order_date'        => now(),
-                    'required_date'     => null,
-                    'shipped_date'      => null,
-                    'ship_via'          => $ship->id,
-                    'freight'           => '0.00',
-                    'ship_name'         => $request->get('full_name'),
-                    'ship_address'      => $request->get('address'),
-                    'ship_city'         => $request->get('city'),
-                    'ship_region'       => $request->get('region'),
-                    'ship_postal_code'  => $request->get('code'),
-                    'ship_country'      => 'Perú'
+            // Creamos Cargo a una tarjeta
+            $charge = $culqi->Charges->create(
+                array(
+                "amount"        => $request->get('amount'),
+                "capture"       => true,
+                "currency_code" => "PEN",
+                "description"   => uniqid(),
+                "email"         => \Auth::user()->email,
+                "installments"  => 0,
+                "antifraud_details" => array(
+                    "address" => $request->get('address'),
+                    "address_city" => $request->get('city'),
+                    "country_code" => "PE",
+                    "first_name" => $customer->first_name,
+                    "last_name" => $customer->last_name,
+                    "phone_number" => $request->get('phone'),
+                ),
+                "source_id" => $request->get('token'),
+                )
+            );
+            // $charge = true;
+            if($charge){
+                // Seteando a donde se enviará el pedido
+                $ship = $this->shipperRepository->create([
+                    'address' => $request->get('address'),
+                    'phone' => $request->get('phone'),
+                    'status' => 0,
                 ]);
-                # prepare details
-                foreach ($cart as $row) {
-                    array_push($products,[
-                        'order_id'   => $order->id,
-                        'product_id' => $row->attributes->all->id,
-                        'unit_price' => $row->price,
-                        'quantity'   => $row->quantity,
-                        'discount'   => '0.00' #falta
+                // Hacer una orden de pedido
+                $cart = Cart::getContent();
+                $products = [];
+                if($cart){
+                    #order 
+                    $order = $this->orderRepository->create([
+                        'customer_id'       => $customer->id,
+                        'order_date'        => now(),
+                        'required_date'     => null,
+                        'shipped_date'      => null,
+                        'ship_via'          => $ship->id,
+                        'freight'           => '0.00',
+                        'ship_name'         => $request->get('full_name'),
+                        'ship_address'      => $request->get('address'),
+                        'ship_city'         => $request->get('city'),
+                        'ship_region'       => $request->get('region'),
+                        'ship_postal_code'  => $request->get('code'),
+                        'ship_country'      => 'Perú'
                     ]);
-                    // disminuir cantidad de productos
-                    $product = $this->productRepository->find($row->attributes->all->id);
-                    $deducible = $product->units_in_stock - $row->quantity;
-                    $this->productRepository->update(['units_in_stock' => $deducible], $product->id);
+                    # prepare details
+                    foreach ($cart as $row) {
+                        array_push($products,[
+                            'order_id'   => $order->id,
+                            'product_id' => $row->attributes->all->id,
+                            'unit_price' => $row->price,
+                            'quantity'   => $row->quantity,
+                            'discount'   => '0.00' #falta
+                        ]);
+                        // disminuir cantidad de productos
+                        $product = $this->productRepository->find($row->attributes->all->id);
+                        $deducible = $product->units_in_stock - $row->quantity;
+                        $this->productRepository->update(['units_in_stock' => $deducible], $product->id);
+                    }
+                    $details = $this->orderRepository->saveDetails($products);
+                    $order->details = $details;
+                    Cart::clear();
+                    return response()->json([
+                        'message'   => 'Pedido registrado con exito',
+                        'body'      => $order
+                    ]);
+                }else{
+                    return response(500)->json([
+                        'message'   => 'El carrito está vacio',
+                        'body'      => null
+                    ]);
                 }
-                $details = $this->orderRepository->saveDetails($products);
-                $order->details = $details;
-                Cart::clear();
-                return response()->json([
-                    'message'   => 'Pedido registrado con exito',
-                    'body'      => $order
-                ]);
             }else{
                 return response(500)->json([
-                    'message'   => 'El carrito está vacio',
+                    'message'   => 'No se pudo efectuar el pago',
                     'body'      => null
                 ]);
             }
-        }else{
-            return response(500)->json([
-                'message'   => 'No se pudo efectuar el pago',
-                'body'      => null
-            ]);
+        } catch (\Exception $e) {
+            var_dump($e->getMessage());
         }
     }
 }
