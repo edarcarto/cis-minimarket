@@ -129,22 +129,24 @@ class PageController extends Controller
             $charge = $culqi->Charges->create(
                 array(
                 "amount"        => $request->get('amount'),
-                "capture"       => true,
+                // "capture"       => true,
                 "currency_code" => "PEN",
-                "description"   => uniqid(),
-                "email"         => \Auth::user()->email,
-                "installments"  => 0,
-                "antifraud_details" => array(
-                    "address" => $request->get('address'),
-                    "address_city" => $request->get('city'),
-                    "country_code" => "PE",
-                    "first_name" => $customer->first_name,
-                    "last_name" => $customer->last_name,
-                    "phone_number" => $request->get('phone'),
-                ),
+                // "description"   => uniqid(),
+                // "email"         => \Auth::user()->email,
+                "email"         => "test_charge@culqi.com",
+                // "installments"  => 0,
+                // "antifraud_details" => array(
+                //     "address" => $request->get('address'),
+                //     "address_city" => $request->get('city'),
+                //     "country_code" => "PE",
+                //     "first_name" => $customer->first_name,
+                //     "last_name" => $customer->last_name,
+                //     "phone_number" => $request->get('phone'),
+                // ),
                 "source_id" => $request->get('token'),
                 )
             );
+            // dd($charge);
             // $charge = true;
             if($charge){
                 // Seteando a donde se enviará el pedido
