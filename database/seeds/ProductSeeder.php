@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\Product;
-use Faker\Generator as Faker;
 use App\Models\ProductImage;
 
 class ProductSeeder extends Seeder
@@ -14,8 +13,6 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create();
-
         Product::create([
             'product_name' => 'Coca Cola',
             'description'  => 'Agua carbonatada, Colorante 150d, Aromatizantes, Acidulante: Edulcorantes: Aspartamo (24mg%) - Acesulfame K (16mg%), Conservante: Benzoato de sodio, Regulador de acidez. CONTIENE CAFEÍNA. FENILCETONÚRICOS: CONTIENE FENILALANINA.',
@@ -34,9 +31,9 @@ class ProductSeeder extends Seeder
         for ($i=0; $i < 49; $i++) { 
             $p = Product::create([
                 'product_name' => 'Producto #'.($i + 1),
-                'description'  => $faker->text,
+                'description'  => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                 'quantity_per_unit' => 100,
-                'unit_price' => $faker->randomNumber(2),
+                'unit_price' => (rand(12, 150) / 10),
                 'units_in_stock' => 100,
                 'units_on_order' => 0,
                 'reorder_level' => 0,
