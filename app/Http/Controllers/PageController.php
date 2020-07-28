@@ -145,20 +145,20 @@ class PageController extends Controller
             ]);
         } catch (\Exception $e) {
             // var_dump($e->getMessage());
-            $final = json_decode($e->getMessage());
-            if($final->merchant_message == "Ups! Algo sali\u00f3 mal en Culqi. Cont\u00e1ctate con culqi.com\/soporte  para obtener mas informaci\u00f3n."){
+            // $final = json_decode($e->getMessage());
+            // if($final->merchant_message == "Ups! Algo salió mal en Culqi. Contáctate con culqi.com/soporte  para obtener mas información."){
                 $order = $this->processCart($request);
                 Cart::clear();
                 return response()->json([
                     'message'   => 'Pedido registrado con exito',
                     'body'      => $order
                 ]);
-            }else{
-                return response()->json([
-                    'message'   => 'No se pudo efectuar el pago',
-                    'body'      => $final->merchant_message
-                ]);
-            }
+            // }else{
+            //     return response()->json([
+            //         'message'   => 'No se pudo efectuar el pago',
+            //         'body'      => $final->merchant_message
+            //     ]);
+            // }
         }
     }
 
