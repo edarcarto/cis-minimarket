@@ -123,8 +123,6 @@ class PageController extends Controller
             # pagar el carrito
             $SECRET_KEY = "sk_test_6T1bAF2IubdlqCwV";
             $culqi = new Culqi(array('api_key' => $SECRET_KEY));
-            // buscar al usuario con datos de cliente
-            $customer = $this->customerRepository->getForUser(\Auth::id());
             // Creamos Cargo a una tarjeta
             $charge = $culqi->Charges->create(
                 array(
@@ -163,10 +161,12 @@ class PageController extends Controller
     }
 
     function processCart($data){
+        // buscar al usuario con datos de cliente
+        $customer = $this->customerRepository->getForUser(\Auth::id());
         // Seteando a donde se enviará el pedido
         $ship = $this->shipperRepository->create([
-            'address' => $request->get('address'),
-            'phone' => $request->get('phone'),
+            'address' => $data->get('address'),
+            'phone' => $data->get('phone'),
             'status' => 0,
         ]);
         // Hacer una orden de pedido
@@ -181,12 +181,12 @@ class PageController extends Controller
                 'shipped_date'      => null,
                 'ship_via'          => $ship->id,
                 'freight'           => '0.00',
-                'ship_name'         => $request->get('full_name'),
-                'ship_address'      => $request->get('address'),
-                'ship_city'         => $request->get('city'),
-                'ship_region'       => $request->get('region'),
-                'ship_postal_code'  => $request->get('code'),
-                'log_pay'           => $request->get('culqi'),
+                'ship_name'         => $data->get('full_name'),
+                'ship_address'      => $data->get('address'),
+                'ship_city'         => $data->get('city'),
+                'ship_region'       => $data->get('region'),
+                'ship_postal_code'  => $data->get('code'),
+                'log_pay'           => $data->get('culqi'),
                 'ship_country'      => 'Perú'
             ]);
             # prepare details

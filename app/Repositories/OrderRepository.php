@@ -59,4 +59,15 @@ class OrderRepository extends BaseRepository
     function  showDetails($id){
         return OrderDetail::where('order_id',$id)->get();
     }
+
+    public function getMyOrders($id)
+    {
+        $orders = Order::where('customer_id',$id)->get();
+        $data = [];
+        foreach ($orders as $o) {
+            $o->details = $this->showDetails($o->id);
+            array_push($data,$o);
+        }
+        return $data;
+    }
 }

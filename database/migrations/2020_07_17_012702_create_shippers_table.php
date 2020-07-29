@@ -19,6 +19,9 @@ class CreateShippersTable extends Migration
             $table->string('address');
             $table->string('phone');
             $table->integer('status');
+            $table->timestamp('delivery_date')->nullabe();
+            $table->timestamp('cancellation_date')->nullabe();
+            $table->timestamp('date_order')->nullabe();
             $table->timestamps();
             $table->softDeletes();
         });

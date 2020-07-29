@@ -28,7 +28,10 @@ class Shipper extends Model
     public $fillable = [
         'address',
         'phone',
-        'status'
+        'status',
+        'delivery_date',
+        'cancellation_date',
+        'date_order'
     ];
 
     /**

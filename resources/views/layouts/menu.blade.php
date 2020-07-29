@@ -26,6 +26,14 @@
 </li>
 
 <li class="{{ Request::is('userTypes*') ? 'active' : '' }}">
-    <a href="{{ route('userTypes.index') }}"><i class="fa fa-edit"></i><span>Tipo de Usuario</span></a>
+    <a href="{{ route('userTypes.index') }}"><i class="fa fa-edit"></i><span>Tipo de usuario</span></a>
+</li>
+
+<li class="{{ Request::is('my-orders') ? 'active' : '' }}">
+    <a href="{{ route('userTypes.index') }}"><i class="fa fa-edit"></i><span>Mis pedidos</span></a>
+</li>
+
+<li class="{{ Request::is('wishlist') ? 'active' : '' }}">
+    <a href="{{ route('userTypes.index') }}"><i class="fa fa-edit"></i><span>Lista de deseos</span></a>
 </li>
 
