@@ -23,9 +23,9 @@ class CreateSuppliersTable extends Migration
             $table->string('city');
             $table->string('region');
             $table->string('postal_code');
-            $table->string('country');
+            // $table->string('country');
             $table->string('phone');
-            $table->string('fax');
+            // $table->string('fax');
             $table->string('homepage');
             $table->timestamps();
             $table->softDeletes();

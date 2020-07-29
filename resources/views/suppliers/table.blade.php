@@ -9,9 +9,9 @@
                 <th>Ciudad</th>
                 <th>Región</th>
                 <th>Código Postal</th>
-                <th>País</th>
+                <!-- <th>País</th> -->
                 <th>Teléfono</th>
-                <th>Fax</th>
+                <!-- <th>Fax</th> -->
                 <th>Pagina Web</th>
                 <th colspan="3">Acciones</th>
             </tr>
@@ -26,9 +26,9 @@
             <td>{{ $supplier->city }}</td>
             <td>{{ $supplier->region }}</td>
             <td>{{ $supplier->postal_code }}</td>
-            <td>{{ $supplier->country }}</td>
+            <!-- <td>@{{ $supplier->country }}</td> -->
             <td>{{ $supplier->phone }}</td>
-            <td>{{ $supplier->fax }}</td>
+            <!-- <td>@{{ $supplier->fax }}</td> -->
             <td>{{ $supplier->homepage }}</td>
                 <td>
                     {!! Form::open(['route' => ['suppliers.destroy', $supplier->id], 'method' => 'delete']) !!}

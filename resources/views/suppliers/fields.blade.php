@@ -41,10 +41,10 @@
 </div>
 
 <!-- Country Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('country', 'Pais:') !!}
-    {!! Form::text('country', null, ['class' => 'form-control']) !!}
-</div>
+<!-- <div class="form-group col-sm-6">
+    @{!! Form::label('country', 'Pais:') !!}
+    @{!! Form::text('country', null, ['class' => 'form-control']) !!}
+</div> -->
 
 <!-- Phone Field -->
 <div class="form-group col-sm-6">
@@ -53,10 +53,10 @@
 </div>
 
 <!-- Fax Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('fax', 'Fax:') !!}
-    {!! Form::tel('fax', null, ['class' => 'form-control']) !!}
-</div>
+<!-- <div class="form-group col-sm-6">
+    @{!! Form::label('fax', 'Fax:') !!}
+    @{!! Form::tel('fax', null, ['class' => 'form-control']) !!}
+</div> -->
 
 <!-- Fax Homepage -->
 <div class="form-group col-sm-6">

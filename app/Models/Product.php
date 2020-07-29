@@ -83,9 +83,9 @@ class Product extends Model
         'units_in_stock' => 'required',
         'units_on_order' => 'required',
         'reorder_level' => 'required',
-        'supplier_id' => 'required',
-        'category_id' => 'required',
-        'trademark_id' => 'required',
+        'supplier_id' => 'required|min:1',
+        'category_id' => 'required|min:1',
+        'trademark_id' => 'required|min:1',
         'discontinued' => 'required',
         'active' => 'required'
     ];

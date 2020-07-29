@@ -41,9 +41,9 @@ class Supplier extends Model
         'city',
         'region',
         'postal_code',
-        'country',
+        // 'country',
         'phone',
-        'fax',
+        // 'fax',
         'homepage'
     ];
 

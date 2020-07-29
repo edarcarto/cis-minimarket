@@ -1,7 +1,7 @@
 <!-- Trade Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('trade_name', 'Nombre de la Marca:') !!}
-    {!! Form::text('trade_name', null, ['class' => 'form-control']) !!}
+    {!! Form::text('trade_name', null, ['class' => 'form-control','maxlength' => 150]) !!}
 </div>
 
 <!-- Active Field -->

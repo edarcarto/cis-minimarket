@@ -41,10 +41,10 @@
 </div>
 
 <!-- Country Field -->
-<div class="form-group">
-    {!! Form::label('country', 'Pais:') !!}
-    <p>{{ $supplier->country }}</p>
-</div>
+<!-- <div class="form-group">
+    @{!! Form::label('country', 'Pais:') !!}
+    <p>@{{ $supplier->country }}</p>
+</div> -->
 
 <!-- Phone Field -->
 <div class="form-group">
@@ -53,10 +53,10 @@
 </div>
 
 <!-- Fax Field -->
-<div class="form-group">
-    {!! Form::label('fax', 'Fax:') !!}
-    <p>{{ $supplier->fax }}</p>
-</div>
+<!-- <div class="form-group">
+    @{!! Form::label('fax', 'Fax:') !!}
+    <p>@{{ $supplier->fax }}</p>
+</div> -->
 
 <!-- Homepage Field -->
 <div class="form-group">
