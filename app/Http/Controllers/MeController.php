@@ -28,7 +28,7 @@ class MeController extends AppBaseController
         $customer = $this->customerRepository->getForUser(\Auth::id());
         $orders = $this->orderRepository->getMyOrders($customer->id);
 
-        return view('me.orders')
+        return view('me.index')
             ->with('orders', $orders);
     }
 

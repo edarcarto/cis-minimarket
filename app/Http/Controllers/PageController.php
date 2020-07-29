@@ -186,7 +186,7 @@ class PageController extends Controller
                 'ship_city'         => $data->get('city'),
                 'ship_region'       => $data->get('region'),
                 'ship_postal_code'  => $data->get('code'),
-                'log_pay'           => $data->get('culqi'),
+                'log_pay'           => json_encode ($data->get('culqi')),
                 'ship_country'      => 'Perú'
             ]);
             # prepare details
