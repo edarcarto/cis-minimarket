@@ -211,4 +211,11 @@ class PageController extends Controller
             return null;
         }
     }
+
+    public function filter()
+    {
+        // $products = $this->productRepository->getProductImages();
+        // dd($products);
+        return view('filter');
+    }
 }

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PageController@index')->name('home');
+Route::get('/filter', 'PageController@filter')->name('filter');
 Route::get('/product/{id}', 'PageController@viewProduct')->name('product');
 Route::get('/add-to-cart', 'PageController@addToCart')->name('addToCart');
 Route::get('/cart', 'PageController@cart')->name('cart');
