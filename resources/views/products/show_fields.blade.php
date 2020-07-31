@@ -66,13 +66,13 @@
 
 <!-- Created At Field -->
 <div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
+    {!! Form::label('created_at', 'Creación') !!}
     <p>{{ $product->created_at }}</p>
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
+    {!! Form::label('updated_at', 'Actualización') !!}
     <p>{{ $product->updated_at }}</p>
 </div>
 

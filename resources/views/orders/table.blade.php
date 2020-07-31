@@ -2,19 +2,19 @@
     <table class="table" id="orders-table">
         <thead>
             <tr>
-                <th>Customer Id</th>
-        <th>Order Date</th>
-        <th>Required Date</th>
-        <th>Shipped Date</th>
-        <th>Ship Via</th>
-        <th>Freight</th>
-        <th>Ship Name</th>
-        <th>Ship Address</th>
-        <th>Ship City</th>
-        <th>Ship Region</th>
-        <th>Ship Postal Code</th>
-        <th>Ship Country</th>
-        <th>Active</th>
+                <th>Cliente</th>
+        <th>Fecha Orden</th>
+        <th>Fecha Envío</th>
+        <th>Fecha de Recepción</th>
+        <th>Envio</th>
+        <th>Carga</th>
+        <th>Nombre Receptor</th>
+        <th>Dirección</th>
+        <th>Ciudad Receptor</th>
+        <th>Región Receptor</th>
+        <th>Codigo Postal Receptor</th>
+        <th>Pais Receptor</th>
+        <th>Activo</th>
                 <th colspan="3">Action</th>
             </tr>
         </thead>
@@ -33,7 +33,7 @@
             <td>{{ $order->ship_region }}</td>
             <td>{{ $order->ship_postal_code }}</td>
             <td>{{ $order->ship_country }}</td>
-            <td>{{ $order->active }}</td>
+            <td>{{ ($order->active === 1) ? 'Si' : 'No' }}</td>
                 <td>
                     {!! Form::open(['route' => ['orders.destroy', $order->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

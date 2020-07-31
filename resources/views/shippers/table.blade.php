@@ -4,8 +4,8 @@
             <tr>
                 <th>Orden</th>
                 <th>Dirección</th>
-                <th>telefono</th>
-                <th>Status</th>
+                <th>Telefono</th>
+                <th>Estatus</th>
                 <th colspan="3">Action</th>
             </tr>
         </thead>
@@ -15,7 +15,7 @@
             <td></td>
             <td>{{ $shipper->address }}</td>
             <td>{{ $shipper->phone }}</td>
-            <td>{{ $shipper->status }}</td>
+            <td>{{ ($shipper->status === 1) ? 'Si' : 'No' }}</td>
                 <td>
                     {!! Form::open(['route' => ['shippers.destroy', $shipper->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

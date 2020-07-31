@@ -12,13 +12,13 @@
 
 <!-- Created At Field -->
 <div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
+    {!! Form::label('created_at', 'Creación') !!}
     <p>{{ $trademark->created_at }}</p>
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
+    {!! Form::label('updated_at', 'Actualización') !!}
     <p>{{ $trademark->updated_at }}</p>
 </div>
 

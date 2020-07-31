@@ -23,7 +23,15 @@
             <tr>
                 <td>{{ $customer->first_name }}</td>
                 <td>{{ $customer->last_name }}</td>
-                <td>{{ $customer->document_type }}</td>
+                <td>
+                @if($customer->document_type == 1)
+                    CE
+                @elseif($customer->document_type == 2)
+                    DNI
+                @elseif($customer->document_type == 3)
+                    RUC
+                @endif
+                </td>
                 <td>{{ $customer->document_number }}</td>
                 <td>{{ $customer->phone }}</td>
                 <!-- <td>{{ $customer->departament }}</td> -->

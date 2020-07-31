@@ -1,90 +1,90 @@
 <!-- Customer Id Field -->
 <div class="form-group">
-    {!! Form::label('customer_id', 'Customer Id:') !!}
+    {!! Form::label('customer_id', 'Cliente:') !!}
     <p>{{ $order->customer_id }}</p>
 </div>
 
 <!-- Order Date Field -->
 <div class="form-group">
-    {!! Form::label('order_date', 'Order Date:') !!}
+    {!! Form::label('order_date', 'Fecha de orden:') !!}
     <p>{{ $order->order_date }}</p>
 </div>
 
 <!-- Required Date Field -->
 <div class="form-group">
-    {!! Form::label('required_date', 'Required Date:') !!}
+    {!! Form::label('required_date', 'Fecha recepción:') !!}
     <p>{{ $order->required_date }}</p>
 </div>
 
 <!-- Shipped Date Field -->
 <div class="form-group">
-    {!! Form::label('shipped_date', 'Shipped Date:') !!}
+    {!! Form::label('shipped_date', 'Fecha Envio:') !!}
     <p>{{ $order->shipped_date }}</p>
 </div>
 
 <!-- Ship Via Field -->
 <div class="form-group">
-    {!! Form::label('ship_via', 'Ship Via:') !!}
+    {!! Form::label('ship_via', 'Envío:') !!}
     <p>{{ $order->ship_via }}</p>
 </div>
 
 <!-- Freight Field -->
 <div class="form-group">
-    {!! Form::label('freight', 'Freight:') !!}
+    {!! Form::label('freight', 'Carga:') !!}
     <p>{{ $order->freight }}</p>
 </div>
 
 <!-- Ship Name Field -->
 <div class="form-group">
-    {!! Form::label('ship_name', 'Ship Name:') !!}
+    {!! Form::label('ship_name', 'Nombre de Receptor:') !!}
     <p>{{ $order->ship_name }}</p>
 </div>
 
 <!-- Ship Address Field -->
 <div class="form-group">
-    {!! Form::label('ship_address', 'Ship Address:') !!}
+    {!! Form::label('ship_address', 'Dirección Receptor:') !!}
     <p>{{ $order->ship_address }}</p>
 </div>
 
 <!-- Ship City Field -->
 <div class="form-group">
-    {!! Form::label('ship_city', 'Ship City:') !!}
+    {!! Form::label('ship_city', 'Ciudad Receptor:') !!}
     <p>{{ $order->ship_city }}</p>
 </div>
 
 <!-- Ship Region Field -->
 <div class="form-group">
-    {!! Form::label('ship_region', 'Ship Region:') !!}
+    {!! Form::label('ship_region', 'Región receptor:') !!}
     <p>{{ $order->ship_region }}</p>
 </div>
 
 <!-- Ship Postal Code Field -->
 <div class="form-group">
-    {!! Form::label('ship_postal_code', 'Ship Postal Code:') !!}
+    {!! Form::label('ship_postal_code', 'Codigo Postal Receptor:') !!}
     <p>{{ $order->ship_postal_code }}</p>
 </div>
 
 <!-- Ship Country Field -->
 <div class="form-group">
-    {!! Form::label('ship_country', 'Ship Country:') !!}
+    {!! Form::label('ship_country', 'Pais Receptor:') !!}
     <p>{{ $order->ship_country }}</p>
 </div>
 
 <!-- Active Field -->
 <div class="form-group">
-    {!! Form::label('active', 'Active:') !!}
+    {!! Form::label('active', 'Activo:') !!}
     <p>{{ $order->active }}</p>
 </div>
 
 <!-- Created At Field -->
 <div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
+    {!! Form::label('created_at', 'Creación') !!}
     <p>{{ $order->created_at }}</p>
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
+    {!! Form::label('updated_at', 'Actualización') !!}
     <p>{{ $order->updated_at }}</p>
 </div>
 

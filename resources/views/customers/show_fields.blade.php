@@ -13,7 +13,13 @@
 <!-- Document Type Field -->
 <div class="form-group">
     {!! Form::label('document_type', 'T. Documento:') !!}
-    <p>{{ $customer->document_type }}</p>
+    <p>@if($customer->document_type == 1)
+        CE
+    @elseif($customer->document_type == 2)
+        DNI
+    @elseif($customer->document_type == 3)
+        RUC
+    @endif</p>
 </div>
 
 <!-- Document Number Field -->
@@ -78,13 +84,13 @@
 
 <!-- Created At Field -->
 <div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
+    {!! Form::label('created_at', 'Creación') !!}
     <p>{{ $customer->created_at }}</p>
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
+    {!! Form::label('updated_at', 'Actualización') !!}
     <p>{{ $customer->updated_at }}</p>
 </div>
 
