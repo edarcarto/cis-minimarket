@@ -30,6 +30,6 @@ class CreateUserTypesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('user_types');
+        Schema::drop('markets');
     }
 }
