@@ -53,7 +53,7 @@ class ViewServiceProvider extends ServiceProvider
             $view->with('categoryItems', $categoryItems);
         });
         //
-        View::composer(['suppliers.fields'], function ($view) {
+        View::composer(['customers.fields'], function ($view) {
             $ubigeo_peru_departments = array(
                 array('id' => '0','name' => 'Seleccione'),
                 array('id' => '01','name' => 'Amazonas'),
@@ -82,7 +82,6 @@ class ViewServiceProvider extends ServiceProvider
                 array('id' => '24','name' => 'Tumbes'),
                 array('id' => '25','name' => 'Ucayali')
               );
-            // $categoryItems = array_merge($categoryItems,Category::pluck('category_name','id')->toArray());
             $view->with('departments', $ubigeo_peru_departments);
         });
     }

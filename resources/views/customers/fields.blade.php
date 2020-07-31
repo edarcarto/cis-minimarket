@@ -31,7 +31,7 @@
 <!-- Departament Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('departament', 'Departamento:') !!}
-    {!! Form::select('departament', [], null, ['class' => 'form-control']) !!}
+    {!! Form::select('departament',$departments , null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Province Field -->
