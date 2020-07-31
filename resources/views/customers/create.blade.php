@@ -59,12 +59,12 @@ function loadDistritos (id) {
 
 // Departamento: Click event
 $cbodepartamento.on('change', function() {
-  loadProvincias$("#departament").val();
+  loadProvincias($("#departament").val());
 });
 
 // Provincia: Click event
 $cboprovincia.on('change', function() {
-  loadDistritos$("#pronvice").val();
+  loadDistritos($("#pronvice").val());
 });
 
 // Cargar departamento por defecto
