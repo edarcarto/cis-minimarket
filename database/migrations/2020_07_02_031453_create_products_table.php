@@ -26,6 +26,7 @@ class CreateProductsTable extends Migration
             $table->integer('supplier_id')->unsigned();
             $table->integer('category_id')->unsigned();
             $table->integer('trademark_id')->unsigned();
+            $table->integer('market_id')->unsigned();
             $table->integer('discontinued');
             $table->boolean('active')->default(true);
             $table->timestamps();
@@ -33,6 +34,7 @@ class CreateProductsTable extends Migration
             $table->foreign('supplier_id')->references('id')->on('suppliers');
             $table->foreign('trademark_id')->references('id')->on('trademarks');
             $table->foreign('category_id')->references('id')->on('categories');
+            // $table->foreign('market_id')->references('id')->on('markets');
         });
     }
 

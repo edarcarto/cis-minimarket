@@ -10,7 +10,7 @@
         <tbody>
         @foreach($markets as $market)
             <tr>
-            <td>{{ $market->category_name }}</td>
+            <td>{{ $market->market_name }}</td>
             <td>{{ ($market->active === 1) ? 'Si' : 'No' }}</td>
                 <td>
                     {!! Form::open(['route' => ['markets.destroy', $market->id], 'method' => 'delete']) !!}

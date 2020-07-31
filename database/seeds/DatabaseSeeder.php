@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             SupplierSeeder::class,
             ProductSeeder::class,
             ProductImageSeeder::class,
-            UserSeeder::class
+            UserSeeder::class,
+            MarketSeeder::class
         ]);
         Model::reguard();
     }

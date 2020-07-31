@@ -58,6 +58,12 @@
     {!! Form::select('trademark_id', $trademarkItems, null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- Trademark Id Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('market_id', 'Sede:') !!}
+    {!! Form::select('market_id', $markets, null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Discontinued Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('discontinued', 'Discontinuado:') !!}
