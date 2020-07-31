@@ -59,9 +59,9 @@ class ViewServiceProvider extends ServiceProvider
         //
         View::composer(['customers.fields'], function ($view) {
             $ubigeo_peru_departments = array(
-                array('id' => '0','name' => 'Seleccione'),
-                array('id' => '01','name' => 'Amazonas'),
-                array('id' => '02','name' => 'Áncash'),
+                0=> 'Seleccione',
+                1=> 'Amazonas',
+                2=>  'Áncash',
                 array('id' => '03','name' => 'Apurímac'),
                 array('id' => '04','name' => 'Arequipa'),
                 array('id' => '05','name' => 'Ayacucho'),
