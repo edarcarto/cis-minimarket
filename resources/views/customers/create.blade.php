@@ -33,7 +33,7 @@ ubigeo.distritos =
 
 var $cbodepartamento = $('#departament');
 var $cboprovincia = $('#province');
-var $cbodistrito = $('#cdistrict');
+var $cbodistrito = $('#district');
 
 function loadCaption(control, caption) {
   control.empty().append($('<option />').prop('disabled', true)
