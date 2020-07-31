@@ -3,14 +3,14 @@
 
 <!-- Category Name Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('category_name', 'Nombre Categoría:') !!}
-    {!! Form::text('category_name', null, ['class' => 'form-control','maxlength' => 150]) !!}
+    {!! Form::label('user_name', 'Nombre Usuario:') !!}
+    {!! Form::text('user_name', null, ['class' => 'form-control','maxlength' => 150]) !!}
 </div>
 
 <!-- Category Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('category_id', 'Categoría Padre:') !!}
-    {!! Form::select('category_id', $categoryItems, null, ['class' => 'form-control']) !!}
+    {!! Form::label('user_id', 'Usuario Padre:') !!}
+    {!! Form::select('user_id', $userItems, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Parent Field -->
@@ -39,5 +39,5 @@
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
-    <a href="{{ route('categories.index') }}" class="btn btn-default">Cancelar</a>
+    <a href="{{ route('users.index') }}" class="btn btn-default">Cancelar</a>
 </div>

@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Category;
+use App\User;
 
-class UpdateCategoryRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
 
     /**
@@ -25,7 +25,7 @@ class UpdateCategoryRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = Category::$rules;
+        $rules = User::$rules;
         
         return $rules;
     }
