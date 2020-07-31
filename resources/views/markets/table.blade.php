@@ -8,15 +8,15 @@
             </tr>
         </thead>
         <tbody>
-        @foreach($markets as $category)
+        @foreach($markets as $market)
             <tr>
-            <td>{{ $category->category_name }}</td>
-            <td>{{ ($category->active === 1) ? 'Si' : 'No' }}</td>
+            <td>{{ $market->category_name }}</td>
+            <td>{{ ($market->active === 1) ? 'Si' : 'No' }}</td>
                 <td>
-                    {!! Form::open(['route' => ['markets.destroy', $category->id], 'method' => 'delete']) !!}
+                    {!! Form::open(['route' => ['markets.destroy', $market->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="{{ route('markets.show', [$category->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                        <a href="{{ route('markets.edit', [$category->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                        <a href="{{ route('markets.show', [$market->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+                        <a href="{{ route('markets.edit', [$market->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
                         {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}

@@ -20,7 +20,7 @@ class MarketController extends AppBaseController
     }
 
     /**
-     * Display a listing of the Category.
+     * Display a listing of the market.
      *
      * @param Request $request
      *
@@ -28,14 +28,14 @@ class MarketController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $categories = $this->marketRepository->paginate(10);
+        $markets = $this->marketRepository->paginate(10);
 
         return view('markets.index')
-            ->with('categories', $categories);
+            ->with('markets', $markets);
     }
 
     /**
-     * Show the form for creating a new Category.
+     * Show the form for creating a new market.
      *
      * @return Response
      */
@@ -45,7 +45,7 @@ class MarketController extends AppBaseController
     }
 
     /**
-     * Store a newly created Category in storage.
+     * Store a newly created market in storage.
      *
      * @param CreateMarketRequest $request
      *
@@ -55,7 +55,7 @@ class MarketController extends AppBaseController
     {
         $input = $request->all();
 
-        $category = $this->marketRepository->create($input);
+        $market = $this->marketRepository->create($input);
 
         Flash::success('Tienda guardada correctamente.');
 
@@ -63,7 +63,7 @@ class MarketController extends AppBaseController
     }
 
     /**
-     * Display the specified Category.
+     * Display the specified market.
      *
      * @param int $id
      *
@@ -71,19 +71,19 @@ class MarketController extends AppBaseController
      */
     public function show($id)
     {
-        $category = $this->marketRepository->find($id);
+        $market = $this->marketRepository->find($id);
 
-        if (empty($category)) {
+        if (empty($market)) {
             Flash::error('Tienda no encontrada');
 
             return redirect(route('markets.index'));
         }
 
-        return view('markets.show')->with('category', $category);
+        return view('markets.show')->with('market', $market);
     }
 
     /**
-     * Show the form for editing the specified Category.
+     * Show the form for editing the specified market.
      *
      * @param int $id
      *
@@ -91,19 +91,19 @@ class MarketController extends AppBaseController
      */
     public function edit($id)
     {
-        $category = $this->marketRepository->find($id);
+        $market = $this->marketRepository->find($id);
 
-        if (empty($category)) {
+        if (empty($market)) {
             Flash::error('Tienda no encontrada');
 
             return redirect(route('markets.index'));
         }
 
-        return view('markets.edit')->with('category', $category);
+        return view('markets.edit')->with('market', $market);
     }
 
     /**
-     * Update the specified Category in storage.
+     * Update the specified market in storage.
      *
      * @param int $id
      * @param UpdateMarketRequest $request
@@ -112,15 +112,15 @@ class MarketController extends AppBaseController
      */
     public function update($id, UpdateMarketRequest $request)
     {
-        $category = $this->marketRepository->find($id);
+        $market = $this->marketRepository->find($id);
 
-        if (empty($category)) {
+        if (empty($market)) {
             Flash::error('Tienda no encontrada');
 
             return redirect(route('markets.index'));
         }
 
-        $category = $this->marketRepository->update($request->all(), $id);
+        $market = $this->marketRepository->update($request->all(), $id);
 
         Flash::success('Tienda actualizada correctamente.');
 
@@ -128,7 +128,7 @@ class MarketController extends AppBaseController
     }
 
     /**
-     * Remove the specified Category from storage.
+     * Remove the specified market from storage.
      *
      * @param int $id
      *
@@ -138,9 +138,9 @@ class MarketController extends AppBaseController
      */
     public function destroy($id)
     {
-        $category = $this->marketRepository->find($id);
+        $market = $this->marketRepository->find($id);
 
-        if (empty($category)) {
+        if (empty($market)) {
             Flash::error('Tienda no encontrada');
 
             return redirect(route('markets.index'));
