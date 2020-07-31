@@ -45,6 +45,7 @@ class Product extends Model
         'supplier_id',
         'category_id',
         'trademark_id',
+        'market_id',
         'discontinued',
         'active'
     ];
@@ -66,6 +67,7 @@ class Product extends Model
         'supplier_id' => 'integer',
         'category_id' => 'integer',
         'trademark_id' => 'integer',
+        'market_id'=>'integer',
         'discontinued' => 'integer',
         'active' => 'integer'
     ];
@@ -86,6 +88,7 @@ class Product extends Model
         'supplier_id' => 'required|min:1',
         'category_id' => 'required|min:1',
         'trademark_id' => 'required|min:1',
+        'market_id'=>'required|min:1',
         'discontinued' => 'required',
         'active' => 'required'
     ];
@@ -112,5 +115,13 @@ class Product extends Model
     public function trademark()
     {
         return $this->belongsTo('App\Models\Trademark','trademark_id','id');
+    }
+
+    /**
+     * Get the phone record associated with the trademark.
+     */
+    public function market()
+    {
+        return $this->belongsTo('App\Models\Market','market_id','id');
     }
 }

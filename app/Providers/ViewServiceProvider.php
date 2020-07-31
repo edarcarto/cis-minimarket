@@ -39,11 +39,7 @@ class ViewServiceProvider extends ServiceProvider
         });
         View::composer(['products.fields'], function ($view) {
             $categoryItems = array(0 => 'Seleccione');
-            $categoryItems = array_merge($categoryItems,Category::where('parent',0)->pluck('category_name','id')->toArray());
-            
-            
-            
-        
+            $categoryItems = array_merge($categoryItems,Category::where('parent',0)->pluck('category_name','id')->toArray()); 
             $view->with('categoryItems', $categoryItems);
         });
         View::composer(['products.fields'], function ($view) {
@@ -55,6 +51,11 @@ class ViewServiceProvider extends ServiceProvider
             $categoryItems = array(0 => 'Seleccione');
             $categoryItems = array_merge($categoryItems,Category::pluck('category_name','id')->toArray());
             $view->with('categoryItems', $categoryItems);
+        });
+        View::composer(['markets.fields'], function ($view) {
+            $marketItem = array(0 => 'Seleccione');
+            $marketItem = array_merge($marketItem,Market::pluck('market_name','id')->toArray());
+            $view->with('marketItems', $marketItem);
         });
         //
         View::composer(['customers.fields'], function ($view) {
