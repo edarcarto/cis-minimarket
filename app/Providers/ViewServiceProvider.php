@@ -40,6 +40,10 @@ class ViewServiceProvider extends ServiceProvider
         View::composer(['products.fields'], function ($view) {
             $categoryItems = array(0 => 'Seleccione');
             $categoryItems = array_merge($categoryItems,Category::where('parent',0)->pluck('category_name','id')->toArray());
+            
+            
+            
+        
             $view->with('categoryItems', $categoryItems);
         });
         View::composer(['products.fields'], function ($view) {
@@ -55,32 +59,32 @@ class ViewServiceProvider extends ServiceProvider
         //
         View::composer(['customers.fields'], function ($view) {
             $ubigeo_peru_departments = array(
-                array('id' => '0','name' => 'Seleccione'),
-                array('id' => '01','name' => 'Amazonas'),
-                array('id' => '02','name' => 'Áncash'),
-                array('id' => '03','name' => 'Apurímac'),
-                array('id' => '04','name' => 'Arequipa'),
-                array('id' => '05','name' => 'Ayacucho'),
-                array('id' => '06','name' => 'Cajamarca'),
-                array('id' => '07','name' => 'Callao'),
-                array('id' => '08','name' => 'Cusco'),
-                array('id' => '09','name' => 'Huancavelica'),
-                array('id' => '10','name' => 'Huánuco'),
-                array('id' => '11','name' => 'Ica'),
-                array('id' => '12','name' => 'Junín'),
-                array('id' => '13','name' => 'La Libertad'),
-                array('id' => '14','name' => 'Lambayeque'),
-                array('id' => '15','name' => 'Lima'),
-                array('id' => '16','name' => 'Loreto'),
-                array('id' => '17','name' => 'Madre de Dios'),
-                array('id' => '18','name' => 'Moquegua'),
-                array('id' => '19','name' => 'Pasco'),
-                array('id' => '20','name' => 'Piura'),
-                array('id' => '21','name' => 'Puno'),
-                array('id' => '22','name' => 'San Martín'),
-                array('id' => '23','name' => 'Tacna'),
-                array('id' => '24','name' => 'Tumbes'),
-                array('id' => '25','name' => 'Ucayali')
+                0=> 'Seleccione',
+                1=> 'Amazonas',
+                2=>  'Áncash',
+                3=> 'Apurímac',
+                4=> 'Arequipa',
+                5=> 'Ayacucho',
+                6=> 'Cajamarca',
+                7=> 'Callao',
+                8=> 'Cusco',
+                9=> 'Huancavelica',
+                10=> 'Huánuco',
+                11=> 'Ica',
+                12=> 'Junín',
+                13=> 'La Libertad',
+                14=> 'Lambayeque',
+                15=> 'Lima',
+                16=> 'Loreto',
+                17=> 'Madre de Dios',
+                18=> 'Moquegua',
+                19=> 'Pasco',
+                20=> 'Piura',
+                21=> 'Puno',
+                22=> 'San Martín',
+                23=> 'Tacna',
+                24=> 'Tumbes',
+                25=> 'Ucayali'
               );
             $view->with('departments', $ubigeo_peru_departments);
         });

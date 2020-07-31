@@ -42,7 +42,7 @@
 
 <!-- District Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('district', 'Districto:') !!}
+    {!! Form::label('district', 'Distrito:') !!}
     {!! Form::select('district', [], null, ['class' => 'form-control']) !!}
 </div>
 
