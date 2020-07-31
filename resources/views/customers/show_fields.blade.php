@@ -1,73 +1,73 @@
 <!-- First Name Field -->
 <div class="form-group">
-    {!! Form::label('first_name', 'First Name:') !!}
+    {!! Form::label('first_name', 'Nombres:') !!}
     <p>{{ $customer->first_name }}</p>
 </div>
 
 <!-- Last Name Field -->
 <div class="form-group">
-    {!! Form::label('last_name', 'Last Name:') !!}
+    {!! Form::label('last_name', 'Apellidos:') !!}
     <p>{{ $customer->last_name }}</p>
 </div>
 
 <!-- Document Type Field -->
 <div class="form-group">
-    {!! Form::label('document_type', 'Document Type:') !!}
+    {!! Form::label('document_type', 'T. Documento:') !!}
     <p>{{ $customer->document_type }}</p>
 </div>
 
 <!-- Document Number Field -->
 <div class="form-group">
-    {!! Form::label('document_number', 'Document Number:') !!}
+    {!! Form::label('document_number', 'Numero de documento:') !!}
     <p>{{ $customer->document_number }}</p>
 </div>
 
 <!-- Phone Field -->
 <div class="form-group">
-    {!! Form::label('phone', 'Phone:') !!}
+    {!! Form::label('phone', 'Teléfono:') !!}
     <p>{{ $customer->phone }}</p>
 </div>
 
 <!-- Departament Field -->
 <div class="form-group">
-    {!! Form::label('departament', 'Departament:') !!}
+    {!! Form::label('departament', 'Departamento:') !!}
     <p>{{ $customer->departament }}</p>
 </div>
 
 <!-- Province Field -->
 <div class="form-group">
-    {!! Form::label('province', 'Province:') !!}
+    {!! Form::label('province', 'Provincia:') !!}
     <p>{{ $customer->province }}</p>
 </div>
 
 <!-- District Field -->
 <div class="form-group">
-    {!! Form::label('district', 'District:') !!}
+    {!! Form::label('district', 'Distrito:') !!}
     <p>{{ $customer->district }}</p>
 </div>
 
 <!-- Address Field -->
 <div class="form-group">
-    {!! Form::label('address', 'Address:') !!}
+    {!! Form::label('address', 'Dirección:') !!}
     <p>{{ $customer->address }}</p>
 </div>
 
 <!-- Number Field -->
 <div class="form-group">
-    {!! Form::label('number', 'Number:') !!}
+    {!! Form::label('number', 'Numero:') !!}
     <p>{{ $customer->number }}</p>
 </div>
 
 <!-- Legal Field -->
 <div class="form-group">
     {!! Form::label('legal', 'Legal:') !!}
-    <p>{{ $customer->legal }}</p>
+    <p>{{ ($customer->legal === 1) ? 'Si' : 'No' }}</p>
 </div>
 
 <!-- Tyc Field -->
 <div class="form-group">
-    {!! Form::label('tyc', 'Tyc:') !!}
-    <p>{{ $customer->tyc }}</p>
+    {!! Form::label('tyc', 'Terminos y condiciones:') !!} 
+    <p>{{ ($customer->tyc === 1) ? 'Si' : 'No' }}</p>
 </div>
 
 <!-- Active Field -->

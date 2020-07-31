@@ -1,18 +1,18 @@
 <!-- Address Field -->
 <div class="form-group">
-    {!! Form::label('address', 'Address:') !!}
+    {!! Form::label('address', 'Dirección:') !!}
     <p>{{ $shipper->address }}</p>
 </div>
 
 <!-- phone Field -->
 <div class="form-group">
-    {!! Form::label('phone', 'phone:') !!}
+    {!! Form::label('phone', 'Telefono:') !!}
     <p>{{ $shipper->phone }}</p>
 </div>
 
 <!-- Status Field -->
 <div class="form-group">
-    {!! Form::label('status', 'Status:') !!}
+    {!! Form::label('status', 'Estado:') !!}
     <p>{{ $shipper->status }}</p>
 </div>
 

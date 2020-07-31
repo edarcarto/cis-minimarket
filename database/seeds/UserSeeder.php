@@ -43,7 +43,7 @@ class UserSeeder extends Seeder
             'name' => 'Felicity Huaranca',
             'email' => 'felihuarancca2@gmail.com',
             'password' => Hash::make('felihuarancca'),
-            'type_user_id' => 3
+            'type_user_id' => 1
         ]);
 
         Customer::create([
