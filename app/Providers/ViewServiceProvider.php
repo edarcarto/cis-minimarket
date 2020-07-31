@@ -52,7 +52,7 @@ class ViewServiceProvider extends ServiceProvider
             $categoryItems = array_merge($categoryItems,Category::pluck('category_name','id')->toArray());
             $view->with('categoryItems', $categoryItems);
         });
-        View::composer(['markets.fields'], function ($view) {
+        View::composer(['cart.index'], function ($view) {
             $marketItem = array(0 => 'Seleccione');
             $marketItem = array_merge($marketItem,Market::pluck('market_name','id')->toArray());
             $view->with('marketItems', $marketItem);
