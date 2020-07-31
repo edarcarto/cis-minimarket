@@ -29,13 +29,13 @@ $(document).ready(function() {
 
     $("#mDeliverySi").on('click', function(e) {
         $('#mDelivery').modal('hide');
-        $("#staticBackdrop").modal('show');
+        $("#frmPago").modal('show');
     });
     
     $('#btnPay').on('click', function(e) {
         $('#mDelivery').modal('hide');
         // validar las opciones que no estén vacias
-        $("#staticBackdrop").modal('hide');
+        $("#frmPago").modal('hide');
         // Abre el formulario con las opciones de Culqi.settings
         loadCulqi();
         Culqi.open();
