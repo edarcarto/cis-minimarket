@@ -1,6 +1,9 @@
 @if(Auth::user()->type_user_id == 1)
 <li class="{{ Request::is('categories*') ? 'active' : '' }}">
-    <a href="{{ route('categories.index') }}"><i class="fa fa-edit"></i><span>Categorias</span></a>
+    <a href="{{ route('categories.index') }}"><i class="fa fa-edit"></i><span>usuarios</span></a>
+</li>
+<li class="{{ Request::is('users*') ? 'active' : '' }}">
+    <a href="{{ route('ursers.index') }}"><i class="fa fa-edit"></i><span>usuarios</span></a>
 </li>
 
 <li class="{{ Request::is('trademarks*') ? 'active' : '' }}">
