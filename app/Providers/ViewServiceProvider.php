@@ -40,6 +40,11 @@ class ViewServiceProvider extends ServiceProvider
         View::composer(['products.fields'], function ($view) {
             $categoryItems = array(0 => 'Seleccione');
             $categoryItems = array_merge($categoryItems,Category::where('parent',0)->pluck('category_name','id')->toArray());
+            dd($categoryItems);
+            
+            
+            
+        
             $view->with('categoryItems', $categoryItems);
         });
         View::composer(['products.fields'], function ($view) {
