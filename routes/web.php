@@ -31,8 +31,8 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->middleware('verified');
 
-Route::resource('categories', 'CategoryController');
-Route::resource('users', 'CategoryController');
+Route::resource('categories', 'UserController');
+Route::resource('users', 'UserController');
 Route::resource('trademarks', 'TrademarkController');
 
 Route::resource('suppliers', 'SupplierController');
