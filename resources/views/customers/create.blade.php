@@ -44,7 +44,7 @@ function loadSelect (control, caption, data) {
   loadCaption(control, caption);
 
   data.forEach(function(e) {
-    control.append($('<option />').val(e.codigo_ubigeo).text(e.nombre_ubigeo));
+    control.append($('<option />').val(e.id_ubigeo).text(e.nombre_ubigeo));
   });
 }
 
