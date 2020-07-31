@@ -43,10 +43,11 @@ Route::resource('customers', 'CustomerController');
 
 Route::resource('orders', 'OrderController');
 
-
 Route::resource('shippers', 'ShipperController');
 
 Route::resource('userTypes', 'UserTypeController');
+
+Route::resource('markets', 'MarketController');
 
 Route::get('/my-orders', 'MeController@index')->name('my-orders');
 Route::get('/wishlist', 'MeController@index')->name('wishlist');

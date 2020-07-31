@@ -29,6 +29,10 @@
 <li class="{{ Request::is('userTypes*') ? 'active' : '' }}">
     <a href="{{ route('userTypes.index') }}"><i class="fa fa-edit"></i><span>Tipo de usuario</span></a>
 </li>
+
+<li class="{{ Request::is('markets*') ? 'active' : '' }}">
+    <a href="{{ route('markets.index') }}"><i class="fa fa-edit"></i><span>Tiendas</span></a>
+</li>
 @endif
 @if(Auth::user()->type_user_id == 3)
 <li class="{{ Request::is('my-orders') ? 'active' : '' }}">
