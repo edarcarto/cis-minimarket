@@ -24,6 +24,7 @@ class ProductSeeder extends Seeder
             'supplier_id' => 1,
             'category_id' => 1,
             'trademark_id' => 1,
+            'market_id' => 1,
             'discontinued' => 0,
             'active' => 1
         ]);
@@ -40,6 +41,7 @@ class ProductSeeder extends Seeder
                 'supplier_id' => 1,
                 'category_id' => 1,
                 'trademark_id' => 1,
+                'market_id' => 1,
                 'discontinued' => 0,
                 'active' => 1
             ]);
