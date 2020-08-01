@@ -36,17 +36,17 @@ function loadDistritos (id) {
 // Departamento: Click event
 $cbodepartamento.on('change', function() {
   loadProvincias($("#departament").val());
-  $("#ship_city").val($("#departament").text());
+  $("#ship_city").val($("#departament option:selected").text());
 });
 
 // Provincia: Click event
 $cboprovincia.on('change', function() {
   loadDistritos($("#province").val());
-  $("#ship_region").val($("#province").text())
+  $("#ship_region").val($("#province option:selected").text())
 });
 
 $cbodistrito.on('change', function() {
-  $("#ship_postal_code").val($("#district").text())
+  $("#ship_postal_code").val($("#district option:selected").text())
 });
 
 // Cargar departamento por defecto
@@ -274,9 +274,9 @@ function culqi() {
                 city: document.querySelector("#ship_city").value,
                 region: document.querySelector("#ship_region").value,
                 code: document.querySelector("#ship_postal_code").value,
-                departament: document.querySelector("#departament").value,
-                province: document.querySelector("#province").value,
-                district: document.querySelector("#district").value,
+                departament: $("#departament option:selected" ).text(),
+                province: $("#province option:selected" ).text(),
+                district: $("#district option:selected" ).text(),
                 culqi: Culqi.token
             };
         }

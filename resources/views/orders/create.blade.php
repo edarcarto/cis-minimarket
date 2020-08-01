@@ -60,17 +60,17 @@ function loadDistritos (id) {
 // Departamento: Click event
 $cbodepartamento.on('change', function() {
   loadProvincias($("#departament").val());
-  $("#ship_city").val($("#departament").text());
+  $("#ship_city").val($("#departament option:selected").text());
 });
 
 // Provincia: Click event
 $cboprovincia.on('change', function() {
   loadDistritos($("#province").val());
-  $("#ship_region").val($("#province").text())
+  $("#ship_region").val($("#province option:selected").text())
 });
 
 $cbodistrito.on('change', function() {
-  $("#ship_postal_code").val($("#district").text())
+  $("#ship_postal_code").val($("#district option:selected").text())
 });
 
 // Cargar departamento por defecto

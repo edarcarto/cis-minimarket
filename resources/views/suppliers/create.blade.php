@@ -60,19 +60,19 @@ function loadDistritos (id) {
 // Departamento: Click event
 $cbodepartamento.on('change', function() {
   loadProvincias($("#departament").val());
-  $("#departament_name").val($("#departament").text());
+  $("#departament_name").val($("#departament option:selected").text());
 });
 
 // Provincia: Click event
 $cboprovincia.on('change', function() {
   loadDistritos($("#province").val());
-  $("#province_name").val($("#province").text())
+  $("#province_name").val($("#province option:selected").text())
 });
 
 // Cargar departamento por defecto
 loadSelect($cbodepartamento, 'Seleccionar departamento', ubigeo.departamentos);
 $cbodistrito.on('change', function() {
-  $("#district_name").val($("#district").text())
+  $("#district_name").val($("#district option:selected").text())
 });
 
 });
