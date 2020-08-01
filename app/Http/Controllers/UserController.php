@@ -72,7 +72,7 @@ class UserController extends AppBaseController
      */
     public function show($id)
     {
-        $user = $this->UserRepository->find($id);
+        $user = $this->userRepository->find($id);
 
         if (empty($User)) {
             Flash::error('Usuario no encontrada');

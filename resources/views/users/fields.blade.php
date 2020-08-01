@@ -18,7 +18,7 @@
 
 <div class="form-group col-sm-6">
     {!! Form::label('password', 'Contraseña:') !!}
-    {!! Form::text('password', null, ['class' => 'form-control','maxlength' => 150]) !!} 
+    {!! Form::password('password', null, ['class' => 'form-control','maxlength' => 150]) !!} 
 </div>
 
 <!-- Submit Field -->

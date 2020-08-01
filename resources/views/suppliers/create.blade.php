@@ -21,7 +21,6 @@
         </div>
     </div>
 @endsection
-@endsection
 @push('scripts')
 <script type="text/javascript">
 $(document).ready(function() {
@@ -70,9 +69,7 @@ $cboprovincia.on('change', function() {
 
 // Cargar departamento por defecto
 loadSelect($cbodepartamento, 'Seleccionar departamento', ubigeo.departamentos);
-    $("#departament").click(function(){
-        var id = $(this).val();
-    });
+
 });
 </script>
 @endpush
