@@ -23,6 +23,9 @@ class CreateSuppliersTable extends Migration
             $table->string('departament');
             $table->string('province');
             $table->string('district');
+            $table->string('departament_name')->nullable();
+            $table->string('province_name')->nullable();
+            $table->string('district_name')->nullable();
             // $table->string('country');
             $table->string('phone');
             // $table->string('fax');

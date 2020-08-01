@@ -6,9 +6,9 @@
                 <th>Nombre del Contacto</th>
                 <th>Puesto</th>
                 <th>Dirección</th>
-                <th>Ciudad</th>
-                <th>Región</th>
-                <th>Código Postal</th>
+                <th>Departamento</th>
+                <th>Provincia</th>
+                <th>Distrito</th>
                 <!-- <th>País</th> -->
                 <th>Teléfono</th>
                 <!-- <th>Fax</th> -->
@@ -23,9 +23,9 @@
             <td>{{ $supplier->contact_name }}</td>
             <td>{{ $supplier->contact_title }}</td>
             <td>{{ $supplier->address }}</td>
-            <td>{{ $supplier->city }}</td>
-            <td>{{ $supplier->region }}</td>
-            <td>{{ $supplier->postal_code }}</td>
+            <td>{{ $supplier->departament_name }}</td>
+            <td>{{ $supplier->province_name }}</td>
+            <td>{{ $supplier->district_name }}</td>
             <!-- <td>@{{ $supplier->country }}</td> -->
             <td>{{ $supplier->phone }}</td>
             <!-- <td>@{{ $supplier->fax }}</td> -->

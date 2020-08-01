@@ -7,19 +7,19 @@
 <!-- Order Date Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('order_date', 'Fecha de orden:') !!}
-    {!! Form::text('order_date', null, ['class' => 'form-control']) !!}
+    {!! Form::date('order_date', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Required Date Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('required_date', 'Fecha:') !!}
-    {!! Form::text('required_date', null, ['class' => 'form-control']) !!}
+    {!! Form::date('required_date', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Shipped Date Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('shipped_date', 'Fecha de envío:') !!}
-    {!! Form::text('shipped_date', null, ['class' => 'form-control']) !!}
+    {!! Form::date('shipped_date', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Ship Via Field -->

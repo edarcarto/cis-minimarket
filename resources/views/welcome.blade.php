@@ -143,7 +143,9 @@
   <div class="container">
     <h3 class="h3">Listado de Productos </h3>
     <div class="row">
-        @include('flash::message')
+        <div class="col-md-12">
+            @include('flash::message')
+        </div>
         @foreach($products as $p)
         <div class="col-md-3 col-sm-6">
             <div class="product-grid4">

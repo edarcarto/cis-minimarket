@@ -12,7 +12,7 @@
 <!-- phone Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('phone', 'Teléfono:') !!}
-    {!! Form::text('phone', null, ['class' => 'form-control']) !!}
+    {!! Form::number('phone', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group col-sm-6">
@@ -32,7 +32,12 @@
 
 <div class="form-group col-sm-6">
     {!! Form::label('document', 'Documento:') !!}
-    {!! Form::text('document', null, ['class' => 'form-control']) !!}
+    {!! Form::number('document', null, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group col-sm-6">
+    {!! Form::label('fullname', 'Nombre Completo:') !!}
+    {!! Form::text('fullname', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group col-sm-6">

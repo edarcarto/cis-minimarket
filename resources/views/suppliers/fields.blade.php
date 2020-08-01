@@ -26,18 +26,21 @@
 <div class="form-group col-sm-6">
     {!! Form::label('departament', 'Departamento:') !!}
     {!! Form::select('departament',[] , null, ['class' => 'form-control']) !!}
+    {!! Form::hidden('departament_name', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Province Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('province', 'Provincia:') !!}
     {!! Form::select('province', [], null, ['class' => 'form-control']) !!}
+    {!! Form::hidden('province_name', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- District Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('district', 'Distrito:') !!}
     {!! Form::select('district', [], null, ['class' => 'form-control']) !!}
+    {!! Form::hidden('district_name', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Country Field -->

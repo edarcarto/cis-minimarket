@@ -196,7 +196,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="modal fade" id="frmPago" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="frmPago" tabindex="-1" role="dialog">
 		<div div class="modal-dialog" role="document">
 			<div class="modal-content">
 			<div class="modal-header">
@@ -220,16 +220,19 @@
 						<input type="text" class="form-control" id="ship_address" value="">
 					</div>
 					<div class="form-group">
-						<label for="message-text" class="col-form-label">Ciudad:</label>
-						<input type="text" class="form-control" id="ship_city" value="">
+						<label for="message-text" class="col-form-label">Departamento:</label>
+						{!! Form::select('departament',[] , null, ['class' => 'form-control']) !!}
+						<input type="hidden" class="form-control" id="ship_city" value="">
 					</div>
 					<div class="form-group">
-						<label for="message-text" class="col-form-label">Region:</label>
-						<input type="text" class="form-control" id="ship_region" value="">
+						<label for="message-text" class="col-form-label">Provincia:</label>
+						{!! Form::select('province', [], null, ['class' => 'form-control']) !!}
+						<input type="hidden" class="form-control" id="ship_region" value="">
 					</div>
 					<div class="form-group">
-						<label for="message-text" class="col-form-label">Codígo Postal:</label>
-						<input type="text" class="form-control" id="ship_postal_code" value="">
+						<label for="message-text" class="col-form-label">Distrito:</label>
+						{!! Form::select('district', [], null, ['class' => 'form-control']) !!}
+						<input type="hidden" class="form-control" id="ship_postal_code" value="">
 					</div>
 				</form>								
 			</div>

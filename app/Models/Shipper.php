@@ -33,7 +33,8 @@ class Shipper extends Model
         'date_order',
         'market_id',
         'document',
-        'type'
+        'type',
+        'fullname'
     ];
 
     /**

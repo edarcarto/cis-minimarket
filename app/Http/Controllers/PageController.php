@@ -200,6 +200,9 @@ class PageController extends Controller
                 'ship_city'         => $data->get('city'),
                 'ship_region'       => $data->get('region'),
                 'ship_postal_code'  => $data->get('code'),
+                'departament'       => $data->get('departament'),
+                'province'          => $data->get('province'),
+                'district'          => $data->get('district'),
                 'log_pay'           => json_encode ($data->get('culqi')),
                 'ship_country'      => 'Perú'
             ]);
