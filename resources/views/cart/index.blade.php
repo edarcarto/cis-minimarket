@@ -133,7 +133,7 @@
 		<div class="modal-body">
 			<form>
 				<div class="form-group">
-					{!! Form::label('market_id', 'Proveedor:') !!}
+					{!! Form::label('market_id', 'Tienda:') !!}
     				{!! Form::select('market_id', $marketItems, null, ['class' => 'form-control']) !!}
 				</div>	
 				<div class="form-group">

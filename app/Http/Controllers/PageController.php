@@ -64,7 +64,7 @@ class PageController extends Controller
         //     'value' => '18%',
         // ));
         $cartItem = Cart::add(
-            uniqid(),
+            $product->id,
             $product->product_name,
             $product->unit_price,
             intval($request->get('quantity')), 
