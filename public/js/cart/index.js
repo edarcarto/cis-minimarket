@@ -274,9 +274,9 @@ function culqi() {
                 city: document.querySelector("#ship_city").value,
                 region: document.querySelector("#ship_region").value,
                 code: document.querySelector("#ship_postal_code").value,
-                departament: $("#departament option:selected" ).text(),
-                province: $("#province option:selected" ).text(),
-                district: $("#district option:selected" ).text(),
+                departament: $("#departament" ).val(),
+                province: $("#province" ).val(),
+                district: $("#district" ).val(),
                 culqi: Culqi.token
             };
         }
