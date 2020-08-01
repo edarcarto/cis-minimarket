@@ -127,6 +127,6 @@ class Product extends Model
 
     public function productImages()
     {
-        return $this->belongsToMany('App\Models\ProductImage','id','product_id');
+        return $this->belongsToMany('App\Models\ProductImage','product_images','id','product_id');
     }
 }
