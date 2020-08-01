@@ -43,7 +43,7 @@
     <a href="{{ route('my-orders') }}"><i class="fa fa-edit"></i><span>Mis pedidos</span></a>
 </li>
 
-<li class="{{ Request::is('wishlists') ? 'active' : '' }}">
-    <a href="{{ route('wishlists') }}"><i class="fa fa-edit"></i><span>Lista de deseos</span></a>
+<li class="{{ Request::is('wishlists*') ? 'active' : '' }}">
+    <a href="{{ route('wishlists.index') }}"><i class="fa fa-edit"></i><span>Lista de deseos</span></a>
 </li>
 @endif

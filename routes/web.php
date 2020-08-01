@@ -49,6 +49,7 @@ Route::resource('userTypes', 'UserTypeController');
 
 Route::resource('markets', 'MarketController');
 
-Route::get('/my-orders', 'MeController@index')->name('my-orders');
 Route::resource('wishlists', 'WishlistController');
+
+Route::get('/my-orders', 'MeController@index')->name('my-orders');
 Route::get('/add-wishlist/{id}', 'PageController@addWish')->name('add-wishlist');

@@ -244,7 +244,7 @@ class PageController extends Controller
         if(\Auth::user()){
             $this->wishlistRepository->create([
                 'user_id'=> \Auth::id(),
-                'product'=>$id
+                'product_id'=>$id
             ]);
             Flash::success('Producto agregado a la lista de deseos.');
         }else{
