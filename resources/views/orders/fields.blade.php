@@ -48,27 +48,30 @@
 
 <!-- Ship City Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('ship_city', 'Ciudad Receptor:') !!}
-    {!! Form::text('ship_city', null, ['class' => 'form-control']) !!}
+    {!! Form::label('departament', 'Departamento:') !!}
+    {!! Form::select('departament',[] , null, ['class' => 'form-control']) !!}
+    {!! Form::hidden('ship_city', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Ship Region Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('ship_region', 'Region Receptor:') !!}
-    {!! Form::text('ship_region', null, ['class' => 'form-control']) !!}
+    {!! Form::label('province', 'Provincia:') !!}
+    {!! Form::select('province', [], null, ['class' => 'form-control']) !!}
+    {!! Form::hidden('ship_region', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Ship Postal Code Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('ship_postal_code', 'Codigo Postal Receptor:') !!}
-    {!! Form::text('ship_postal_code', null, ['class' => 'form-control']) !!}
+    {!! Form::label('district', 'Distrito:') !!}
+    {!! Form::select('district', [], null, ['class' => 'form-control']) !!}
+    {!! Form::hidden('ship_postal_code', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Ship Country Field -->
-<div class="form-group col-sm-6">
+<!-- <div class="form-group col-sm-6">
     {!! Form::label('ship_country', 'Pais Receptor:') !!}
     {!! Form::text('ship_country', null, ['class' => 'form-control']) !!}
-</div>
+</div> -->
 
 <!-- Active Field -->
 <div class="form-group col-sm-6">

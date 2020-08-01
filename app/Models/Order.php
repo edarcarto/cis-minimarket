@@ -48,6 +48,9 @@ class Order extends Model
         'ship_region',
         'ship_postal_code',
         'ship_country',
+        'departament',
+        'province',
+        'district',
         'log_pay',
         'active'
     ];

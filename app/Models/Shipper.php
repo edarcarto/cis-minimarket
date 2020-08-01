@@ -59,5 +59,13 @@ class Shipper extends Model
         'status' => 'required'
     ];
 
+
+    /**
+     * Get the phone record associated with the user.
+     */
+    public function market()
+    {
+        return $this->belongsTo('App\Models\Market','market_id','id');
+    }
     
 }

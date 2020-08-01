@@ -55,7 +55,7 @@ class ViewServiceProvider extends ServiceProvider
         });
         View::composer(['users.fields'], function ($view) {
             $typeUsers = array(0 => 'Seleccione');
-            $typeUsers = array_merge($categoryItems,UserType::pluck('type_name','id')->toArray());
+            $typeUsers = array_merge($typeUsers,UserType::pluck('type_name','id')->toArray());
             $view->with('typeUsers', $typeUsers);
         });
         View::composer(['cart.index'], function ($view) {
@@ -66,7 +66,12 @@ class ViewServiceProvider extends ServiceProvider
         View::composer(['products.fields'], function ($view) {
             $marketItem = array(0 => 'Seleccione');
             $marketItem = array_merge($marketItem,Market::pluck('address','id')->toArray());
-            $view->with('markets', $markets);
+            $view->with('markets', $marketItem);
+        });
+        View::composer(['shippers.fields'], function ($view) {
+            $marketItem = array(0 => 'Seleccione');
+            $marketItem = array_merge($marketItem,Market::pluck('address','id')->toArray());
+            $view->with('markets', $marketItem);
         });
         //
         View::composer(['customers.fields'], function ($view) {

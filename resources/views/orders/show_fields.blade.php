@@ -25,7 +25,7 @@
 <!-- Ship Via Field -->
 <div class="form-group">
     {!! Form::label('ship_via', 'Envío:') !!}
-    <p>{{ $order->ship_via }}</p>
+    <p>{{ $order->shipper->address }}</p>
 </div>
 
 <!-- Freight Field -->
@@ -48,27 +48,27 @@
 
 <!-- Ship City Field -->
 <div class="form-group">
-    {!! Form::label('ship_city', 'Ciudad Receptor:') !!}
+    {!! Form::label('ship_city', 'Departamento Receptor:') !!}
     <p>{{ $order->ship_city }}</p>
 </div>
 
 <!-- Ship Region Field -->
 <div class="form-group">
-    {!! Form::label('ship_region', 'Región receptor:') !!}
+    {!! Form::label('ship_region', 'Provincia receptor:') !!}
     <p>{{ $order->ship_region }}</p>
 </div>
 
 <!-- Ship Postal Code Field -->
 <div class="form-group">
-    {!! Form::label('ship_postal_code', 'Codigo Postal Receptor:') !!}
+    {!! Form::label('ship_postal_code', 'Distrito Receptor:') !!}
     <p>{{ $order->ship_postal_code }}</p>
 </div>
 
 <!-- Ship Country Field -->
-<div class="form-group">
+<!-- <div class="form-group">
     {!! Form::label('ship_country', 'Pais Receptor:') !!}
     <p>{{ $order->ship_country }}</p>
-</div>
+</div> -->
 
 <!-- Active Field -->
 <div class="form-group">
@@ -88,23 +88,25 @@
     <p>{{ $order->updated_at }}</p>
 </div>
 
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Producto</th>
-      <th scope="col">Precio</th>
-      <th scope="col">Cantidad</th>
-      <th scope="col">Total</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach($orderDetails  as $od)
-    <tr>
-      <th scope="row">{{$od->product_id}}</th>
-      <td>{{round($od->unit_price,2)}}</td>
-      <td>{{$od->quantity}}</td>
-      <td>{{$od->quantity * $od->unit_price}}</td>
-    </tr>
-    @endforeach
-  </tbody>
-</table>
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+            <th scope="col">Producto</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($orderDetails  as $od)
+            <tr>
+            <th scope="row">{{$od->product->product_name}}</th>
+            <td>{{round($od->unit_price,2)}}</td>
+            <td>{{$od->quantity}}</td>
+            <td>{{$od->quantity * $od->unit_price}}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
