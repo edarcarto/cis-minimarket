@@ -55,7 +55,7 @@ class ViewServiceProvider extends ServiceProvider
         });
         View::composer(['cart.index'], function ($view) {
             $marketItem = array(0 => 'Seleccione');
-            $marketItem = array_merge($marketItem,Market::pluck(\DB::raw('CONCAT(market_name,address)'),'id')->toArray());
+            $marketItem = array_merge($marketItem,Market::pluck(\DB::raw('CONCAT(market_name,address) AS dir'),'id')->toArray());
             $view->with('marketItems', $marketItem);
         });
         //
