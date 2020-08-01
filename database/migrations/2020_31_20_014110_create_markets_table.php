@@ -17,7 +17,8 @@ class CreateMarketsTable extends Migration
         Schema::create('markets', function (Blueprint $table) {
             $table->increments('id');
             $table->string('market_name');
-            $table->boolean('active');
+            $table->string('address',200);
+            $table->boolean('active')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });

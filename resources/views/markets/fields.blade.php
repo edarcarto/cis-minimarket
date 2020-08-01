@@ -4,6 +4,11 @@
     {!! Form::text('market_name', null, ['class' => 'form-control']) !!}
 </div>
 
+<div class="form-group col-sm-6">
+    {!! Form::label('address', 'Dirección Tienda:') !!}
+    {!! Form::text('address', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Active Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('active', 'Activo:') !!}
@@ -17,5 +22,5 @@
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
-    <a href="{{ route('categories.index') }}" class="btn btn-default">Cancelar</a>
+    <a href="{{ route('markets.index') }}" class="btn btn-default">Cancelar</a>
 </div>
