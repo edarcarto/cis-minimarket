@@ -24,7 +24,6 @@ class Shipper extends Model
     protected $dates = ['deleted_at'];
 
 
-
     public $fillable = [
         'address',
         'phone',

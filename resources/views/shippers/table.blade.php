@@ -2,9 +2,11 @@
     <table class="table" id="shippers-table">
         <thead>
             <tr>
-                <th>Orden</th>
+                <th>Tienda</th>
                 <th>Dirección</th>
                 <th>Telefono</th>
+                <th>Fecha</th>
+                <th>Tipo</th>
                 <th>Estatus</th>
                 <th colspan="3">Action</th>
             </tr>
@@ -12,9 +14,11 @@
         <tbody>
         @foreach($shippers as $shipper)
             <tr>
-            <td></td>
+            <td>{{ ($shipper->market) ? $shipper->market->market_name : '' }}</td>
             <td>{{ $shipper->address }}</td>
             <td>{{ $shipper->phone }}</td>
+            <td>{{ $shipper->date_order }}</td>
+            <td>{{ $shipper->type }}</td>
             <td>{{ ($shipper->status === 1) ? 'Si' : 'No' }}</td>
                 <td>
                     {!! Form::open(['route' => ['shippers.destroy', $shipper->id], 'method' => 'delete']) !!}

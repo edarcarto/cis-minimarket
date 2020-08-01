@@ -1,6 +1,6 @@
 <!-- Type Name Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('type_name', 'Type Name:') !!}
+    {!! Form::label('type_name', 'Nombre Tipo:') !!}
     {!! Form::text('type_name', null, ['class' => 'form-control']) !!}
 </div>
 

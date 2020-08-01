@@ -6,6 +6,7 @@ use App\Models\Trademark;
 use App\Models\Supplier;
 use App\Models\Category;
 use App\Models\Market;
+use App\Models\UserType;
 
 use Illuminate\Support\ServiceProvider;
 use View;
@@ -53,8 +54,17 @@ class ViewServiceProvider extends ServiceProvider
             $categoryItems = array_merge($categoryItems,Category::pluck('category_name','id')->toArray());
             $view->with('categoryItems', $categoryItems);
         });
-        
+        View::composer(['users.fields'], function ($view) {
+            $typeUsers = array(0 => 'Seleccione');
+            $typeUsers = array_merge($typeUsers,UserType::pluck('type_name','id')->toArray());
+            $view->with('typeUsers', $typeUsers);
+        });
         View::composer(['cart.index'], function ($view) {
+            $marketItem = array(0 => 'Seleccione');
+            $marketItem = array_merge($marketItem,Market::pluck('address','id')->toArray());
+            $view->with('marketItems', $marketItem);
+        });
+        View::composer(['shippers.fields'], function ($view) {
             $marketItem = array(0 => 'Seleccione');
             $marketItem = array_merge($marketItem,Market::pluck('address','id')->toArray());
             $view->with('marketItems', $marketItem);

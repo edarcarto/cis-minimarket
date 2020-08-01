@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('user_types.show_fields')
-                    <a href="{{ route('userTypes.index') }}" class="btn btn-default">Back</a>
+                    <a href="{{ route('userTypes.index') }}" class="btn btn-default">Atrás</a>
                 </div>
             </div>
         </div>

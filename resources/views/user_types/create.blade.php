@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            User Type
+            Tipo de usuarios
         </h1>
     </section>
     <div class="content">

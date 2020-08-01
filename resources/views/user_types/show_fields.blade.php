@@ -1,12 +1,12 @@
 <!-- Type Name Field -->
 <div class="form-group">
-    {!! Form::label('type_name', 'Type Name:') !!}
+    {!! Form::label('type_name', 'Nombre del tipo:') !!}
     <p>{{ $userType->type_name }}</p>
 </div>
 
 <!-- Active Field -->
 <div class="form-group">
-    {!! Form::label('active', 'Active:') !!}
+    {!! Form::label('active', 'Activo:') !!}
     <p>{{ $userType->active }}</p>
 </div>
 

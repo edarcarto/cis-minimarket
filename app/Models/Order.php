@@ -96,5 +96,20 @@ class Order extends Model
         'active' => 'required'
     ];
 
+    /**
+     * Get the phone record associated with the user.
+     */
+    public function customer()
+    {
+        return $this->belongsTo('App\Models\Customer','customer_id','id');
+    }
+
+    /**
+     * Get the phone record associated with the user.
+     */
+    public function shipper()
+    {
+        return $this->belongsTo('App\Models\Shipper','ship_via','id');
+    }
     
 }

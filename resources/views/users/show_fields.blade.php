@@ -1,25 +1,19 @@
-<!-- User Name Field -->
-<div class="form-group">
-    {!! Form::label('user_name', 'Nombre Usuario:') !!}
-    <p>{{ $user->user_name }}</p>
-</div>
-
 <!-- User Id Field -->
 <div class="form-group">
-    {!! Form::label('user_id', 'Usuario Padre:') !!}
-    <p>{{ ($user->user) ? $user->user->user_name : '' }}</p>
+    {!! Form::label('type_user_id', 'Tipo de usuario:') !!}
+    <p>{{ ($user->user) ? $user->userType->type_name : '' }}</p>
+</div>
+
+<!-- User Name Field -->
+<div class="form-group">
+    {!! Form::label('name', 'Nombre Usuario:') !!}
+    <p>{{ $user->name }}</p>
 </div>
 
 <!-- Parent Field -->
 <div class="form-group">
-    {!! Form::label('parent', 'Padre:') !!}
-    <p>{{ ($user->parent === 1) ? 'Si' : 'No' }}</p>
-</div>
-
-<!-- Active Field -->
-<div class="form-group">
-    {!! Form::label('active', 'Activo:') !!}
-    <p>{{ ($user->active === 1) ? 'Si' : 'No' }}</p>
+    {!! Form::label('email', 'Correo:') !!}
+    <p>{{ $user->email }}</p>
 </div>
 
 <!-- Created At Field -->

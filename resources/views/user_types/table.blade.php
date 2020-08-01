@@ -2,8 +2,8 @@
     <table class="table" id="userTypes-table">
         <thead>
             <tr>
-                <th>Type Name</th>
-        <th>Active</th>
+                <th>Nombre del Tipo</th>
+                <th>Active</th>
                 <th colspan="3">Action</th>
             </tr>
         </thead>

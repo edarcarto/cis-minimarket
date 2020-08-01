@@ -1,3 +1,8 @@
+<div class="form-group col-sm-6">
+    {!! Form::label('market_id', 'Tienda:') !!}
+    {!! Form::select('market_id', $marketItems,null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Address Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('address', 'Dirección:') !!}
@@ -10,6 +15,30 @@
     {!! Form::text('phone', null, ['class' => 'form-control']) !!}
 </div>
 
+<div class="form-group col-sm-6">
+    {!! Form::label('delivery_date', 'Fecha Delivery:') !!}
+    {!! Form::date('delivery_date', null, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group col-sm-6">
+    {!! Form::label('cancellation_date', 'Fecha Cancelación:') !!}
+    {!! Form::date('cancellation_date', null, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group col-sm-6">
+    {!! Form::label('date_order', 'Fecha Orden:') !!}
+    {!! Form::date('date_order', null, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group col-sm-6">
+    {!! Form::label('document', 'Documento:') !!}
+    {!! Form::text('document', null, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group col-sm-6">
+    {!! Form::label('type', 'Tipo:') !!}
+    {!! Form::select('type', ['Presencial' => 'Presencial', 'Delivery' => 'Delivery'],null, ['class' => 'form-control']) !!}
+</div>
 <!-- Active Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('status', 'Estado:') !!}
