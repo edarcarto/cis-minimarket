@@ -75,7 +75,7 @@ class ViewServiceProvider extends ServiceProvider
             $marketItem = array_merge($marketItem,Market::pluck('address','id')->toArray());
             $view->with('marketItems', $marketItem);
         });
-        View::composer(['users.fields'], function ($view) {
+        View::composer(['customers.fields'], function ($view) {
             $users = array(0 => 'Seleccione');
             $users = array_merge($users,User::pluck('email','id')->toArray());
             $view->with('users', $users);
