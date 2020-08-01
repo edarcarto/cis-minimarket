@@ -9,12 +9,12 @@
             </tr>
         </thead>
         <tbody>
-        @foreach($categories as $category)
+        @foreach($wishlists as $wishlist)
             <tr>
             <td><img src="{{ $wishlist->product->productImages[0]->url }}" style="width:50px;height:50px;" /></td>
             <td>{{ $wishlist->product->produc_name }}</td>
                 <td>
-                    {!! Form::open(['route' => ['categories.destroy', $category->id], 'method' => 'delete']) !!}
+                    {!! Form::open(['route' => ['wishlists.destroy', $wishlist->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
                         <a href="{{ route('product', [$category->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
                         <!-- <a href="{{ route('categories.edit', [$category->id]) }}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a> -->
