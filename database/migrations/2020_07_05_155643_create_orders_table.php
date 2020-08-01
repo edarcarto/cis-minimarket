@@ -22,12 +22,12 @@ class CreateOrdersTable extends Migration
             $table->datetime('shipped_date')->nullable();
             $table->integer('ship_via');
             $table->decimal('freight',10,4);
-            $table->string('ship_name');
-            $table->string('ship_address');
-            $table->string('ship_city');
-            $table->string('ship_region');
-            $table->string('ship_postal_code');
-            $table->string('ship_country');
+            $table->string('ship_name')->unsigned();
+            $table->string('ship_address')->unsigned();
+            $table->string('ship_city')->unsigned();
+            $table->string('ship_region')->unsigned();
+            $table->string('ship_postal_code')->unsigned();
+            $table->string('ship_country')->unsigned();
             $table->text('log_pay')->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();
