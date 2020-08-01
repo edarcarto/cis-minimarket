@@ -77,7 +77,7 @@ class Supplier extends Model
         'contact_name' => 'required',
         'contact_title' => 'required',
         'address' => 'required',
-        'city' => 'required',
+        // 'city' => 'required',
         'phone' => 'required'
     ];
 

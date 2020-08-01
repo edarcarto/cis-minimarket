@@ -1,3 +1,9 @@
+<!-- Document Type Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('user_id', 'Usuario:') !!}
+    {!! Form::select('user_id', $users, null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- First Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('first_name', 'Nombres:') !!}
