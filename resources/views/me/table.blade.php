@@ -1,20 +1,20 @@
 <div class="table-responsive">
-    <table class="table" id="orders-table">
+    <!-- <table class="table" id="orders-table">
         <thead>
             <tr>
                 <th>Customer Id</th>
-        <th>Order Date</th>
-        <th>Required Date</th>
-        <th>Shipped Date</th>
-        <th>Ship Via</th>
-        <th>Freight</th>
-        <th>Ship Name</th>
-        <th>Ship Address</th>
-        <th>Ship City</th>
-        <th>Ship Region</th>
-        <th>Ship Postal Code</th>
-        <th>Ship Country</th>
-        <th>Active</th>
+                <th>Order Date</th>
+                <th>Required Date</th>
+                <th>Shipped Date</th>
+                <th>Ship Via</th>
+                <th>Freight</th>
+                <th>Ship Name</th>
+                <th>Ship Address</th>
+                <th>Ship City</th>
+                <th>Ship Region</th>
+                <th>Ship Postal Code</th>
+                <th>Ship Country</th>
+                <th>Active</th>
                 <th colspan="3">Action</th>
             </tr>
         </thead>
@@ -46,5 +46,27 @@
             </tr>
         @endforeach
         </tbody>
-    </table>
+    </table> -->
+    <div class="accordion" id="accordionExample">
+        @foreach($orders as $order)
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{$order->id}}" aria-expanded="true" aria-controls="collapse">
+                        Orden N# {{$order->id}} {{$order->created_at}} <a href="#" style="float:right;">Cancelar</a>
+                    </button>
+                </h5>
+            </div>
+            <div id="collapse{{$order->id}}" class="collapse show" aria-labelledby="heading{{$order->id}}" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="list-group">
+                        @foreach($order->details as $p)
+                            <a href="#" class="list-group-item">{{$p->product->quantity}} {{$p->product->product_name}} {{$p->product->unit_price * $p->product->quantity}}</a>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
 </div>

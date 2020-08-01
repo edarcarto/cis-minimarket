@@ -11,7 +11,8 @@
         <tbody>
         @foreach($wishlists as $wishlist)
             <tr>
-            <td><img src="{{ $wishlist->product->productImages[0]->url }}" style="width:50px;height:50px;" /></td>
+                {{$wishlist->productImages}}
+            <td><img src="{{ $wishlist->product_id }}" style="width:50px;height:50px;" /></td>
             <td>{{ $wishlist->product->produc_name }}</td>
                 <td>
                     {!! Form::open(['route' => ['wishlists.destroy', $wishlist->id], 'method' => 'delete']) !!}
