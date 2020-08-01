@@ -7,7 +7,7 @@ use App\Models\Supplier;
 use App\Models\Category;
 use App\Models\Market;
 use App\Models\UserType;
-use App\Models\User;
+use App\User;
 
 use Illuminate\Support\ServiceProvider;
 use View;
