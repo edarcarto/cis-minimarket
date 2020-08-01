@@ -2,20 +2,18 @@
     <table class="table" id="users-table">
         <thead>
             <tr>
-                <th>Nombre Usuario</th>
-                <th>Usuario</th>
-                <th>Padre</th>
-                <th>Activo</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Tipo Usuario</th>
                 <th colspan="3">Acciones</th>
             </tr>
         </thead>
         <tbody>
         @foreach($users as $user)
             <tr>
-            <td>{{ $user->user_name }}</td>
-            <td>{{ ($user->user) ? $user->user->user_name : '' }}</td>
-            <td>{{ ($user->parent === 1) ? 'Si' : 'No' }}</td>
-            <td>{{ ($user->active === 1) ? 'Si' : 'No' }}</td>
+            <td>{{ $user->name }}</td>
+            <td>{{ $user->email }}</td>
+            <td>{{ $user->type_user_id }}</td>
                 <td>
                     {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
