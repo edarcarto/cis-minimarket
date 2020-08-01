@@ -245,7 +245,7 @@ class PageController extends Controller
             $this->wishlistRepository->create([
                 'user_id'=> \Auth::id(),
                 'product'=>$id
-            ])
+            ]);
             Flash::success('Producto agregado a la lista de deseos.');
         }else{
             Flash::error('Inicie sesión primero.');
