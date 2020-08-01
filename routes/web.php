@@ -51,4 +51,4 @@ Route::resource('markets', 'MarketController');
 
 Route::get('/my-orders', 'MeController@index')->name('my-orders');
 Route::resource('wishlists', 'WishlistController');
-Route::get('/add-wishlist', 'PageController@addWish')->name('add-wishlist');
+Route::get('/add-wishlist/{id}', 'PageController@addWish')->name('add-wishlist');
