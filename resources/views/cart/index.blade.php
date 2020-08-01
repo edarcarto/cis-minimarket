@@ -226,12 +226,12 @@
 					</div>
 					<div class="form-group">
 						<label for="message-text" class="col-form-label">Provincia:</label>
-						{!! Form::select('province', [], null, ['class' => 'form-control','id'=>'province']]) !!}
+						{!! Form::select('province', [], null, ['class' => 'form-control','id'=>'province']) !!}
 						<input type="hidden" class="form-control" id="ship_region" value="">
 					</div>
 					<div class="form-group">
 						<label for="message-text" class="col-form-label">Distrito:</label>
-						{!! Form::select('district', [], null, ['class' => 'form-control','id'=>'district']]) !!}
+						{!! Form::select('district', [], null, ['class' => 'form-control','id'=>'district']) !!}
 						<input type="hidden" class="form-control" id="ship_postal_code" value="">
 					</div>
 				</form>								
