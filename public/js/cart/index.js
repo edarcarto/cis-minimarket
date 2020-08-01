@@ -1,6 +1,5 @@
-
+var tipoModalidad = "";
 $(document).ready(function() {
-    var tipoModalidad = "";
     loadCulqi();
     calcularSubtotal();
     calcularTotal();
@@ -8,14 +7,14 @@ $(document).ready(function() {
         $('#mDelivery').modal('hide');
         $("#presencial").modal('show');        
     });
-    $("#savePresencial").click(function(){
+    $("#savePresencial").click(function(e){
         tipoModalidad = "Presencial";
         // validar las opciones que no estén vacias
         $("#presencial").modal('hide');
         // Abre el formulario con las opciones de Culqi.settings
         loadCulqi();
         Culqi.open();
-        e.preventDefault();        
+        // e.preventDefault();
     });
     function loadCulqi(){
         var amount = $(".price-total").html();
