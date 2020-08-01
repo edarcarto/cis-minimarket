@@ -3,11 +3,16 @@
 
 <!-- User Name Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('user_name', 'Nombre Usuario:') !!}
-    {!! Form::text('user_name', null, ['class' => 'form-control','maxlength' => 150]) !!}
+    {!! Form::label('name', 'Nombre Usuario:') !!}
+    {!! Form::text('name', null, ['class' => 'form-control','maxlength' => 150]) !!} 
+    
 </div>
-
-<!-- User Id Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('name', 'Nombre Usuario:') !!}
+    {!! Form::text('name', null, ['class' => 'form-control','maxlength' => 150]) !!} 
+    
+</div>
+<!--  Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('user_id', 'Usuario Padre:') !!}
     {!! Form::select('user_id', $userItems, null, ['class' => 'form-control']) !!}
