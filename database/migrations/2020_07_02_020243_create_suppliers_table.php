@@ -20,9 +20,9 @@ class CreateSuppliersTable extends Migration
             $table->string('contact_name');
             $table->string('contact_title');
             $table->string('address');
-            $table->string('city');
-            $table->string('region');
-            $table->string('postal_code');
+            $table->string('departament');
+            $table->string('province');
+            $table->string('district');
             // $table->string('country');
             $table->string('phone');
             // $table->string('fax');

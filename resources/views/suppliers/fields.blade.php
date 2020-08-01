@@ -24,20 +24,20 @@
 
 <!-- City Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('city', 'Ciudad:') !!}
-    {!! Form::text('city', null, ['class' => 'form-control']) !!}
+    {!! Form::label('departament', 'Ciudad:') !!}
+    {!! Form::text('departament', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Region Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('region', 'Región:') !!}
-    {!! Form::text('region', null, ['class' => 'form-control']) !!}
+    {!! Form::label('province', 'province:') !!}
+    {!! Form::text('province', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Postal Code Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('postal_code', 'Codigo Postal:') !!}
-    {!! Form::text('postal_code', null, ['class' => 'form-control']) !!}
+    {!! Form::label('district', 'Codigo Postal:') !!}
+    {!! Form::text('district', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Country Field -->
