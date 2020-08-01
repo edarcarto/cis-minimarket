@@ -134,7 +134,7 @@
 			<form>
 				<div class="form-group">
 					{!! Form::label('market_id', 'Proveedor:') !!}
-    				{!! Form::select('market_id', $marketItem, null, ['class' => 'form-control']) !!}
+    				{!! Form::select('market_id', $marketItems, null, ['class' => 'form-control']) !!}
 				</div>	
 				<div class="form-group">
 					<label for="doc_cargo" class="col-form-label">Nro Documento:</label>
