@@ -163,12 +163,26 @@ class PageController extends Controller
     function processCart($data){
         // buscar al usuario con datos de cliente
         $customer = $this->customerRepository->getForUser(\Auth::id());
-        // Seteando a donde se enviará el pedido
-        $ship = $this->shipperRepository->create([
-            'address' => $data->get('address'),
-            'phone' => $data->get('phone'),
-            'status' => 0,
-        ]);
+        $ship = null;
+        if($data->get('type') == 'Presencial'){
+            // Seteando a donde se enviará el pedido
+            $ship = $this->shipperRepository->create([
+                'market_id' => $data->get('market'),
+                'document'  => $data->get('document'),
+                'fullname'  => $data->get('full_name'),
+                'type'      => $data->get('type'),
+                'phone'     => $data->get('phone'),
+                'status'    => 0,
+            ]);
+        }else{
+            $ship = $this->shipperRepository->create([
+                'address' => $data->get('address'),
+                'fullname'  => $data->get('full_name'),
+                'type'      => $data->get('type'),
+                'phone'     => $data->get('phone'),
+                'status'    => 0,
+            ]);
+        }
         // Hacer una orden de pedido
         $cart = Cart::getContent();
         $products = [];
@@ -176,7 +190,7 @@ class PageController extends Controller
             #order 
             $order = $this->orderRepository->create([
                 'customer_id'       => $customer->id,
-                'order_date'        => now(),
+                'order_date'        => null,
                 'required_date'     => null,
                 'shipped_date'      => null,
                 'ship_via'          => $ship->id,

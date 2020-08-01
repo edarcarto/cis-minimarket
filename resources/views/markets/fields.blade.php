@@ -1,10 +1,7 @@
-
-
-
 <!-- Category Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('market_name', 'Nombre Tienda:') !!}
-    {!! Form::text('market_name', marketItems, ['class' => 'form-control']) !!}
+    {!! Form::text('market_name', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Active Field -->

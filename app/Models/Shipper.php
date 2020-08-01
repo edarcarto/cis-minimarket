@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Shipper extends Model
 {
     use SoftDeletes;
-
+    
     public $table = 'shippers';
     
 
@@ -31,7 +31,10 @@ class Shipper extends Model
         'status',
         'delivery_date',
         'cancellation_date',
-        'date_order'
+        'date_order',
+        'market_id',
+        'document',
+        'type'
     ];
 
     /**

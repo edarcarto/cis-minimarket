@@ -5,6 +5,7 @@ use App\Models\Customer;
 use App\Models\Trademark;
 use App\Models\Supplier;
 use App\Models\Category;
+use App\Models\Market;
 
 use Illuminate\Support\ServiceProvider;
 use View;

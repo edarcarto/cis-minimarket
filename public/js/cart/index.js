@@ -1,8 +1,22 @@
 
 $(document).ready(function() {
+    var tipoModalidad = "";
     loadCulqi();
     calcularSubtotal();
     calcularTotal();
+    $("#mDeliveryNo").click(function(){ 
+        $('#mDelivery').modal('hide');
+        $("#presencial").modal('show');        
+    });
+    $("#savePresencial").click(function(){
+        tipoModalidad = "Presencial";
+        // validar las opciones que no estén vacias
+        $("#presencial").modal('hide');
+        // Abre el formulario con las opciones de Culqi.settings
+        loadCulqi();
+        Culqi.open();
+        e.preventDefault();        
+    });
     function loadCulqi(){
         var amount = $(".price-total").html();
         amount = amount.replace("S/","");
@@ -38,6 +52,7 @@ $(document).ready(function() {
         $("#frmPago").modal('hide');
         // Abre el formulario con las opciones de Culqi.settings
         loadCulqi();
+        tipoModalidad = "Delivery";
         Culqi.open();
         e.preventDefault();
     });
@@ -185,27 +200,41 @@ function culqi() {
         //En esta linea de codigo debemos enviar el "Culqi.token.id"
         //hacia tu servidor con Ajax
         var url = '/payme';
-        var data = {
-            amount:amount,
-            token: token,
-            address: document.querySelector("#ship_address").value,
-            phone: document.querySelector("#phone").value,
-            phone: document.querySelector("#phone").value,
-            type: 'Delivery',
-            full_name: document.querySelector("#ship_name").value,
-            city: document.querySelector("#ship_city").value,
-            region: document.querySelector("#ship_region").value,
-            code: document.querySelector("#ship_postal_code").value,
-            culqi: Culqi.token
-        };
+        var data = {};
+
+        if(tipoModalidad === "Presencial"){
+            data = {
+                amount:amount,
+                token: token,
+                phone: document.querySelector("#phone_cargo").value,
+                type: tipoModalidad,
+                full_name: document.querySelector("#cargo").value,
+                market: document.querySelector("#market_id").value,
+                document: document.querySelector("#doc_cargo").value,
+                culqi: Culqi.token
+            };
+        }else{
+            data = {
+                amount:amount,
+                token: token,
+                address: document.querySelector("#ship_address").value,
+                phone: document.querySelector("#phone").value,
+                type: tipoModalidad,
+                full_name: document.querySelector("#ship_name").value,
+                city: document.querySelector("#ship_city").value,
+                region: document.querySelector("#ship_region").value,
+                code: document.querySelector("#ship_postal_code").value,
+                culqi: Culqi.token
+            };
+        }
 
         fetch(url, {
-        method: 'POST', // or 'PUT'
-        body: JSON.stringify(data), // data can be `string` or {object}!
-        headers:{
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
+            method: 'POST', // or 'PUT'
+            body: JSON.stringify(data), // data can be `string` or {object}!
+            headers:{
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         }).then(res => res.json())
         .catch(error => {
             console.error('Error:', error);
