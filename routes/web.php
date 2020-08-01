@@ -50,4 +50,4 @@ Route::resource('userTypes', 'UserTypeController');
 Route::resource('markets', 'MarketController');
 
 Route::get('/my-orders', 'MeController@index')->name('my-orders');
-Route::get('/wishlist', 'MeController@index')->name('wishlist');
+Route::resource('wishlists', 'WishlistController');

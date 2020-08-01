@@ -124,4 +124,9 @@ class Product extends Model
     {
         return $this->belongsTo('App\Models\Market','market_id','id');
     }
+
+    public function productImages()
+    {
+        return $this->belongsToMany('App\Models\ProductImage','id','product_id');
+    }
 }
