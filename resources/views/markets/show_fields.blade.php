@@ -4,6 +4,11 @@
     <p>{{ $market->market_name }}</p>
 </div>
 
+<div class="form-group">
+    {!! Form::label('address', 'Dirección Tienda:') !!}
+    <p>{{ $market->address }}</p>
+</div>
+
 <!-- Active Field -->
 <div class="form-group">
     {!! Form::label('active', 'Activo:') !!}

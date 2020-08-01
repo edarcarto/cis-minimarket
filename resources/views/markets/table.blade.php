@@ -3,6 +3,7 @@
         <thead>
             <tr>
                 <th>Nombre Tienda</th>
+                <th>Dirección</th>
                 <th>Activo</th>
                 <th colspan="3">Acciones</th>
             </tr>
@@ -11,6 +12,7 @@
         @foreach($markets as $market)
             <tr>
             <td>{{ $market->market_name }}</td>
+            <td>{{ $market->address }}</td>
             <td>{{ ($market->active === 1) ? 'Si' : 'No' }}</td>
                 <td>
                     {!! Form::open(['route' => ['markets.destroy', $market->id], 'method' => 'delete']) !!}

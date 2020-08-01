@@ -18,6 +18,7 @@ class Market extends Model
 
     public $fillable = [
         'market_name',
+        'address',
         'active'
     ];
 
@@ -29,6 +30,7 @@ class Market extends Model
     protected $casts = [
         'id' => 'integer',
         'market_name' => 'string',
+        'address' => 'string',
         'active' => 'integer'
     ];
 
@@ -39,6 +41,7 @@ class Market extends Model
      */
     public static $rules = [
         'market_name' => 'required',
+        'address' => 'required',
         'active' => 'required'
     ];
     
