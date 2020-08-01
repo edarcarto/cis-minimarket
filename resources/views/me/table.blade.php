@@ -52,8 +52,8 @@
         <div class="card">
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{$order->id}}" aria-expanded="true" aria-controls="collapse">
-                        Orden N# {{$order->id}} {{$order->created_at}} <a href="#" style="float:right;">Cancelar</a>
+                    <button style="text-align: left;width: 100%;" class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{$order->id}}" aria-expanded="true" aria-controls="collapse">
+                        Orden N# {{$order->id}} &nbsp;&nbsp;&nbsp; {{$order->created_at->format('d/m/Y')}} <a href="#" style="text-align:right;float:right;">Cancelar</a>
                     </button>
                 </h5>
             </div>
@@ -61,7 +61,7 @@
                 <div class="card-body">
                     <div class="list-group">
                         @foreach($order->details as $p)
-                            <a href="#" class="list-group-item">{{$p->product->quantity}} {{$p->product->product_name}} {{$p->product->unit_price * $p->product->quantity}}</a>
+                            <a href="#" class="list-group-item">{{$p->quantity}} {{$p->product->product_name}} {{$p->unit_price * $p->quantity}}</a>
                         @endforeach
                     </div>
                 </div>
