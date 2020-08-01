@@ -7,6 +7,7 @@ use App\Repositories\ProductRepository;
 use App\Repositories\ShipperRepository;
 use App\Repositories\CustomerRepository;
 use App\Repositories\OrderRepository;
+use App\Repositories\WishlistRepository;
 use Darryldecode\Cart\Facades\CartFacade as Cart;
 // use App\Repositories\ProductRepository;
 use Culqi\Culqi;
@@ -19,14 +20,16 @@ class PageController extends Controller
     private $shipperRepository;
     private $customerRepository;
     private $orderRepository;
+    private $wishlistRepository;
 
     public function __construct(ProductRepository $productRepo,ShipperRepository $shipperRepo,
-    CustomerRepository $custormerRepo, OrderRepository $orderRepo)
+    CustomerRepository $custormerRepo, OrderRepository $orderRepo,WishlistRepository $wishlistRepo)
     {
         $this->productRepository = $productRepo;
         $this->shipperRepository = $shipperRepo;
         $this->customerRepository = $custormerRepo;
         $this->orderRepository = $orderRepo;
+        $this->wishlistRepository = $wishlistRepo;
     }
 
     /**
@@ -234,5 +237,19 @@ class PageController extends Controller
         // $products = $this->productRepository->getProductImages();
         // dd($products);
         return view('filter');
+    }
+
+    public function addWish($id)
+    {
+        if(\Auth::user()){
+            $this->wishlistRepository->create([
+                'user_id'=> \Auth::id(),
+                'product'=>$id
+            ])
+            Flash::success('Producto agregado a la lista de deseos.');
+        }else{
+            Flash::error('Inicie sesión primero.');
+        }
+        return redirect()->back();
     }
 }
