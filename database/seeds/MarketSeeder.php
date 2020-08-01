@@ -15,15 +15,18 @@ class MarketSeeder extends Seeder
         Market::insert([
             [
                 'market_name' => 'Tienda #1',
-                'active'        => 1
+                'address'     => 'Av la mar 1',
+                'active'      => 1
             ],
             [
                 'market_name' => 'Tienda #2',
-                'active'        => 1
+                'address'     => 'Av la mar 2',
+                'active'      => 1
             ],
             [
                 'market_name' => 'Tienda #3',
-                'active'        => 1
+                'address'     => 'Av la mar 3',
+                'active'      => 1
             ]
         ]);
     }
