@@ -1187,17 +1187,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/InfyOmLabs/adminlte-templates.git",
-                "reference": "c182e6cf940162d39a7fb62ba7aa9a329982fc3e"
+                "reference": "bc412b8e5214031b8d521462b86bee50027e5984"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/InfyOmLabs/adminlte-templates/zipball/c182e6cf940162d39a7fb62ba7aa9a329982fc3e",
-                "reference": "c182e6cf940162d39a7fb62ba7aa9a329982fc3e",
+                "url": "https://api.github.com/repos/InfyOmLabs/adminlte-templates/zipball/bc412b8e5214031b8d521462b86bee50027e5984",
+                "reference": "bc412b8e5214031b8d521462b86bee50027e5984",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "^7.0",
-                "php": "^7.2.5"
+                "php": "^7.2.5|^8.0"
             },
             "type": "library",
             "extra": {
@@ -1231,7 +1231,13 @@
                 "laravel",
                 "templates"
             ],
-            "time": "2020-03-14T06:48:45+00:00"
+            "funding": [
+                {
+                    "url": "https://opencollective.com/infyomlabs",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2020-12-18T11:50:40+00:00"
         },
         {
             "name": "infyomlabs/laravel-generator",
@@ -1239,22 +1245,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/InfyOmLabs/laravel-generator.git",
-                "reference": "d6fb538d4c1434287dcb4d79066f4c7331fe52e2"
+                "reference": "4cb4bcb30ef489aff1a4fd2d86b2158d6285dcfd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/InfyOmLabs/laravel-generator/zipball/d6fb538d4c1434287dcb4d79066f4c7331fe52e2",
-                "reference": "d6fb538d4c1434287dcb4d79066f4c7331fe52e2",
+                "url": "https://api.github.com/repos/InfyOmLabs/laravel-generator/zipball/4cb4bcb30ef489aff1a4fd2d86b2158d6285dcfd",
+                "reference": "4cb4bcb30ef489aff1a4fd2d86b2158d6285dcfd",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "^7.0",
                 "laracasts/flash": "^3.1",
-                "php": "^7.2.5"
+                "php": "^7.2.5|^8.0"
             },
             "require-dev": {
                 "mockery/mockery": "^1.3.1",
-                "phpunit/phpunit": "^8.5"
+                "phpunit/phpunit": "^8.5|^9.3.3"
             },
             "type": "library",
             "extra": {
@@ -1302,7 +1308,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2020-06-27T13:05:09+00:00"
+            "time": "2021-01-28T03:26:57+00:00"
         },
         {
             "name": "jrm2k6/cloudder",
@@ -1363,6 +1369,7 @@
                 "laravel4",
                 "upload"
             ],
+            "abandoned": true,
             "time": "2018-05-08T00:22:05+00:00"
         },
         {
@@ -2870,23 +2877,30 @@
         },
         {
             "name": "rmccue/requests",
-            "version": "v1.7.0",
+            "version": "v1.8.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/rmccue/Requests.git",
-                "reference": "87932f52ffad70504d93f04f15690cf16a089546"
+                "url": "https://github.com/WordPress/Requests.git",
+                "reference": "afbe4790e4def03581c4a0963a1e8aa01f6030f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rmccue/Requests/zipball/87932f52ffad70504d93f04f15690cf16a089546",
-                "reference": "87932f52ffad70504d93f04f15690cf16a089546",
+                "url": "https://api.github.com/repos/WordPress/Requests/zipball/afbe4790e4def03581c4a0963a1e8aa01f6030f1",
+                "reference": "afbe4790e4def03581c4a0963a1e8aa01f6030f1",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2"
             },
             "require-dev": {
-                "requests/test-server": "dev-master"
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+                "php-parallel-lint/php-console-highlighter": "^0.5.0",
+                "php-parallel-lint/php-parallel-lint": "^1.3",
+                "phpcompatibility/php-compatibility": "^9.0",
+                "phpunit/phpunit": "^4.8 || ^5.7 || ^6.5 || ^7.5",
+                "requests/test-server": "dev-master",
+                "squizlabs/php_codesniffer": "^3.5",
+                "wp-coding-standards/wpcs": "^2.0"
             },
             "type": "library",
             "autoload": {
@@ -2905,7 +2919,7 @@
                 }
             ],
             "description": "A HTTP library written in PHP, for human beings.",
-            "homepage": "http://github.com/rmccue/Requests",
+            "homepage": "http://github.com/WordPress/Requests",
             "keywords": [
                 "curl",
                 "fsockopen",
@@ -2915,7 +2929,7 @@
                 "iri",
                 "sockets"
             ],
-            "time": "2016-10-13T00:11:37+00:00"
+            "time": "2021-04-27T11:05:25+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5579,6 +5593,7 @@
                 "faker",
                 "fixtures"
             ],
+            "abandoned": true,
             "time": "2019-12-12T13:22:17+00:00"
         },
         {
@@ -6396,6 +6411,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {
@@ -7232,12 +7248,12 @@
             "version": "1.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
+                "url": "https://github.com/webmozarts/assert.git",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "shasum": ""
             },
